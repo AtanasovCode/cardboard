@@ -1,11 +1,22 @@
-import { useState } from 'react'
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-function App() {
-  const [count, setCount] = useState(0)
+//routes
+import TitleScreen from "./routes/TitleScreen";
+
+const App = () => {
+
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <TitleScreen />,
+    },
+  ])
 
   return (
-    <div className="bg-black text-white font-bold text-4xl">HOME</div>
+    <>
+      <RouterProvider router={router}></RouterProvider>
+    </>
   )
 }
 
-export default App
+export default App;
