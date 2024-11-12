@@ -1,20 +1,28 @@
 import { useCardStore } from "../../useCardStore";
-
-import hearts from '../assets/suits/heart.svg';
-import diamonds from '../assets/suits/diamond.svg';
-import spades from '../assets/suits/spades.svg';
-import clubs from '../assets/suits/spade-1.svg'
-
+import { useEffect } from "react";
 import Card from "../components/Card";
 
 const TitleScreen = () => {
+
+    const {
+        displayedCards,
+        generateRandomCards,
+    } = useCardStore();
+
+    useEffect(() => {
+        generateRandomCards(5);
+    }, [])
+
     return (
-        <div className="min-h-screen bg-black text-white">
-            <div className="grid grid-cols-4 gap-1">
-                <Card suit={hearts} number="5" />
-                <Card suit={spades} number="J" />
-                <Card suit={diamonds} number="10" />
-                <Card suit={clubs} number="Q" />
+        <div className="min-h-screen bg-lime-900 text-white flex items-center justify-center font-sans">
+            <div className="w-[90%] grid grid-cols-5 gap-1">
+                {
+                    displayedCards.map((card, index) => {
+                        return (
+                            <Card id={index} suit={card.icon} rank={card.rank} />
+                        );
+                    })
+                }
             </div>
         </div>
     );
