@@ -3,27 +3,8 @@ import { useEffect } from "react";
 import Card from "../components/Card";
 
 const TitleScreen = () => {
-
-    const {
-        displayedCards,
-        generateUniqueRandomCards,
-    } = useCardStore();
-
-    useEffect(() => {
-        generateUniqueRandomCards(5);
-    }, [])
-
     return (
-        <div className="min-h-screen bg-lime-900 text-white flex items-center justify-center font-sans">
-            <div className="w-[90%] grid grid-cols-5 gap-1">
-                {
-                    displayedCards.map((card, index) => {
-                        return (
-                            <Card key={card.id} suit={card.icon} rank={card.rank} />
-                        );
-                    })
-                }
-            </div>
+        <div className="min-h-screen bg-lime-900 text-white flex flex-col items-center justify-center font-sans">
         </div>
     );
 }

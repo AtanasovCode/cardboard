@@ -1,8 +1,18 @@
+import { useCardStore } from "../../useCardStore";
 
+const Card = ({ suit, rank, cardID }) => {
 
-const Card = ({ suit, rank }) => {
+    const { addCard, shuffleCards } = useCardStore();
+
     return (
-        <div className="relative rounded-xl flex items-start justify-center w-32 h-48 bg-slate-950 font-cards">
+        <div 
+            className="relative rounded-xl flex items-start justify-center w-32 h-48 bg-slate-950 
+            font-cards cursor-pointer select-none"
+            onClick={() => {
+                addCard(cardID);
+                shuffleCards();
+            }}
+        >
             <div className="w-full flex items-center justify-start p-2">
                 <div className="text-lg font-semibold text-white mr-2">
                     {rank}

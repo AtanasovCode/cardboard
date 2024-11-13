@@ -7,10 +7,6 @@ import clubs from './src/assets/suits/clubs.svg';
 import diamonds from './src/assets/suits/diamond.svg';
 
 export const useCardStore = create((set) => ({
-  bears: 0,
-  increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
-  removeAllBears: () => set({ bears: 0 }),
-
   ranks: ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"],
   suits: [
     { name: "hearts", icon: hearts },
@@ -21,6 +17,12 @@ export const useCardStore = create((set) => ({
 
   displayedCards: [],
   setDisplayedCards: (value) => set({ displayedCards: value }),
+
+  clickedCards: [], // all the cards the user has clicked on
+  resetClickedCards: () => set({ clickedCards: [] }), // reset clickedCards to an empty array
+  addCard: (card) => set((state) => ({
+    clickedCards: [...state.clickedCards, card] // add a new card to the clickedCards
+  })),
 
   // generate a set of unique cards with random suits and ranks
   generateUniqueRandomCards: (numberOfCardsToGenerate) => set((state) => {
@@ -47,6 +49,29 @@ export const useCardStore = create((set) => ({
     return { displayedCards: cards };
   }),
 
+  shuffleCards: () => set((state) => {
+    const currentCards = [...state.displayedCards];
+
+    // shuffle the array (Fisher-Yates)
+    for (let i = currentCards.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [currentCards[i], currentCards[j]] = [currentCards[j], currentCards[i]];
+    }
+
+    return { displayedCards: currentCards }; // return the updated state
+  }),
+
+  level: 0,
+  levelUp: () => set((state) => ({ level: state.level + 1 })),
+  resetLevel: () => set({ level: 0 }),
+
+  cardsToDisplay: 2,
+  increaseCardsToDisplay: (numberOfCardsToDisplay) => set({ cardsToDisplay: numberOfCardsToDisplay }),
+
+  gameOver: false,
+  setGameOver: (gameOver) => set({ gameOver }),
+
   score: 0,
+  increaseScore: () => set((state) => ({ score: state.score + 1 })),
   resetScore: () => set({ score: 0 }),
 }));
