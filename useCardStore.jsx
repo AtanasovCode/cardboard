@@ -22,22 +22,31 @@ export const useCardStore = create((set) => ({
   displayedCards: [],
   setDisplayedCards: (value) => set({ displayedCards: value }),
 
-  //generate a set of cards with random suits and ranks
-  generateRandomCards: (number) => set((state) => {
+  // generate a set of unique cards with random suits and ranks
+  generateUniqueRandomCards: (numberOfCardsToGenerate) => set((state) => {
     const cards = [];
-    for (let i = 0; i < number; i++) {
-      const randomRank = state.ranks[Math.floor(Math.random() * state.ranks.length)];
-      const randomSuit = state.suits[Math.floor(Math.random() * state.suits.length)];
-      cards.push({
-        rank: randomRank,
-        suit: randomSuit.name,
-        icon: randomSuit.icon,
-        id: `${randomSuit.name}-${randomRank}-${i}`, // Unique ID for each card
-      });
+    const uniqueCards = new Set();
+
+    // run the while loop until cards is filled with the correct number of randum unique cards or
+    // all possible combinations of cards have been created
+    while (cards.length < numberOfCardsToGenerate && uniqueCards.size < state.ranks.length * state.suits.length) {
+      const randomRank = state.ranks[Math.floor(Math.random() * state.ranks.length)]; // get a random card rank
+      const randomSuit = state.suits[Math.floor(Math.random() * state.suits.length)]; // get a random card suit
+      const uniqueID = `${randomSuit.name}-${randomRank}`; // unique ID to track 
+
+      if (!uniqueCards.has(uniqueID)) {
+        uniqueCards.add(uniqueID); // add the unique ID to the uniqueCards set in order to track 
+        cards.push({
+          rank: randomRank,
+          suit: randomSuit.name,
+          icon: randomSuit.icon,
+          id: `${randomSuit.name}-${randomRank}`, // unique id for each card (hearts-2)
+        });
+      }
     }
     return { displayedCards: cards };
   }),
 
   score: 0,
   resetScore: () => set({ score: 0 }),
-}))
+}));

@@ -6,11 +6,11 @@ const TitleScreen = () => {
 
     const {
         displayedCards,
-        generateRandomCards,
+        generateUniqueRandomCards,
     } = useCardStore();
 
     useEffect(() => {
-        generateRandomCards(5);
+        generateUniqueRandomCards(5);
     }, [])
 
     return (
@@ -19,7 +19,7 @@ const TitleScreen = () => {
                 {
                     displayedCards.map((card, index) => {
                         return (
-                            <Card id={index} suit={card.icon} rank={card.rank} />
+                            <Card key={card.id} suit={card.icon} rank={card.rank} />
                         );
                     })
                 }
