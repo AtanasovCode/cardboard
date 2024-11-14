@@ -2,15 +2,16 @@ import { useCardStore } from "../../useCardStore";
 
 const Card = ({ suit, rank, cardID }) => {
 
-    const { addCard, shuffleCards } = useCardStore();
+    const { addCard, shuffleCards, increaseScore, } = useCardStore();
 
     return (
         <div 
-            className="relative rounded-xl flex items-start justify-center w-32 h-48 bg-slate-950 
-            font-cards cursor-pointer select-none"
+            className="relative rounded-xl flex items-start justify-center w-[100px] h-[150px] lg:w-[150px] lg:h-[225px] bg-card-background
+            font-cards cursor-pointer select-none m-2"
             onClick={() => {
                 addCard(cardID);
                 shuffleCards();
+                increaseScore();
             }}
         >
             <div className="w-full flex items-center justify-start p-2">

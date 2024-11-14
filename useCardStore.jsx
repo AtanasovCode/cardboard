@@ -61,11 +61,11 @@ export const useCardStore = create((set) => ({
     return { displayedCards: currentCards }; // return the updated state
   }),
 
-  level: 0,
+  level: 1,
   levelUp: () => set((state) => ({ level: state.level + 1 })),
   resetLevel: () => set({ level: 0 }),
 
-  cardsToDisplay: 2,
+  cardsToDisplay: 3,
   increaseCardsToDisplay: (numberOfCardsToDisplay) => set({ cardsToDisplay: numberOfCardsToDisplay }),
 
   gameOver: false,

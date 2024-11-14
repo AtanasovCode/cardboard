@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import { useCardStore } from "../../useCardStore";
+import logo from '../assets/logo.svg';
 
 import Card from "../components/Card";
+import ScoreTracker from "../components/ScoreTracker";
 
 const Level = () => {
 
@@ -12,6 +14,8 @@ const Level = () => {
         increaseCardsToDisplay,
         clickedCards,
         resetClickedCards,
+        level, levelUp,
+        score, increaseScore,
     } = useCardStore();
 
     useEffect(() => {
@@ -19,17 +23,17 @@ const Level = () => {
     }, [cardsToDisplay]);
 
     useEffect(() => {
-        if(clickedCards.length === cardsToDisplay) {
+        if (clickedCards.length === cardsToDisplay) {
             increaseCardsToDisplay(cardsToDisplay + 1);
+            levelUp();
             resetClickedCards();
         }
-
-        console.log(clickedCards);
     }, [clickedCards, cardsToDisplay])
 
     return (
-        <div className="min-h-screen bg-green-900 flex items-center justify-center">
-            <div className="w-[90%] grid grid-cols-5 gap-1">
+        <div className="min-h-[100dvh] bg-background text-white flex flex-col items-center justify-start font-sans">
+            <ScoreTracker />
+            <div className="w-[98%] md:w-[90%] max-w-[90rem] flex items-center justify-center flex-wrap">
                 {
                     displayedCards.map((card, index) => {
                         return (
