@@ -15,6 +15,9 @@ export default {
         'background': "#0D676D",
         'background-serious': "#ff0000",
       },
+      backgroundImage: {
+        'background-graphic': "url(/background-graphic.svg)",
+      },
       screens: {
         'xs': "550px",
       },
