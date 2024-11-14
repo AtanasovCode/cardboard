@@ -6,7 +6,12 @@ import { X } from '@phosphor-icons/react';
 
 const MobileMenu = () => {
 
-    const { mobileMenu, toggleMobileMenu } = useCardStore();
+    const { 
+        mobileMenu, 
+        toggleMobileMenu,
+        suitStyle, changeSuitStyle,
+        cardStyle, changeCardStyle,
+    } = useCardStore();
 
     const menuTransition = mobileMenu ? "translate-x-0" : "translate-x-[100%]";
 
