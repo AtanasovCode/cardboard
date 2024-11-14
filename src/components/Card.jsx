@@ -14,8 +14,8 @@ const Card = ({ suit, rank, cardID }) => {
                 increaseScore();
             }}
         >
-            <div className="w-full flex items-center justify-start p-2">
-                <div className="text-lg font-semibold text-white mr-2">
+            <div className="w-full flex flex-col items-start justify-center p-2">
+                <div className="text-lg font-semibold text-white mb-2">
                     {rank}
                 </div>
                 <div className="flex items-center justify-center">

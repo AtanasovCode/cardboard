@@ -15,6 +15,9 @@ export default {
         'background': "#0D676D",
         'background-serious': "#ff0000",
       },
+      screens: {
+        'xs': "550px",
+      },
     },
   },
   plugins: [],

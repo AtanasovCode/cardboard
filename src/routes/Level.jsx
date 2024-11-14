@@ -4,6 +4,7 @@ import logo from '../assets/logo.svg';
 
 import Card from "../components/Card";
 import ScoreTracker from "../components/ScoreTracker";
+import MobileMenu from '../components/MobileMenu';
 
 const Level = () => {
 
@@ -31,8 +32,9 @@ const Level = () => {
     }, [clickedCards, cardsToDisplay])
 
     return (
-        <div className="min-h-[100dvh] bg-background text-white flex flex-col items-center justify-start font-sans">
+        <div className="min-h-[100dvh] bg-background text-white flex flex-col items-center justify-start font-sans relative">
             <ScoreTracker />
+            <MobileMenu />
             <div className="w-[98%] md:w-[90%] max-w-[90rem] flex items-center justify-center flex-wrap">
                 {
                     displayedCards.map((card, index) => {

@@ -24,6 +24,9 @@ export const useCardStore = create((set) => ({
     clickedCards: [...state.clickedCards, card] // add a new card to the clickedCards
   })),
 
+  mobileMenu: false,
+  toggleMobileMenu: () => set((state) => ({ mobileMenu: !state.mobileMenu })),
+
   // generate a set of unique cards with random suits and ranks
   generateUniqueRandomCards: (numberOfCardsToGenerate) => set((state) => {
     const cards = [];
