@@ -24,11 +24,99 @@ import diamondsWhite from './src/assets/suits/diamonds-white.svg';
 export const useCardStore = create((set) => ({
   ranks: ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"],
   suits: [
-    { name: "hearts", icon: heartsWhite },
-    { name: "diamonds", icon: diamondsWhite },
-    { name: "spades", icon: spadesWhite },
-    { name: "clubs", icon: clubsWhite },
+    {
+      type: "white",
+      data: [
+        {
+          name: "hearts",
+          icon: heartsWhite,
+        },
+        {
+          name: "diamonds",
+          icon: diamondsWhite,
+        },
+        {
+          name: "spades",
+          icon: spadesWhite,
+        },
+        {
+          name: "clubs",
+          icon: clubsWhite,
+        },
+      ],
+    },
+    {
+      type: "black",
+      data: [
+        {
+          name: "hearts",
+          icon: heartsBlack,
+        },
+        {
+          name: "diamonds",
+          icon: diamondsBlack,
+        },
+        {
+          name: "spades",
+          icon: spadesBlack,
+        },
+        {
+          name: "clubs",
+          icon: clubsBlack,
+        },
+      ],
+    },
+    {
+      type: "darker",
+      data: [
+        {
+          name: "hearts",
+          icon: heartsDarker,
+        },
+        {
+          name: "diamonds",
+          icon: diamondsDarker,
+        },
+        {
+          name: "spades",
+          icon: spadesDarker,
+        },
+        {
+          name: "clubs",
+          icon: clubsDarker,
+        },
+      ],
+    },
+    {
+      type: "colorful",
+      data: [
+        {
+          name: "hearts",
+          icon: heartsColorful,
+        },
+        {
+          name: "diamonds",
+          icon: diamondsColorful,
+        },
+        {
+          name: "spades",
+          icon: spadesColorful,
+        },
+        {
+          name: "clubs",
+          icon: clubsColorful,
+        },
+      ],
+    },
   ],
+
+  // customization
+  suitStyle: "white",
+  changeSuitStyle: (style) => set({ suitStyle: style }),
+
+  cardBackground: "black",
+  changeCardBackground: (style) => set({ cardStyle: style }),
+
 
   displayedCards: [],
   setDisplayedCards: (value) => set({ displayedCards: value }),
@@ -47,25 +135,28 @@ export const useCardStore = create((set) => ({
     const cards = [];
     const uniqueCards = new Set();
 
-    // run the while loop until cards is filled with the correct number of randum unique cards or
-    // all possible combinations of cards have been created
     while (cards.length < numberOfCardsToGenerate && uniqueCards.size < state.ranks.length * state.suits.length) {
-      const randomRank = state.ranks[Math.floor(Math.random() * state.ranks.length)]; // get a random card rank
-      const randomSuit = state.suits[Math.floor(Math.random() * state.suits.length)]; // get a random card suit
-      const uniqueID = `${randomSuit.name}-${randomRank}`; // unique ID to track 
+      const randomRank = state.ranks[Math.floor(Math.random() * state.ranks.length)];
+      const suitGroup = state.suits.find((suit) => suit.type === state.suitStyle);
+
+      if (!suitGroup) continue; // Skip if no suit group matches the style
+
+      const randomSuit = suitGroup.data[Math.floor(Math.random() * suitGroup.data.length)];
+      const uniqueID = `${randomSuit.name}-${randomRank}`;
 
       if (!uniqueCards.has(uniqueID)) {
-        uniqueCards.add(uniqueID); // add the unique ID to the uniqueCards set in order to track 
+        uniqueCards.add(uniqueID);
         cards.push({
           rank: randomRank,
           suit: randomSuit.name,
           icon: randomSuit.icon,
-          id: `${randomSuit.name}-${randomRank}`, // unique id for each card (hearts-2)
+          id: uniqueID,
         });
       }
     }
     return { displayedCards: cards };
   }),
+
 
   shuffleCards: () => set((state) => {
     const currentCards = [...state.displayedCards];
@@ -92,12 +183,4 @@ export const useCardStore = create((set) => ({
   score: 0,
   increaseScore: () => set((state) => ({ score: state.score + 1 })),
   resetScore: () => set({ score: 0 }),
-
-  // customization
-
-  suitStyle: "colorful",
-  changeSuitStyle: (style) => set({ suitStyle: style }),
-
-  cardStyle: "black",
-  changeCardStyle: (style) => set({ cardStyle: style }),
 }));

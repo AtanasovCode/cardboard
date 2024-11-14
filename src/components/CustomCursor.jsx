@@ -8,10 +8,9 @@ const CustomCursor = () => {
     return (
         <div
             style={{ left: `${x}px`, top: `${y}px` }}
-            className="
-                hidden lg:inline-block
+            className="hidden
                 fixed top-0 left-0 w-[40px] h-[60px] sm:w-[50px] sm:h-[75px]
-                flex items-center justify-center
+                lg:flex items-center justify-center
                 translate-x-[-50%] translate-y-[-50%] z-[999]
                 pointer-events-none transition-transform transform-gpu ease-in-out
             "

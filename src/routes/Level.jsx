@@ -15,8 +15,8 @@ const Level = () => {
         increaseCardsToDisplay,
         clickedCards,
         resetClickedCards,
-        level, levelUp,
-        score, increaseScore,
+        levelUp,
+        cardBackground,
     } = useCardStore();
 
     useEffect(() => {
@@ -31,6 +31,13 @@ const Level = () => {
         }
     }, [clickedCards, cardsToDisplay])
 
+    const getCardBackground = (style) => {
+        if(style === "black") return "bg-[#111]";
+        else if(style === "white") return "bg-[#FFF]";
+        else if(style === "red") return "bg-[#b80000]";
+        else return "bg-[#38005d]"
+    }
+
     return (
         <div className="min-h-[100dvh] bg-background text-white flex flex-col items-center justify-start font-sans relative">
             <ScoreTracker />
@@ -39,7 +46,14 @@ const Level = () => {
                 {
                     displayedCards.map((card, index) => {
                         return (
-                            <Card key={card.id} suit={card.icon} rank={card.rank} cardID={card.id} />
+                            <Card 
+                                key={card.id} 
+                                suit={card.icon} 
+                                rank={card.rank} 
+                                cardID={card.id}
+                                backgroundColor={getCardBackground(cardBackground)}
+                                size="w-[150px] h-[225px] sm:w-[200px] sm:h-[300px]"
+                            />
                         );
                     })
                 }

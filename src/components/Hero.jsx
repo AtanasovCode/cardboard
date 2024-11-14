@@ -1,13 +1,18 @@
+import { useNavigate } from "react-router-dom";
 import Card from "./Card";
 
-import suitBlack from '../assets/suits/clubs-black.svg';
+import clubsBlack from '../assets/suits/clubs-black.svg';
+import spadesBlack from '../assets/suits/spades-black.svg';
+
 
 import { Play, Gear } from "@phosphor-icons/react";
 
 const Hero = () => {
+
+    const navigate = useNavigate();
+
     return (
-        <div className="flex flex-col items-center justify-center w-[95%] sm:w-[85%] md:w-[70%] lg:w-[60%]">
-            <div className="absolute bottom-0 left-0 w-[100%] h-[30%] lg:h-[50%] bg-background-graphic bg-cover bg-no-repeat"></div>
+        <div className="flex flex-col items-center justify-center w-[95%] sm:w-[85%] md:w-[70%] lg:w-[60%] z-50">
             <div className="w-full flex flex-col items-center justify-center mb-16">
                 <div className="font-black text-5xl mb-2 text-center lg:text-6xl">
                     Welcome to CardBoard
@@ -17,9 +22,12 @@ const Hero = () => {
                 </div>
             </div>
             <div className="w-full flex items-center justify-center">
-                <div className="">
+                <div 
+                    className=""
+                    onClick={() => navigate("/play")}
+                >
                     <Card
-                        suit={suitBlack}
+                        suit={spadesBlack}
                         rank="Play"
                         cardID="1"
                         backgroundColor="bg-[#FFFD82]"
@@ -31,7 +39,7 @@ const Hero = () => {
                 </div>
                 <div className="">
                     <Card
-                        suit={suitBlack}
+                        suit={clubsBlack}
                         rank="Options"
                         cardID="1"
                         backgroundColor="bg-[#FFFD82]"
