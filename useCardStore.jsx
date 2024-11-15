@@ -121,11 +121,18 @@ export const useCardStore = create((set) => ({
   displayedCards: [],
   setDisplayedCards: (value) => set({ displayedCards: value }),
 
-  clickedCards: [], // all the cards the user has clicked on
+  clickedCards: new Set(), // all the cards the user has clicked on
   resetClickedCards: () => set({ clickedCards: [] }), // reset clickedCards to an empty array
-  addCard: (card) => set((state) => ({
-    clickedCards: [...state.clickedCards, card] // add a new card to the clickedCards
-  })),
+  addCard: (card) => set((state) => {
+    if(!state.clickedCards.has(card)) {
+      const updatedClickedCards = new Set();
+      updatedClickedCards.add(card);
+
+      return { clickedCards: updatedClickedCards };
+    } else {
+      return { gameOver: true };
+    }
+  }),
 
   mobileMenu: false,
   toggleMobileMenu: () => set((state) => ({ mobileMenu: !state.mobileMenu })),
