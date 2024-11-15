@@ -1,4 +1,5 @@
 import { useCardStore } from "../../useCardStore";
+import { useGameLogicStore } from "../../useGameLogicStore";
 
 const Card = ({
     suit,
@@ -12,12 +13,10 @@ const Card = ({
 }) => {
 
     const {
-        addCard,
         shuffleCards,
+        addCard,
         increaseScore,
-        suitStyle,
-        cardStyle,
-    } = useCardStore();
+    } = useGameLogicStore();
 
     return (
         <div

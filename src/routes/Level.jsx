@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCardStore } from "../../useCardStore";
+import { useGameLogicStore } from "../../useGameLogicStore";
 import logo from '../assets/logo.svg';
 
 import Card from "../components/Card";
@@ -12,16 +13,17 @@ const Level = () => {
     const navigate = useNavigate();
 
     const {
-        displayedCards,
+        cardBackground,
+    } = useCardStore();
+
+    const { 
+        gameOver,
         generateUniqueRandomCards,
         cardsToDisplay,
-        increaseCardsToDisplay,
+        displayedCards,
         clickedCards,
-        resetClickedCards,
-        levelUp,
-        cardBackground,
-        gameOver,
-    } = useCardStore();
+        updateDisplayedCards,
+     } = useGameLogicStore();
 
     useEffect(() => {
         if(gameOver) {
@@ -29,15 +31,11 @@ const Level = () => {
         } else {
             generateUniqueRandomCards(cardsToDisplay);
         }
-    }, [gameOver, cardsToDisplay])
+    }, [gameOver])
 
     useEffect(() => {
-        if (clickedCards.length === cardsToDisplay) {
-            increaseCardsToDisplay(cardsToDisplay + 1);
-            levelUp();
-            resetClickedCards();
-        }
-    }, [clickedCards, cardsToDisplay])
+        updateDisplayedCards();
+    }, [clickedCards])
 
     const getCardBackground = (style) => {
         if(style === "black") return "bg-[#111]";
@@ -47,7 +45,7 @@ const Level = () => {
     }
 
     return (
-        <div className="min-h-[100dvh] bg-background text-white flex flex-col items-center justify-start font-sans relative">
+        <div className="min-h-[100dvh] bg-pool-table text-white flex flex-col items-center justify-start font-sans relative">
             <ScoreTracker />
             <MobileMenu />
             <div className="w-[98%] md:w-[90%] max-w-[90rem] flex items-center justify-center flex-wrap">

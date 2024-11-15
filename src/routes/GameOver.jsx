@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom";
-import { useCardStore } from "../../useCardStore";
+import { useGameLogicStore } from "../../useGameLogicStore";
 
 const GameOver = () => {
 
     const navigate = useNavigate();
 
-    const { setGameOver } = useCardStore();
+    const { resetEverything } = useGameLogicStore();
 
     return (
         <div className="min-h-[100dvh] w-full flex items-center justify-center bg-gradient-red text-white">
@@ -14,7 +14,7 @@ const GameOver = () => {
                 type="button"
                 value="Restart"
                 onClick={() => {
-                    setGameOver(false);
+                    resetEverything();
                     navigate("/play");
                 }}
                 className="p-6 text-center text-white bg-green-700"
