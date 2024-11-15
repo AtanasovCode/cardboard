@@ -10,6 +10,7 @@ const Card = ({
     size,
     customStyling,
     customSuitSizes,
+    allowClick,
 }) => {
 
     const {
@@ -24,9 +25,11 @@ const Card = ({
             ${backgroundColor} ${size}
             font-cards select-none m-2`}
             onClick={() => {
-                addCard(cardID);
-                shuffleCards();
-                increaseScore();
+                if (allowClick) {
+                    addCard(cardID);
+                    shuffleCards();
+                    increaseScore();
+                }
             }}
         >
             <div className="w-full flex flex-col items-start justify-center p-2">
@@ -48,7 +51,7 @@ const Card = ({
                     {rank}
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
 

@@ -19,7 +19,7 @@ const TitleScreen = () => {
                 <div className="w-full flex items-center justify-center z-50">
                     <Hero />
                 </div>
-                <div className="z-10 absolute bottom-0 left-0 w-[100%] h-[30%] lg:h-[50%] bg-background-graphic bg-cover bg-center bg-no-repeat"></div>
+                <div className="z-10 absolute bottom-0 left-0 w-[100%] h-[35%] lg:h-[50%] lg:w-[50%] bg-background-graphic bg-contain bg-center lg:bg-left bg-no-repeat"></div>
             </div>
         </div>
     );

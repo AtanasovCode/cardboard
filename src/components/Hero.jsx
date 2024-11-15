@@ -35,6 +35,7 @@ const Hero = () => {
                         size="w-[150px] h-[225px] sm:w-[200px] sm:h-[300px] lg:w-[250px] lg:h-[375px] hover:scale-[1.05] transition-all duration-300 ease-in-out"
                         customStyling="lg:font-black lg:text-xl"
                         customSuitSizes="lg:w-[30px] lg:h-[30px]"
+                        allowClick={false}
                     />
                 </div>
                 <div 
@@ -50,6 +51,7 @@ const Hero = () => {
                         size="w-[150px] h-[225px] sm:w-[200px] sm:h-[300px] lg:w-[250px] lg:h-[375px] hover:scale-[1.05] transition-all duration-300 ease-in-out"
                         customStyling="lg:font-black lg:text-xl"
                         customSuitSizes="lg:w-[30px] lg:h-[30px]"
+                        allowClick={false}
                     />
                 </div>
             </div>
