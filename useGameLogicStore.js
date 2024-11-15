@@ -100,6 +100,7 @@ export const useGameLogicStore = create((set, get) => ({
             resetLevel,
             resetDisplayedCards,
             setGameOver,
+            generateUniqueRandomCards,
         } = get();
 
         resetScore();
@@ -108,5 +109,6 @@ export const useGameLogicStore = create((set, get) => ({
         resetCardsToDisplay();
         resetDisplayedCards();
         setGameOver(false);
+        generateUniqueRandomCards(3);
     }
 }));

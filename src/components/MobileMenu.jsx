@@ -3,7 +3,13 @@ import { useCardStore } from '../../useCardStore';
 import { useGameLogicStore } from '../../useGameLogicStore';
 import logo from '../assets/logo.svg';
 
-import { ArrowsCounterClockwise, GearSix, Strategy, X } from '@phosphor-icons/react';
+import { 
+    ArrowsCounterClockwise, 
+    GearSix,
+    Gear, 
+    Strategy, 
+    X,
+} from '@phosphor-icons/react';
 
 import MenuOption from './MenuOption';
 
@@ -17,7 +23,10 @@ const MobileMenu = () => {
         toggleMobileMenu,
     } = useCardStore();
 
-    const { resetEverything } = useGameLogicStore();
+    const { 
+        resetEverything,
+        generateUnique
+    } = useGameLogicStore();
 
     const menuTransition = mobileMenu ? "translate-x-0" : "translate-x-[100%]";
 
@@ -28,14 +37,14 @@ const MobileMenu = () => {
         `}>
             <div className="w-full flex items-center justify-center relative mb-16 p-6">
                 <div
-                    className="absolute left-[5%] w-7 h-7"
+                    className="absolute left-[5%] w-7 h-7 cursor-pointer"
                     onClick={() => toggleMobileMenu()}
                 >
                     <X size="100%" weight="regular" fill="#FFF" />
                 </div>
                 <img src={logo} alt="logo" className="w-[65px] xs:w-[70px] md:w-[90px]" />
             </div>
-            <div className="flex flex-col items-center justify-center w-full py-4 px-6">
+            <div className="flex flex-col items-center justify-center w-full">
                 <MenuOption
                     optionName="Home"
                     icon={<img src={logo} alt="logo" className="w-full" />}

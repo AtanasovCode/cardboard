@@ -16,13 +16,13 @@ const ScoreTracker = () => {
     } = useGameLogicStore();
 
     return (
-        <div className="w-full flex items-center justify-between p-4 mb-6 bg-card-background">
+        <div className="w-full flex items-center justify-between p-4 mb-6 bg-slate-800">
             <div className="flex flex-col items-center justify-center">
-                <div className="text-xl md:text-3xl font-bold">
+                <div className="text-xl font-bold">
                     Score: {score}
                 </div>
             </div>
-            <div className="flex items-center justify-center w-[65px] xs:w-[70px] md:w-[90px]">
+            <div className="flex items-center justify-center w-[65px]">
                 <img
                     src={logo}
                     alt="CardBoard Logo"
@@ -30,7 +30,7 @@ const ScoreTracker = () => {
                 />
             </div>
             <div
-                className="flex items-center justify-cetner w-8 h-8 md:w-10 md:h-10 lg:cursor-pointer"
+                className="flex items-center justify-cetner w-4 md:w-10 md:h-10 lg:cursor-pointer"
                 onClick={() => toggleMobileMenu()}
             >
                 <List
