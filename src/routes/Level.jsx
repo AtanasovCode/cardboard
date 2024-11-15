@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useCardStore } from "../../useCardStore";
 import logo from '../assets/logo.svg';
 
@@ -7,6 +8,8 @@ import ScoreTracker from "../components/ScoreTracker";
 import MobileMenu from '../components/MobileMenu';
 
 const Level = () => {
+
+    const navigate = useNavigate();
 
     const {
         displayedCards,
@@ -17,11 +20,16 @@ const Level = () => {
         resetClickedCards,
         levelUp,
         cardBackground,
+        gameOver,
     } = useCardStore();
 
     useEffect(() => {
-        generateUniqueRandomCards(cardsToDisplay);
-    }, [cardsToDisplay]);
+        if(gameOver) {
+            navigate("/game-over");
+        } else {
+            generateUniqueRandomCards(cardsToDisplay);
+        }
+    }, [gameOver, cardsToDisplay])
 
     useEffect(() => {
         if (clickedCards.length === cardsToDisplay) {
