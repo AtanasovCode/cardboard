@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 //routes
 import TitleScreen from "./routes/TitleScreen";
 import Level from "./routes/Level";
+import Options from "./routes/Options";
 
 const App = () => {
 
@@ -14,6 +15,10 @@ const App = () => {
     {
       path: "/play",
       element: <Level />,
+    },
+    {
+      path: "/options",
+      element: <Options />,
     },
   ])
 

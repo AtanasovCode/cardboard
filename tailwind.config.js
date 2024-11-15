@@ -17,6 +17,7 @@ export default {
       },
       backgroundImage: {
         'background-graphic': "url(/background-graphic.svg)",
+        'gradient': "bg-gradient-to-t from-green-900 to-green-600",
       },
       screens: {
         'xs': "550px",

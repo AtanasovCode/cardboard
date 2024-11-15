@@ -37,7 +37,10 @@ const Hero = () => {
                         customSuitSizes="lg:w-[30px] lg:h-[30px]"
                     />
                 </div>
-                <div className="">
+                <div 
+                    className=""
+                    onClick={() => navigate("/options")}
+                >
                     <Card
                         suit={clubsBlack}
                         rank="Options"

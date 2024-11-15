@@ -9,8 +9,8 @@ const Header = () => {
                 <img src={logo} alt="logo" className="w-[70px] lg:w-[95px]" />
             </div>
             <div className="cursor-pointer flex items-center justify-center">
-                <div className="text-sm">
-                    Learn More
+                <div className="text-sm text-white">
+                    How To Play
                 </div>
                 <div className="ml-2 w-4 animate-bounce">
                     <ArrowDown size="100%" weight="regular" fill="#FFF" />

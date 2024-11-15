@@ -11,7 +11,7 @@ import suitWhite from '../assets/suits/clubs-white.svg';
 
 const TitleScreen = () => {
     return (
-        <div className="min-h-[100dvh] bg-gradient-to-t from-green-900 to-green-600 text-white
+        <div className="min-h-[100dvh] text-white bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-teal-400 via-green-600 to-green-800
         font-sans cursor-none flex flex-col items-center justify-center">
             <div className="min-h-[100dvh] w-full relative flex-col items-center justify-start max-w-[2000px]">
                 <CustomCursor />
