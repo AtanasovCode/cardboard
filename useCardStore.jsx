@@ -114,9 +114,13 @@ export const useCardStore = create((set) => ({
   suitStyle: "white",
   changeSuitStyle: (style) => set({ suitStyle: style }),
 
+  backgroundStyle: "Pool Table",
+  changeBackgroundStyle: (style) => set({ backgroundStyle: style }),
+
   cardBackground: "black",
   changeCardBackground: (style) => set({ cardStyle: style }),
 
   mobileMenu: false,
   toggleMobileMenu: () => set((state) => ({ mobileMenu: !state.mobileMenu })),
+  
 }));

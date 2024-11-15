@@ -1,18 +1,19 @@
 import { useCardStore } from "../../useCardStore";
-
-import logo from '../assets/logo.svg';
-
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import CustomCursor from "../components/CustomCursor";
 
-import suitBlack from '../assets/suits\/clubs-black.svg';
-import suitWhite from '../assets/suits/clubs-white.svg';
+import { getBackgroundStyle } from "../Utils";
 
 const TitleScreen = () => {
+
+    const {
+        backgroundStyle,
+    } = useCardStore();
+
     return (
-        <div className="min-h-[100dvh] text-white bg-pool-table
-        font-sans cursor-none flex flex-col items-center justify-center">
+        <div className={`min-h-[100dvh] text-white ${getBackgroundStyle(backgroundStyle)}
+                        font-sans cursor-none flex flex-col items-center justify-center`}>
             <div className="min-h-[100dvh] w-full relative flex-col items-center justify-start max-w-[2000px]">
                 <CustomCursor />
                 <Header />

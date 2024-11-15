@@ -2,7 +2,8 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCardStore } from "../../useCardStore";
 import { useGameLogicStore } from "../../useGameLogicStore";
-import logo from '../assets/logo.svg';
+
+import { getBackgroundStyle } from "../Utils";
 
 import Card from "../components/Card";
 import ScoreTracker from "../components/ScoreTracker";
@@ -14,6 +15,7 @@ const Level = () => {
 
     const {
         cardBackground,
+        backgroundStyle,
     } = useCardStore();
 
     const { 
@@ -38,14 +40,14 @@ const Level = () => {
     }, [clickedCards])
 
     const getCardBackground = (style) => {
-        if(style === "black") return "bg-[#111]";
-        else if(style === "white") return "bg-[#FFF]";
-        else if(style === "red") return "bg-[#b80000]";
-        else return "bg-[#38005d]"
+        if(style === "black") return "bg-card-black";
+        else if(style === "white") return "bg-card-white";
+        else if(style === "red") return "bg-card-red";
+        else if(style === "dark-gray") return "bg-card-dark-gray";
     }
 
     return (
-        <div className="min-h-[100dvh] bg-pool-table text-white flex flex-col items-center justify-start font-sans relative">
+        <div className={`min-h-[100dvh] ${getBackgroundStyle(backgroundStyle)} text-white flex flex-col items-center justify-start font-sans relative`}>
             <ScoreTracker />
             <MobileMenu />
             <div className="w-[98%] md:w-[90%] max-w-[90rem] flex items-center justify-center flex-wrap flex-1">
