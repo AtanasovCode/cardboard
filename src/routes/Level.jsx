@@ -58,7 +58,7 @@ const Level = () => {
                                 rank={card.rank} 
                                 cardID={card.id}
                                 backgroundColor={getCardBackground(cardBackground)}
-                                size="w-[150px] h-[225px] sm:w-[200px] sm:h-[300px]"
+                                size="w-[90px] h-[135px] xs:w-[100px] xs:h-[150px] sm:w-[120px] sm:h-[180px] md:w-[140px] md:h-[210px] xl:w-[160px] xl:h-[240px]"
                             />
                         );
                     })

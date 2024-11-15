@@ -1,4 +1,5 @@
 import { useCardStore } from "../../useCardStore";
+import { useGameLogicStore } from "../../useGameLogicStore";
 import logo from '../assets/logo.svg';
 
 import { List } from "@phosphor-icons/react";
@@ -6,10 +7,13 @@ import { List } from "@phosphor-icons/react";
 const ScoreTracker = () => {
 
     const {
-        level,
-        score,
         toggleMobileMenu,
     } = useCardStore();
+
+    const {
+        score,
+        level,
+    } = useGameLogicStore();
 
     return (
         <div className="w-full flex items-center justify-between p-4 mb-6 bg-card-background">
