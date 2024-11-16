@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useCardStore } from "../../useCardStore";
 import { useGameLogicStore } from "../../useGameLogicStore";
 
-import { getBackgroundStyle } from "../Utils";
+import { getBackgroundStyle, getCardBackground } from "../Utils";
 
 import Card from "../components/Card";
 import ScoreTracker from "../components/ScoreTracker";
@@ -38,13 +38,6 @@ const Level = () => {
     useEffect(() => {
         updateDisplayedCards();
     }, [clickedCards])
-
-    const getCardBackground = (style) => {
-        if(style === "black") return "bg-card-black";
-        else if(style === "white") return "bg-card-white";
-        else if(style === "red") return "bg-card-red";
-        else if(style === "dark-gray") return "bg-card-dark-gray";
-    }
 
     return (
         <div className={`min-h-[100dvh] ${getBackgroundStyle(backgroundStyle)} text-white flex flex-col items-center justify-start font-sans relative`}>

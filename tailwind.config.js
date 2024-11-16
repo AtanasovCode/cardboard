@@ -18,6 +18,8 @@ export default {
         'card-black': "rgb(2 6 23)",
         'card-red': "rgb(153 27 27)",
         'card-white': "#FFFD82",
+        'card-blue': "rgb(30 58 138)",
+        'card-green': "rgb(22 101 52)",
       },
       backgroundImage: {
         'background-graphic': "url(/background-graphic.svg)",

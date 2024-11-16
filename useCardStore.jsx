@@ -117,8 +117,8 @@ export const useCardStore = create((set) => ({
   backgroundStyle: "Pool Table",
   changeBackgroundStyle: (style) => set({ backgroundStyle: style }),
 
-  cardBackground: "black",
-  changeCardBackground: (style) => set({ cardStyle: style }),
+  cardBackground: "Black",
+  changeCardBackground: (style) => set({ cardBackground: style }),
 
   mobileMenu: false,
   toggleMobileMenu: () => set((state) => ({ mobileMenu: !state.mobileMenu })),

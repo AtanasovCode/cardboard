@@ -20,8 +20,43 @@ export const getBackgroundStyle = (style) => {
         case "Dark Felt":
             return "bg-dark-felt";
             break;
+        case "Pure Black":
+            return "bg-slate-900";
+            break;
+        case "Pure Red":
+            return "bg-red-800";
+            break;
+        case "Pure Gray":
+            return "bg-slate-800";
+            break;
         default: 
             return "bg-pool-table";
             break;
     }
-}
+};
+
+export const getCardBackground = (background) => {
+    switch (background) {
+        case "Black":
+            return "bg-card-black text-white";
+            break;
+        case "White":
+            return "bg-card-white text-black";
+            break;
+        case "Dark Grey":
+            return "bg-card-dark-gray text-white";
+            break;
+        case "Red":
+            return "bg-card-red text-white";
+            break;
+        case "Blue":
+            return "bg-card-blue text-white";
+            break;
+        case "Green":
+            return "bg-card-green text-white";
+            break;
+        default:
+            return "bg-card-white text-black";
+            break;
+    }
+};

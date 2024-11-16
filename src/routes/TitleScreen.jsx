@@ -12,7 +12,7 @@ const TitleScreen = () => {
     } = useCardStore();
 
     return (
-        <div className={`min-h-[100dvh] text-white ${getBackgroundStyle(backgroundStyle)}
+        <div className={`min-h-[100dvh] text-white bg-casino-night
                         font-sans cursor-none flex flex-col items-center justify-center`}>
             <div className="min-h-[100dvh] w-full relative flex-col items-center justify-start max-w-[2000px]">
                 <CustomCursor />
