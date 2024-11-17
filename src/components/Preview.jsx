@@ -26,7 +26,7 @@ const Preview = () => {
                     rank="A"
                     cardID="hearts-a"
                     backgroundColor={getCardBackground(cardBackground)}
-                    size="aspect-[2/3] w-[75px] xs:w-[90px] md:w-[110px] m-1 xs:m-2"
+                    size="w-[75px] xs:w-[90px] md:w-[110px] m-1 xs:m-2"
                     customStyling="text-[10px] xs:text-xs lg:text-sm xl:text-sm xs:font-regular"
                     customPadding="p-1 xs:p-2"
                     customSuitSizes="w-2 xs:w-3"
@@ -37,7 +37,7 @@ const Preview = () => {
                     rank="J"
                     cardID="spades-j"
                     backgroundColor={getCardBackground(cardBackground)}
-                    size="aspect-[2/3] w-[75px] xs:w-[90px] md:w-[110px] m-1 xs:m-2"
+                    size="w-[75px] xs:w-[90px] md:w-[110px] m-1 xs:m-2"
                     customStyling="text-[10px] xs:text-xs lg:text-sm xl:text-sm xs:font-regular"
                     customPadding="p-1 xs:p-2"
                     customSuitSizes="w-2 xs:w-3"
@@ -48,10 +48,11 @@ const Preview = () => {
                     rank="7"
                     cardID="clubs-7"
                     backgroundColor={getCardBackground(cardBackground)}
-                    size="aspect-[2/3] w-[75px] xs:w-[90px] md:w-[110px] m-1 xs:m-2"
-                    customStyling="text-[10px] xs:text-xs lg:text-sm xl:text-sm xs:font-regular"
+                    size="w-[75px] xs:w-[90px] md:w-[110px]"
+                    margin="m-1 xs:m-2"
+                    rankStyling="text-[10px] xs:text-xs lg:text-sm xl:text-sm xs:font-regular"
                     customPadding="p-1 xs:p-2"
-                    customSuitSizes="w-2 xs:w-3"
+                    suitStyling="w-2 xs:w-3"
                     allowClick={false}
                 />
                 <Card
@@ -59,10 +60,11 @@ const Preview = () => {
                     rank="K"
                     cardID="diamonds-k"
                     backgroundColor={getCardBackground(cardBackground)}
-                    size="aspect-[2/3] w-[75px] xs:w-[90px] md:w-[110px] m-1 xs:m-2"
-                    customStyling="text-[10px] xs:text-xs lg:text-sm xl:text-sm xs:font-regular"
+                    size="w-[75px] xs:w-[90px] md:w-[110px]"
+                    margin="m-1 xs:m-2"
+                    rankStyling="text-[10px] xs:text-xs lg:text-sm xl:text-sm xs:font-regular"
                     customPadding="p-1 xs:p-2"
-                    customSuitSizes="w-2 xs:w-3"
+                    suitStyling="w-2 xs:w-3"
                     allowClick={false}
                 />
             </div>

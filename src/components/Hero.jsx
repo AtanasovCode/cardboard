@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import Card from "./Card";
 
+import { getCardBackground } from "../Utils";
+
 import clubsBlack from '../assets/suits/clubs-black.svg';
 import spadesBlack from '../assets/suits/spades-black.svg';
 
@@ -22,7 +24,7 @@ const Hero = () => {
                 </div>
             </div>
             <div className="w-full flex items-center justify-center">
-                <div 
+                <div
                     className=""
                     onClick={() => navigate("/play")}
                 >
@@ -30,15 +32,16 @@ const Hero = () => {
                         suit={spadesBlack}
                         rank="Play"
                         cardID="1"
-                        backgroundColor="bg-[#FFFD82]"
-                        rankColor="text-[#000]"
-                        size="w-[150px] h-[225px] sm:w-[200px] sm:h-[300px] lg:w-[250px] lg:h-[375px] hover:scale-[1.05] transition-all duration-300 ease-in-out"
-                        customStyling="lg:font-black lg:text-xl"
-                        customSuitSizes="lg:w-[30px] lg:h-[30px]"
+                        backgroundColor={getCardBackground("White")}
+                        size="w-[150px] sm:w-[200px] lg:w-[250px]"
+                        hoverEffect="hover:scale-[1.05] transition-all duration-300 ease-in-out hover:cursor-pointer"
+                        margin="m-4"
+                        rankStyling="lg:font-black lg:text-xl"
+                        suitSizes="lg:w-[30px] lg:h-[30px] xl:w-[35px] xl:h-[35px]"
                         allowClick={false}
                     />
                 </div>
-                <div 
+                <div
                     className=""
                     onClick={() => navigate("/options")}
                 >
@@ -46,12 +49,13 @@ const Hero = () => {
                         suit={clubsBlack}
                         rank="Options"
                         cardID="1"
-                        backgroundColor="bg-[#FFFD82]"
+                        backgroundColor={getCardBackground("White")}
                         rankColor="text-[#000]"
-                        size="w-[150px] h-[225px] sm:w-[200px] sm:h-[300px] lg:w-[250px] lg:h-[375px] hover:scale-[1.05] transition-all duration-300 ease-in-out"
-                        customStyling="lg:font-black lg:text-xl"
-                        customSuitSizes="lg:w-[30px] lg:h-[30px]"
-                        allowClick={false}
+                        size="w-[150px] sm:w-[200px] lg:w-[250px]"
+                        hoverEffect="hover:scale-[1.05] transition-all duration-300 ease-in-out hover:cursor-pointer"
+                        margin="m-4"
+                        rankStyling="lg:font-black lg:text-xl"
+                        suitSizes="lg:w-[30px] lg:h-[30px] xl:w-[35px] xl:h-[35px]"
                     />
                 </div>
             </div>

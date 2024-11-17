@@ -5,13 +5,18 @@ const Card = ({
     suit,
     rank,
     cardID,
+
+    //customization
     backgroundColor,
     rankColor,
     size,
-    customStyling,
-    customSuitSizes,
-    allowClick,
+    margin,
+    hoverEffect,
+    rankStyling,
+    suitStyling,
+    centerSuitStyling,
     customPadding,
+    allowClick,
 }) => {
 
     const {
@@ -22,9 +27,10 @@ const Card = ({
 
     return (
         <div
-            className={`relative rounded-xl flex items-start justify-center 
-            ${backgroundColor} ${size}
-            font-cards select-none hover:cursor-pointer`}
+            className={`
+                relative rounded-xl flex items-start justify-center aspect-[2/3]
+                ${backgroundColor} ${size} ${margin} ${hoverEffect} font-cards select-none
+            `}
             onClick={() => {
                 if (allowClick) {
                     addCard(cardID);
@@ -34,11 +40,11 @@ const Card = ({
             }}
         >
             <div className={`w-full flex flex-col items-start justify-center p-2 ${customPadding}`}>
-                <div className={`text-sm xl:text-lg font-semibold xs:mb-1 ${rankColor} ${customStyling}`}>
+                <div className={`text-sm xl:text-lg font-semibold xs:mb-1 ${rankStyling}`}>
                     {rank}
                 </div>
                 <div className="flex items-center justify-center">
-                    <img src={suit} className={`w-3 xl:w-4 ${customSuitSizes}`} />
+                    <img src={suit} className={`w-3 xl:w-4 ${suitStyling}`} />
                 </div>
             </div>
             <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
@@ -46,9 +52,9 @@ const Card = ({
             </div>
             <div className={`w-full flex flex-col-reverse items-start justify-center absolute bottom-0 left-0 p-2 rotate-[180deg] ${customPadding}`}>
                 <div className="flex items-center justify-center">
-                    <img src={suit} className={`w-3 xl:w-4 ${customSuitSizes}`} />
+                    <img src={suit} className={`w-3 xl:w-4 ${suitStyling}`} />
                 </div>
-                <div className={`text-sm xl:text-lg font-semibold xs:mb-1 xl:mb-2 ${rankColor} ${customStyling}`}>
+                <div className={`text-sm xl:text-lg font-semibold xs:mb-1 xl:mb-2 ${rankStyling}`}>
                     {rank}
                 </div>
             </div>
