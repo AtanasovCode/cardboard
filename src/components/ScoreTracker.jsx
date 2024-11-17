@@ -30,7 +30,7 @@ const ScoreTracker = () => {
                 />
             </div>
             <div
-                className="flex items-center justify-cetner w-4 md:w-10 md:h-10 lg:cursor-pointer"
+                className="flex items-center justify-cetner w-8 md:w-10 lg:cursor-pointer"
                 onClick={() => toggleMobileMenu()}
             >
                 <List

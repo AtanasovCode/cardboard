@@ -12,7 +12,7 @@ const BackgroundChoice = ({
         cardBackground,
     } = useCardStore();
 
-    const borderStyle = backgroundStyle === name || cardBackground === name ? "border-slate-200" : "border-slate-400";
+    const borderStyle = backgroundStyle === name || cardBackground === name ? "border-slate-200" : "border-slate-500";
     const textColor = name === "White" ? "text-black" : "text-white";
 
     return (
