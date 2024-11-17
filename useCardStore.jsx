@@ -111,8 +111,14 @@ export const useCardStore = create((set, get) => ({
   ],
 
   // customization
-  suitStyle: "white",
+  suitStyle: "White",
   changeSuitStyle: (style) => set({ suitStyle: style }),
+  suitStyles: [
+    { name: "Colorful", icon: spadesColorful, handleClick: () => get().changeSuitStyle("Colorful") },
+    { name: "Darker", icon: spadesDarker, handleClick: () => get().changeSuitStyle("Darker") },
+    { name: "Black", icon: spadesBlack, handleClick: () => get().changeSuitStyle("Black") },
+    { name: "White", icon: spadesWhite, handleClick: () => get().changeSuitStyle("White") },
+  ],
 
   backgroundStyle: "Pool Table",
   changeBackgroundStyle: (style) => set({ backgroundStyle: style }),

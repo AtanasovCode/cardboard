@@ -21,7 +21,7 @@ const BackgroundChoice = ({
             border-2 ${borderStyle} relative cursor-pointer ${textColor}
             md:w-10 lg:w-16 xl:w-20
         `}
-            onClick={() => handleClick(name)}
+            onClick={handleClick}
         >
             {
                 (cardBackground === name || backgroundStyle === name) &&
