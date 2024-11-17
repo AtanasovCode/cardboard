@@ -20,6 +20,9 @@ export default {
         'card-white': "#FFFD82",
         'card-blue': "rgb(30 58 138)",
         'card-green': "rgb(22 101 52)",
+        'card-orange': "rgb(234 88 12)",
+        'card-purple': "rgb(91 33 182)",
+        'card-teal': "rgb(13 148 136)",
       },
       backgroundImage: {
         'background-graphic': "url(/background-graphic.svg)",

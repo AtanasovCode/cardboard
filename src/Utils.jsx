@@ -55,6 +55,15 @@ export const getCardBackground = (background) => {
         case "Green":
             return "bg-card-green text-white";
             break;
+        case "Orange":
+            return "bg-card-orange";
+            break;
+        case "Purple":
+            return "bg-card-purple";
+            break;
+        case "Teal":
+            return "bg-card-teal";
+            break;
         default:
             return "bg-card-white text-black";
             break;
