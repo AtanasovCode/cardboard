@@ -43,7 +43,6 @@ export const useGameLogicStore = create((set, get) => ({
                 cards.push({
                     rank: randomRank,
                     suit: randomSuit.name,
-                    icon: randomSuit.icon,
                     id: uniqueID,
                 });
             }

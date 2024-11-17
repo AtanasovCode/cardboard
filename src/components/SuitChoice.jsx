@@ -15,7 +15,7 @@ const SuitChoice = ({
         <div 
             className={`
                 w-full aspect-square p-4 flex items-center justify-center relative border-2 ${borderStyle}
-                rounded-md mx-[2px] md:mx-1
+                rounded-md mx-[2px] md:mx-1 cursor-pointer
             `}
             onClick={handleClick}
         >

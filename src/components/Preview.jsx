@@ -13,6 +13,8 @@ const Preview = () => {
     const {
         backgroundStyle,
         cardBackground,
+        suitStyle,
+        getSuitStyle,
     } = useCardStore();
 
     return (
@@ -20,7 +22,7 @@ const Preview = () => {
         border-b-2 border-slate-500`}>
             <div className="w-[95%] flex items-center justify-center flex-1 flex-wrap">
                 <Card
-                    suit={heartsBlack}
+                    suit={getSuitStyle("spades")}
                     rank="A"
                     cardID="hearts-a"
                     backgroundColor={getCardBackground(cardBackground)}
@@ -31,7 +33,7 @@ const Preview = () => {
                     allowClick={false}
                 />
                 <Card
-                    suit={spadesBlack}
+                    suit={getSuitStyle("hearts")}
                     rank="J"
                     cardID="spades-j"
                     backgroundColor={getCardBackground(cardBackground)}
@@ -42,7 +44,7 @@ const Preview = () => {
                     allowClick={false}
                 />
                 <Card
-                    suit={clubsBlack}
+                    suit={getSuitStyle("clubs")}
                     rank="7"
                     cardID="clubs-7"
                     backgroundColor={getCardBackground(cardBackground)}
@@ -53,7 +55,7 @@ const Preview = () => {
                     allowClick={false}
                 />
                 <Card
-                    suit={diamondsBlack}
+                    suit={getSuitStyle("diamonds")}
                     rank="K"
                     cardID="diamonds-k"
                     backgroundColor={getCardBackground(cardBackground)}

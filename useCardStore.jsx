@@ -25,7 +25,7 @@ export const useCardStore = create((set, get) => ({
   ranks: ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"],
   suits: [
     {
-      type: "white",
+      type: "White",
       data: [
         {
           name: "hearts",
@@ -46,7 +46,7 @@ export const useCardStore = create((set, get) => ({
       ],
     },
     {
-      type: "black",
+      type: "Black",
       data: [
         {
           name: "hearts",
@@ -67,7 +67,7 @@ export const useCardStore = create((set, get) => ({
       ],
     },
     {
-      type: "darker",
+      type: "Darker",
       data: [
         {
           name: "hearts",
@@ -88,7 +88,7 @@ export const useCardStore = create((set, get) => ({
       ],
     },
     {
-      type: "colorful",
+      type: "Colorful",
       data: [
         {
           name: "hearts",
@@ -111,7 +111,7 @@ export const useCardStore = create((set, get) => ({
   ],
 
   // customization
-  suitStyle: "White",
+  suitStyle: "Black",
   changeSuitStyle: (style) => set({ suitStyle: style }),
   suitStyles: [
     { name: "Colorful", icon: spadesColorful, handleClick: () => get().changeSuitStyle("Colorful") },
@@ -119,6 +119,15 @@ export const useCardStore = create((set, get) => ({
     { name: "Black", icon: spadesBlack, handleClick: () => get().changeSuitStyle("Black") },
     { name: "White", icon: spadesWhite, handleClick: () => get().changeSuitStyle("White") },
   ],
+
+  getSuitStyle: (suit) => {
+    const { suits, suitStyle } = get();
+    const suitGroup = suits.find((item) => item.type === suitStyle);
+    if (!suitGroup) return null; // Handle case where suitStyle doesn't match any type
+    const suitData = suitGroup.data.find((item) => item.name === suit);
+    return suitData ? suitData.icon : null; // Return icon or null if not found
+  },
+
 
   backgroundStyle: "Pool Table",
   changeBackgroundStyle: (style) => set({ backgroundStyle: style }),
@@ -136,7 +145,7 @@ export const useCardStore = create((set, get) => ({
 
 
 
-  cardBackground: "Black",
+  cardBackground: "White",
   changeCardBackground: (style) => set({ cardBackground: style }),
   cardBackgrounds: [
     { name: "Black", background: "bg-card-black", handleClick: () => get().changeCardBackground("Black") },

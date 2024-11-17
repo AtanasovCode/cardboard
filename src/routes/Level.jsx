@@ -15,6 +15,7 @@ const Level = () => {
 
     const {
         cardBackground,
+        getSuitStyle,
         backgroundStyle,
     } = useCardStore();
 
@@ -49,7 +50,7 @@ const Level = () => {
                         return (
                             <Card 
                                 key={card.id} 
-                                suit={card.icon} 
+                                suit={getSuitStyle(card.suit)} 
                                 rank={card.rank} 
                                 cardID={card.id}
                                 backgroundColor={getCardBackground(cardBackground)}
