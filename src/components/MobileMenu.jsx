@@ -33,7 +33,7 @@ const MobileMenu = () => {
     return (
         <div className={`w-full h-[100dvh] z-[999] flex flex-col items-center justify-start
                 fixed top-0 right-0 ${menuTransition} transition-all duration-500 ease-in-out bg-main-background
-                sm:w-[70%] md:w-[50%] lg:w-[30%] lg:max-w-[35rem]
+                sm:w-[70%] md:w-[50%] lg:w-[30%] lg:max-w-[35rem] border-l-2 border-slate-500
         `}>
             <div className="w-full flex items-center justify-center relative mb-16 p-6">
                 <div
