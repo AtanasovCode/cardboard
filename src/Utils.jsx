@@ -14,14 +14,14 @@ export const getBackgroundStyle = (style) => {
         case "Casino Night":
             return "bg-casino-night";
             break;
-        case "Green Gold":
-            return "bg-green-gold";
+        case "Luxury Black":
+            return "bg-luxury-black";
             break;
         case "Dark Felt":
             return "bg-dark-felt";
             break;
         case "Pure Black":
-            return "bg-slate-900";
+            return "bg-black";
             break;
         case "Pure Red":
             return "bg-red-800";

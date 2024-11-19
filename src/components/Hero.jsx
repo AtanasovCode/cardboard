@@ -34,8 +34,8 @@ const Hero = () => {
                         cardID="1"
                         backgroundColor={getCardBackground("White")}
                         size="w-[150px] sm:w-[200px] lg:w-[250px]"
-                        hoverEffect="hover:scale-[1.05] transition-all duration-300 ease-in-out hover:cursor-pointer"
-                        margin="m-4"
+                        hoverEffect="hover:scale-[1.05] transition-all duration-300 ease-in-out"
+                        margin="m-6"
                         rankStyling="lg:font-black lg:text-xl"
                         suitSizes="lg:w-[30px] lg:h-[30px] xl:w-[35px] xl:h-[35px]"
                         allowClick={false}
@@ -52,8 +52,8 @@ const Hero = () => {
                         backgroundColor={getCardBackground("White")}
                         rankColor="text-[#000]"
                         size="w-[150px] sm:w-[200px] lg:w-[250px]"
-                        hoverEffect="hover:scale-[1.05] transition-all duration-300 ease-in-out hover:cursor-pointer"
-                        margin="m-4"
+                        hoverEffect="hover:scale-[1.05] transition-all duration-300 ease-in-out"
+                        margin="m-6"
                         rankStyling="lg:font-black lg:text-xl"
                         suitSizes="lg:w-[30px] lg:h-[30px] xl:w-[35px] xl:h-[35px]"
                     />
