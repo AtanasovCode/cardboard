@@ -32,7 +32,7 @@ const Hero = () => {
                         suit={spadesBlack}
                         rank="Play"
                         cardID="1"
-                        backgroundColor={getCardBackground("White")}
+                        backgroundColor={getCardBackground("white-card-background")}
                         size="w-[150px] sm:w-[200px] xl:w-[250px]"
                         hoverEffect="hover:scale-[1.05] transition-all duration-300 ease-in-out"
                         margin="m-6"
@@ -49,7 +49,7 @@ const Hero = () => {
                         suit={clubsBlack}
                         rank="Options"
                         cardID="1"
-                        backgroundColor={getCardBackground("White")}
+                        backgroundColor={getCardBackground("white-card-background")}
                         rankColor="text-[#000]"
                         size="w-[150px] sm:w-[200px] xl:w-[250px]"
                         hoverEffect="hover:scale-[1.05] transition-all duration-300 ease-in-out"
