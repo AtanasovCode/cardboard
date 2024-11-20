@@ -32,8 +32,6 @@ const Card = ({
     } = useCardStore();
 
     const cardOutline = outline ? `border ${getCardOutlineColor(cardOutlineColor)}` : "border-none";
-    console.log(getCardOutlineColor(cardOutlineColor))
-
 
     return (
         <div

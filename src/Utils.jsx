@@ -1,62 +1,58 @@
-
-
 export const getBackgroundStyle = (style) => {
     switch (style) {
-        case "Pool Table":
+        case "pool-table-background-style":
             return "bg-pool-table";
-        case "Poker Table":
+        case "poker-table-background-style":
             return "bg-poker-table";
-        case "Luxury Poker":
+        case "luxury-poker-background-style":
             return "bg-luxury-poker";
-        case "Casino Night":
+        case "casino-night-background-style":
             return "bg-casino-night";
-        case "Luxury Black":
+        case "luxury-black-background-style":
             return "bg-luxury-black";
-        case "Dark Felt":
+        case "dark-felt-background-style":
             return "bg-dark-felt";
-        case "Pure Black":
+        case "pure-black-background-style":
             return "bg-black";
-        case "Pure Red":
+        case "pure-red-background-style":
             return "bg-red-800";
-        case "Pure Gray":
+        case "pure-gray-background-style":
             return "bg-slate-800";
     }
 };
 
 export const getCardBackground = (background) => {
     switch (background) {
-        case "Black":
+        case "black-card-background":
             return "bg-card-black text-white";
-        case "White":
+        case "white-card-background":
             return "bg-card-white text-black";
-        case "Dark Grey":
+        case "dark-grey-card-background":
             return "bg-card-dark-gray text-white";
-        case "Red":
+        case "red-card-background":
             return "bg-card-red text-white";
-        case "Blue":
+        case "blue-card-background":
             return "bg-card-blue text-white";
-        case "Green":
+        case "green-card-background":
             return "bg-card-green text-white";
-        case "Orange":
+        case "orange-card-background":
             return "bg-card-orange";
-        case "Purple":
+        case "purple-card-background":
             return "bg-card-purple";
-        case "Teal":
+        case "teal-card-background":
             return "bg-card-teal";
     }
 };
 
 export const getCardOutlineColor = (color) => {
     switch (color) {
-        case "Black":
+        case "black-card-outline":
             return "border-card-outline-black";
-        case "White":
+        case "white-card-outline":
             return "border-card-outline-white";
-        case "Light Grey":
-            return "border-border-card-outline-light-grey";
-        case "Dark Grey":
+        case "light-grey-card-outline":
+            return "border-card-outline-light-grey";
+        case "dark-grey-card-outline":
             return "border-card-outline-dark-grey";
-        default:
-            return "border-card-outline-white";
     }
 };
