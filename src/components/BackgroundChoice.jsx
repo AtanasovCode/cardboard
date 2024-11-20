@@ -7,7 +7,7 @@ const BackgroundChoice = ({ name, color, handleClick, isSelected }) => {
     return (
         <div
             className={`
-                w-full aspect-square rounded-md ${color} mx-[3px] xs:mx-1
+                w-full aspect-square rounded-md ${color}
                 border-2 relative cursor-pointer
                 md:w-10 lg:w-14 xl:w-16
                 ${borderColor}

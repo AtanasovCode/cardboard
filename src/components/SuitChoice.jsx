@@ -13,7 +13,7 @@ const SuitChoice = ({
 
     return (
         <div className={`
-            w-full aspect-square rounded-md mx-[3px] xs:mx-1
+            w-full aspect-square rounded-md
             border-2 ${borderStyle} relative cursor-pointer
             md:w-10 lg:w-14 xl:w-16
         `}

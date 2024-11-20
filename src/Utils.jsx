@@ -54,5 +54,9 @@ export const getCardOutlineColor = (color) => {
             return "border-card-outline-light-grey";
         case "dark-grey-card-outline":
             return "border-card-outline-dark-grey";
+        case "red-card-outline":
+            return "border-card-outline-red";
+        case "yellow-card-outline":
+            return "border-card-outline-yellow";
     }
 };

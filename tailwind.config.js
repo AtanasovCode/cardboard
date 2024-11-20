@@ -9,6 +9,8 @@ export default {
     'bg-card-outline-white',
     'bg-card-outline-light-grey',
     'bg-card-outline-dark-grey',
+    'bg-card-outline-red',
+    'bg-card-outline-yellow',
   ],
   theme: {
     extend: {
@@ -35,6 +37,8 @@ export default {
         'card-outline-white': "#F5F5F5",
         'card-outline-light-grey': "#C2C2C2",
         'card-outline-dark-grey': "#707070",
+        'card-outline-red': "#E00000",
+        'card-outline-yellow': "#FFFF1F",
       },
       backgroundImage: {
         'background-graphic': "url(/background-graphic.svg)",
