@@ -17,6 +17,7 @@ const Level = () => {
         cardBackground,
         getSuitStyle,
         backgroundStyle,
+        cardOutline,
     } = useCardStore();
 
     const { 
@@ -57,6 +58,7 @@ const Level = () => {
                                 size="w-[90px] xs:w-[100px] sm:w-[120px] md:w-[140px] xl:w-[160px]"
                                 margin="m-2 lg:m-3"
                                 hoverEffect="hover:cursor-pointer"
+                                outline={cardOutline}
                                 allowClick={true}
                             />
                         );

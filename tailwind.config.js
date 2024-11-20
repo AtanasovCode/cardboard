@@ -4,6 +4,12 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  safelist: [
+    'bg-card-outline-black',
+    'bg-card-outline-white',
+    'bg-card-outline-light-grey',
+    'bg-card-outline-dark-grey',
+  ],
   theme: {
     extend: {
       fontFamily: {
@@ -11,7 +17,7 @@ export default {
         'sans': "Inter",
       },
       colors: {
-        'main-background': "rgb(30 41 59)",
+        'main-background': "#0A0A0A",
 
         // card colors
         'card-dark-gray': "rgb(30 41 59)",
@@ -23,6 +29,12 @@ export default {
         'card-orange': "rgb(234 88 12)",
         'card-purple': "rgb(91 33 182)",
         'card-teal': "rgb(13 148 136)",
+
+        //card outlines
+        'card-outline-black': "#000",
+        'card-outline-white': "#F5F5F5",
+        'card-outline-light-grey': "#C2C2C2",
+        'card-outline-dark-grey': "#707070",
       },
       backgroundImage: {
         'background-graphic': "url(/background-graphic.svg)",

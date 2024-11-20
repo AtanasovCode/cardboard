@@ -14,12 +14,12 @@ const Hero = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="flex flex-col items-center justify-center w-[95%] sm:w-[85%] md:w-[70%] lg:w-[60%] z-50">
-            <div className="w-full flex flex-col items-center justify-center mb-16">
-                <div className="font-black text-5xl mb-2 text-center lg:text-6xl">
+        <div className="flex flex-col items-center justify-center w-[95%] sm:w-[85%] md:w-[75%] z-50">
+            <div className="w-full flex flex-col items-center justify-center mb-10">
+                <div className="font-black text-5xl mb-2 text-center xl:text-6xl">
                     Welcome to CardBoard
                 </div>
-                <div className="font-semibold text-lg">
+                <div className="font-semibold text-base xl:text-xl">
                     The Ultimate Memory Challenge!
                 </div>
             </div>
@@ -33,7 +33,7 @@ const Hero = () => {
                         rank="Play"
                         cardID="1"
                         backgroundColor={getCardBackground("White")}
-                        size="w-[150px] sm:w-[200px] lg:w-[250px]"
+                        size="w-[150px] sm:w-[200px] xl:w-[250px]"
                         hoverEffect="hover:scale-[1.05] transition-all duration-300 ease-in-out"
                         margin="m-6"
                         rankStyling="lg:font-black lg:text-xl"
@@ -51,7 +51,7 @@ const Hero = () => {
                         cardID="1"
                         backgroundColor={getCardBackground("White")}
                         rankColor="text-[#000]"
-                        size="w-[150px] sm:w-[200px] lg:w-[250px]"
+                        size="w-[150px] sm:w-[200px] xl:w-[250px]"
                         hoverEffect="hover:scale-[1.05] transition-all duration-300 ease-in-out"
                         margin="m-6"
                         rankStyling="lg:font-black lg:text-xl"

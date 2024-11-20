@@ -15,10 +15,11 @@ const Preview = () => {
         cardBackground,
         suitStyle,
         getSuitStyle,
+        cardOutline,
     } = useCardStore();
 
     return (
-        <div className={`w-full h-[35dvh] md:h-[40dvh] ${getBackgroundStyle(backgroundStyle)} flex items-center justify-center
+        <div className={`fixed top-0 left-0 w-full h-[45dvh] z-[9999] ${getBackgroundStyle(backgroundStyle)} flex items-center justify-center
         border-b-2 border-slate-500`}>
             <div className="w-[95%] flex items-center justify-center flex-1 flex-wrap">
                 <Card
@@ -30,6 +31,7 @@ const Preview = () => {
                     customStyling="text-[10px] xs:text-xs lg:text-sm xl:text-sm xs:font-regular"
                     customPadding="p-1 xs:p-2"
                     customSuitSizes="w-2 xs:w-3"
+                    outline={cardOutline}
                     allowClick={false}
                 />
                 <Card
@@ -41,6 +43,7 @@ const Preview = () => {
                     customStyling="text-[10px] xs:text-xs lg:text-sm xl:text-sm xs:font-regular"
                     customPadding="p-1 xs:p-2"
                     customSuitSizes="w-2 xs:w-3"
+                    outline={cardOutline}
                     allowClick={false}
                 />
                 <Card
@@ -53,6 +56,7 @@ const Preview = () => {
                     rankStyling="text-[10px] xs:text-xs lg:text-sm xl:text-sm xs:font-regular"
                     customPadding="p-1 xs:p-2"
                     suitStyling="w-2 xs:w-3"
+                    outline={cardOutline}
                     allowClick={false}
                 />
                 <Card
@@ -65,6 +69,7 @@ const Preview = () => {
                     rankStyling="text-[10px] xs:text-xs lg:text-sm xl:text-sm xs:font-regular"
                     customPadding="p-1 xs:p-2"
                     suitStyling="w-2 xs:w-3"
+                    outline={cardOutline}
                     allowClick={false}
                 />
             </div>

@@ -1,6 +1,6 @@
 import useMousePosition from "../hooks/useMousePosition";
 
-import spadesCursor from '../assets/spades-cursor.svg';
+import spadesCursor from '../assets/suits/spades-black.svg';
 
 const CustomCursor = () => {
     const { x, y } = useMousePosition();
@@ -16,7 +16,7 @@ const CustomCursor = () => {
             "
         >
             <div>
-                <img src={spadesCursor} className="w-16 rotate-[-35deg]" />
+                <img src={spadesCursor} className="w-32 rotate-[-35deg]" />
             </div>
         </div>
     );

@@ -9,18 +9,18 @@ const SuitChoice = ({
 
     const { suitStyle } = useCardStore();
 
-    const borderStyle = suitStyle === name ? "border-slate-50" : "border-slate-400";
+    const borderStyle = suitStyle === name ? "border-white" : "border-slate-500";
 
     return (
-        <div 
-            className={`
-                w-full aspect-square p-4 flex items-center justify-center relative border-2 ${borderStyle}
-                rounded-md mx-[2px] md:mx-1 cursor-pointer
-            `}
+        <div className={`
+            w-full aspect-square rounded-md mx-[3px] xs:mx-1
+            border-2 ${borderStyle} relative cursor-pointer
+            md:w-10 lg:w-14 xl:w-16
+        `}
             onClick={handleClick}
         >
-            <div className="w-full">
-                <img src={icon} alt={`Suit Style: ${name}`} className="w-full" />
+            <div className="w-full h-full flex items-center justify-center">
+                <img src={icon} alt={`Suit Style: ${name}`} className="w-[80%]" />
             </div>
             {
                 (suitStyle === name) &&

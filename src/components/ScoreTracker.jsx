@@ -16,7 +16,7 @@ const ScoreTracker = () => {
     } = useGameLogicStore();
 
     return (
-        <div className="w-full flex items-center justify-between p-4 mb-6 bg-main-background">
+        <div className="w-full flex items-center justify-between p-4 mb-6 bg-main-background border-b-2 border-slate-500">
             <div className="flex flex-col items-center justify-center">
                 <div className="text-xl font-bold">
                     Score: {score}

@@ -3,28 +3,39 @@ import { useCardStore } from "../../useCardStore";
 
 const BackgroundChoice = ({
     name,
-    background,
+    color,
     handleClick,
 }) => {
 
     const {
         backgroundStyle,
         cardBackground,
+        cardOutlineColor,
     } = useCardStore();
 
-    const borderStyle = backgroundStyle === name || cardBackground === name ? "border-slate-50" : "border-slate-400";
+    const borderStyle =
+        backgroundStyle.toLowerCase() === name.toLowerCase() ||
+            cardBackground.toLowerCase() === name.toLowerCase() ||
+            cardOutlineColor.toLowerCase() === name.toLowerCase()
+            ? "border-white"
+            : "border-slate-500";
+
     const textColor = name === "White" ? "text-black" : "text-white";
+
+    console.log(`Currently Selected Color: ${name}`)
+
+    console.log(color);
 
     return (
         <div className={`
-            w-full aspect-square rounded-md ${background} mx-[1px] xs:mx-1
+            w-full aspect-square rounded-md ${color} mx-[3px] xs:mx-1
             border-2 ${borderStyle} relative cursor-pointer ${textColor}
-            md:w-10 lg:w-16 xl:w-20
+            md:w-10 lg:w-14 xl:w-16
         `}
             onClick={handleClick}
         >
             {
-                (cardBackground === name || backgroundStyle === name) &&
+                (cardBackground === name || backgroundStyle === name || cardOutlineColor === name) &&
                 <div className="absolute right-[2%] top-[2%] w-4 h-4">
                     <CheckCircle size="100%" weight="fill" color="#00ff00" />
                 </div>

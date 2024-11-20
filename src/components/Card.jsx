@@ -1,5 +1,6 @@
 import { useCardStore } from "../../useCardStore";
 import { useGameLogicStore } from "../../useGameLogicStore";
+import { getCardOutlineColor } from "../Utils";
 
 const Card = ({
     suit,
@@ -16,6 +17,7 @@ const Card = ({
     suitStyling,
     centerSuitStyling,
     customPadding,
+    outline,
     allowClick,
 }) => {
 
@@ -25,11 +27,20 @@ const Card = ({
         increaseScore,
     } = useGameLogicStore();
 
+    const {
+        cardOutlineColor,
+    } = useCardStore();
+
+    const cardOutline = outline ? `border ${getCardOutlineColor(cardOutlineColor)}` : "border-none";
+    console.log(getCardOutlineColor(cardOutlineColor))
+
+
     return (
         <div
             className={`
                 relative rounded-xl flex items-start justify-center aspect-[2/3]
-                ${backgroundColor} ${size} ${margin} ${hoverEffect} font-cards select-none
+                ${backgroundColor} ${size} ${margin} ${hoverEffect} ${cardOutline}
+                font-cards select-none
             `}
             onClick={() => {
                 if (allowClick) {
