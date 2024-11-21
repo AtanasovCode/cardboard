@@ -12,7 +12,10 @@ const Header = () => {
             <div className="flex items-center justify-center" onClick={() => navigate("/")}>
                 <img src={logo} alt="logo" className="w-[70px] lg:w-[95px]" />
             </div>
-            <div className="cursor-pointer flex items-center justify-center motion-safe:animate-bounce">
+            <div 
+                className="flex items-center justify-center motion-safe:animate-bounce"
+                onClick={() => navigate("/how-to-play")}
+            >
                 <div className="text-sm text-white">
                     How To Play
                 </div>

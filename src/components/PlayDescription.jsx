@@ -28,9 +28,12 @@ const PlayDescription = ({
             <div className="text-sm text-slate-300 text-left w-full">
                 {description}
             </div>
-            <div className="w-full flex items-center justify-center">
-                {image && <img src={image} alt="descriptive image" className="w-full" />}
-            </div>
+            {
+                image &&
+                <div className="w-full flex items-center justify-center mt-6">
+                    <img src={image} alt="descriptive image" className="w-full" />
+                </div>
+            }
         </div>
     );
 }

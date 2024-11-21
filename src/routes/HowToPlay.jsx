@@ -8,6 +8,9 @@ import {
     FlagCheckered,
 } from "@phosphor-icons/react";
 
+import roundOne from '../assets/images/round-one-screenshot.png';
+import moreCards from '../assets/images/more-cards.png';
+
 import PlayDescription from "../components/PlayDescription";
 
 const HowToPlay = () => {
@@ -27,7 +30,7 @@ const HowToPlay = () => {
                     iconMobile={null}
                     title="Randomized cards"
                     description="Each game starts with 3 unique, randomized playing cards. Every round, the cards are shuffled and increase in number, testing your memory skills."
-                    image={null}
+                    image={roundOne}
                 />
                 <PlayDescription
                     icon={<MouseLeftClick size="100%" weight="fill" color="#FFF" />}
@@ -40,9 +43,14 @@ const HowToPlay = () => {
                     icon={<FlagCheckered size="100%" weight="fill" color="#FFF" />}
                     title="Progress through rounds"
                     description="Complete a round by clicking all unique cards without repeating. Each new round introduces an additional card, challenging your memory as you advance."
+                    image={moreCards}
+                />
+                <PlayDescription
+                    icon={<Trophy size="100%" weight="fill" color="#FFF" />}
+                    title="Beat your personal best"
+                    description="Try to beat your personal best score and improve your memorization skills."
                     image={null}
                 />
-
             </div>
         </div>
     );
