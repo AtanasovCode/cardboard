@@ -13,7 +13,8 @@ const OptionChoice = ({ type, title, options }) => {
             <div
                 className={`
                     w-full md:w-auto grid gap-2 xs:flex xs:items-center xs:justify-center
-                    ${type === "background" ? "grid-cols-3" : "grid-cols-4"}
+                    ${type === "background" ? "grid-cols-6" : "grid-cols-4"}
+                    place-items-center justify-items-center
                 `}
             >
                 {type === "background"
