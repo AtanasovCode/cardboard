@@ -66,8 +66,8 @@ const Card = ({
                     <img src={suit} className={`w-3 xl:w-4 ${suitStyling}`} />
                 </div>
             </div>
-            <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
-                <img src={suit} className="w-16 xl:w-32" />
+            <div className={`absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]`}>
+                <img src={suit} className={`w-16 xl:w-32 ${centerSuitStyling}`} />
             </div>
             <div className={`w-full flex flex-col-reverse items-start justify-center absolute bottom-0 left-0 p-2 rotate-[180deg] ${customPadding}`}>
                 <div className="flex items-center justify-center">
