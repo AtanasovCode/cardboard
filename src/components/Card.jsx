@@ -10,7 +10,6 @@ const Card = ({
 
     //customization
     backgroundColor,
-    rankColor,
     size,
     margin,
     hoverEffect,

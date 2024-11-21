@@ -3,17 +3,28 @@ import Header from "../components/Header";
 import Hero from "../components/Hero";
 import CustomCursor from "../components/CustomCursor";
 
-import { getBackgroundStyle } from "../Utils";
+import clubsBlack from '../assets/suits/clubs-black.svg';
+import clubsWhite from '../assets/suits/clubs-white.svg';
+import clubsColorful from '../assets/suits/clubs-colorful.svg';
+import clubsDarker from '../assets/suits/clubs-darker.svg';
+import heartsColorful from '../assets/suits/hearts-colorful.svg';
+
+
+
+import Card from "../components/Card";
+
+import { getBackgroundStyle, getCardBackground } from "../Utils";
 
 const TitleScreen = () => {
 
     const {
         backgroundStyle,
+        getSuitStyle,
     } = useCardStore();
 
     return (
-        <div className={`min-h-[100dvh] text-white bg-pool-table
-                        font-sans cursor-none flex flex-col items-center justify-center`}>
+        <div className={`min-h-[100dvh] text-white bg-pool-table cursor-none
+                        font-sans flex flex-col items-center justify-center`}>
             <div className="min-h-[100dvh] w-full relative flex-col items-center justify-start max-w-[2000px]">
                 <CustomCursor />
                 <Header />
