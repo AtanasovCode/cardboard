@@ -21,6 +21,14 @@ export const useGameLogicStore = create((set, get) => ({
     score: 0,
     increaseScore: () => set((state) => ({ score: state.score + 1 })),
     resetScore: () => set({ score: 0 }),
+    personalBest: 0,
+
+    increasePersonalBest: () => {
+        const { score, personalBest } = get();
+        if (score > personalBest) {
+            set({ personalBest: score });
+        }
+    },
 
     // generate a set of unique cards with random suits and ranks
     generateUniqueRandomCards: (numberOfCardsToGenerate) => set((state) => {
@@ -67,10 +75,12 @@ export const useGameLogicStore = create((set, get) => ({
 
     // Add a card to clickedCards and check game over logic
     addCard: (card) => set((state) => {
+        const { increaseScore } = get();
         const updatedClickedCards = new Set(state.clickedCards);
 
         if (!updatedClickedCards.has(card)) {
             updatedClickedCards.add(card);
+            increaseScore();
 
             return { clickedCards: Array.from(updatedClickedCards) }; // Convert Set to array
         } else {

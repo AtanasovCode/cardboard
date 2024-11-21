@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useCardStore } from "../../useCardStore";
 import { useGameLogicStore } from "../../useGameLogicStore";
 import { getCardOutlineColor } from "../Utils";
@@ -25,6 +26,10 @@ const Card = ({
         shuffleCards,
         addCard,
         increaseScore,
+        score,
+        personalBest,
+        increasePersonalBest,
+        gameOver,
     } = useGameLogicStore();
 
     const {
@@ -32,6 +37,12 @@ const Card = ({
     } = useCardStore();
 
     const cardOutline = outline ? `border ${getCardOutlineColor(cardOutlineColor)}` : "border-none";
+
+    useEffect(() => {
+        increasePersonalBest();
+    }, [score])
+
+    console.log(`PB: ${personalBest}`);
 
     return (
         <div
@@ -44,7 +55,6 @@ const Card = ({
                 if (allowClick) {
                     addCard(cardID);
                     shuffleCards();
-                    increaseScore();
                 }
             }}
         >
