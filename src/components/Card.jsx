@@ -42,8 +42,6 @@ const Card = ({
         increasePersonalBest();
     }, [score])
 
-    console.log(`PB: ${personalBest}`);
-
     return (
         <div
             className={`

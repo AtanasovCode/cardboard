@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { useGameLogicStore } from "../useGameLogicStore";
 
 //routes
 import TitleScreen from "./routes/TitleScreen";
@@ -8,6 +10,12 @@ import GameOver from "./routes/GameOver";
 import HowToPlay from "./routes/HowToPlay";
 
 const App = () => {
+  
+  const { preLoadSoundEffects } = useGameLogicStore();
+
+  useEffect(() => {
+    preLoadSoundEffects();
+  }, [])
 
   const router = createBrowserRouter([
     {

@@ -88,6 +88,24 @@ export const useGameLogicStore = create(
                 clickSound.play();
             },
 
+            // pre load all sounds for a better experience
+            preLoadSoundEffects: () => {
+                const newRound = new Audio(`/audio/new-round.wav`);
+                const mistake = new Audio(`/audio/mistake.wav`);
+                const click = new Audio(`/audio/click.wav`);
+                const play = new Audio(`/audio/play.wav`);
+
+                // Ensure the audio is fully loaded before starting the game
+                const onAudioReady = (audio) => {
+                    audio.removeEventListener('canplaythrough', () => onAudioReady(audio));
+                };
+
+                // Add event listeners for each audio file
+                [newRound, mistake, click, play].forEach(audio => {
+                    audio.addEventListener('canplaythrough', () => onAudioReady(audio));
+                    audio.load(); // Ensure audio is loaded
+                });
+            },
 
             updateDisplayedCards: () => {
                 const { clickedCards, cardsToDisplay, playNewRoundSound, resetClickedCards, levelUp, increaseCardsToDisplay, generateUniqueRandomCards } = get();
