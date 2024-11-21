@@ -16,7 +16,7 @@ const Options = () => {
         <div className="min-h-[100dvh] flex flex-col items-center justify-start bg-main-background text-white">
             <Preview />
             <div className="w-full mt-[45dvh] pt-12 md:pt-16 flex items-center justify-center">
-                <div className="w-[92%] xs:w-[90%] xl:w-[80%] max-w-[90rem] flex flex-col items-center justify-center">
+                <div className="w-full max-w-[90rem] flex flex-col items-center justify-center">
                     <OptionChoice
                         type="background"
                         title="Background Style"

@@ -1,14 +1,13 @@
 import { useCardStore } from "../../useCardStore";
+import { useNavigate } from "react-router-dom";
 import { getCardBackground, getBackgroundStyle } from "../Utils";
+import { ArrowLeft } from "@phosphor-icons/react";
 
 import Card from "./Card";
 
-import heartsBlack from '../assets/suits/hearts-black.svg';
-import spadesBlack from '../assets/suits/spades-black.svg';
-import diamondsBlack from '../assets/suits/diamonds-black.svg';
-import clubsBlack from '../assets/suits/clubs-black.svg';
-
 const Preview = () => {
+
+    const navigate = useNavigate();
 
     const {
         backgroundStyle,
@@ -21,6 +20,12 @@ const Preview = () => {
     return (
         <div className={`fixed top-0 left-0 w-full h-[45dvh] z-[9999] ${getBackgroundStyle(backgroundStyle)} flex items-center justify-center
         border-b-2 border-slate-500`}>
+            <div 
+                className="absolute top-[5%] left-[5%] lg:left-[2%] w-6 lg:w-8 cursor-pointer"
+                onClick={() => navigate("/")}
+            >
+                <ArrowLeft size="100%" weight="regular" color="#FFF" />
+            </div>
             <div className="w-[95%] flex items-center justify-center flex-1 flex-wrap">
                 <Card
                     suit={getSuitStyle("spades")}
