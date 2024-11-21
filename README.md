@@ -1,19 +1,19 @@
 ![](./src/assets/display-photos/readme-title.png)
 
-## The ultimate memory test!
+# The ultimate memory test!
 
-### How To Play?
+## How To Play?
 
-Each round get presented with a set number of unique playing cards. You can only click on 
-a unique card once, clicking the same card twice will result in a game over. Each card clicked will bring your score up!
+Get presented with a new memorization challenge each round. With an increasing number of unique playing cards each round, your memorization skills will be put to the test. You can only click on a unique playing card once, clicking the same card twice will result in a game over. Each card clicked will bring your score up!
 
-Clicking every unique card in the set once will allow you to advance to a new level where the cards are re-shuffled and
-for an extra challenge a brand new card is added to the set. How long can you keep it up?
+Clicking every unique card once in the set will allow you to advance to a new level. With each new level the cards are re-shuffled and,
+for an extra challenge, a brand new unique card is added to the set. How long can you keep it up?
 
-### Customization
+Try to beat your personal best score or compete with your friends and family!
 
-Make your game your own! Customize everything from the way the background looks to the way your cards look.
-You can choose between many different card backgrounds and 4 different suit types to get the perfect look for your game.
+## Extremely Customizable1
+
+Make the game your own! Customize everything from the way the background looks to the way your cards look. You can choose between many different options to customize the look and feel of the game. Change your background style and card background to get the perfect look for the game.
 
 ![](./src/assets/display-photos/customizable-cards.png)
 
@@ -21,18 +21,22 @@ You can choose between many different card backgrounds and 4 different suit type
 
 CardBoard is a fully fleshed out game that has many different features, including:
 
-- Completely Customizable Cards
+- Completely customizable cards
 - Customizable background styles
-- 4 different suit styles
-- Ability to enable or disable card borders
+- 4 different suit colors
+- Ability to enable or disable card borders (if you want your cards to stand out more)
+- Different border colors
 - Ultra responsive design that can work on any screen size
-- Sound effects for:
+- Fully functional navigation
+- Interactive sound effects for:
     - Game Start
-    - Game Over
     - Card Click
-    - Restart 
     - New Round Start
-- Custom Suit Cursor
+    - Game Over
+    - Restart 
+- Custom suit cursor on Title Screen
+- Choice persistence - your choices will be remembered between game sessions
+- Personal Best score persistence between sessions
 
 ### Possible Future Updates:
 
@@ -43,3 +47,4 @@ This game will be continually updated, here are some future possible updates:
 - Different colors for each suit (hearts, diamonds, spades, clubs)
 - Leaderboard with your best scores
 - Even more customization!
+- New game modes!
