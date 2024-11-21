@@ -38,6 +38,10 @@ CardBoard is a fully fleshed out game that has many different features, includin
 - Choice persistence - your choices will be remembered between game sessions
 - Personal Best score persistence between sessions
 
+## Play The Game
+
+Play the game and test your memory right now 👉 [Play CardBoard](https://play-cardboard.netlify.app)
+
 ### Possible Future Updates:
 
 This game will be continually updated, here are some future possible updates:
@@ -48,3 +52,15 @@ This game will be continually updated, here are some future possible updates:
 - Leaderboard with your best scores
 - Even more customization!
 - New game modes!
+
+### Credits
+
+Built with ❤️ by [atanasovCode](https://github.com/AtanasovCode/)
+
+### Built With:
+
+- React.js
+- Zustand - for state management
+- React Router - for navigating between pages
+- TailwindCSS - for styling
+- Phosphor Icons - for the amazing icons
