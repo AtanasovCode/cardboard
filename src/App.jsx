@@ -5,6 +5,7 @@ import TitleScreen from "./routes/TitleScreen";
 import Level from "./routes/Level";
 import Options from "./routes/Options";
 import GameOver from "./routes/GameOver";
+import HowToPlay from "./routes/HowToPlay";
 
 const App = () => {
 
@@ -24,6 +25,10 @@ const App = () => {
     {
       path: "/game-over",
       element: <GameOver />,
+    },
+    {
+      path: "/how-to-play",
+      element: <HowToPlay />,
     },
   ])
 
