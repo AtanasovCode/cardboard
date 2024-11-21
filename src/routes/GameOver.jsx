@@ -16,6 +16,7 @@ const GameOver = () => {
         resetEverything,
         score,
         personalBest,
+        playClickSound,
     } = useGameLogicStore();
 
     return (
@@ -29,6 +30,7 @@ const GameOver = () => {
                 <div
                     className="flex items-center justify-center"
                     onClick={() => {
+                        playClickSound();
                         resetEverything();
                         navigate("/play");
                     }}
@@ -50,6 +52,7 @@ const GameOver = () => {
                 <div
                     className="flex items-center justify-center"
                     onClick={() => {
+                        playClickSound();
                         resetEverything();
                         navigate("/");
                     }}

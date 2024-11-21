@@ -64,11 +64,36 @@ export const useGameLogicStore = create(
             clickedCards: [],
             resetClickedCards: () => set({ clickedCards: [] }),
 
+            // play audio on click 
+            playClickSound: () => {
+                const clickSound = new Audio(`/audio/play.wav`);
+                clickSound.play();
+            },
+
+            // play audio on card click
+            playCardClickSound: () => {
+                const clickSound = new Audio(`/audio/click.wav`);
+                clickSound.play();
+            },
+
+            // play audio on click (when same card is clicked twice)
+            playMistakeSound: () => {
+                const clickSound = new Audio(`/audio/mistake.wav`);
+                clickSound.play();
+            },
+
+            // play audio when new round starts
+            playNewRoundSound: () => {
+                const clickSound = new Audio(`/audio/new-round.wav`);
+                clickSound.play();
+            },
+
 
             updateDisplayedCards: () => {
-                const { clickedCards, cardsToDisplay, resetClickedCards, levelUp, increaseCardsToDisplay, generateUniqueRandomCards } = get();
+                const { clickedCards, cardsToDisplay, playNewRoundSound, resetClickedCards, levelUp, increaseCardsToDisplay, generateUniqueRandomCards } = get();
 
                 if (clickedCards.length === cardsToDisplay) {
+                    playNewRoundSound();
                     resetClickedCards();
                     generateUniqueRandomCards(cardsToDisplay + 1);
                     levelUp();
@@ -78,15 +103,21 @@ export const useGameLogicStore = create(
 
             // Add a card to clickedCards and check game over logic
             addCard: (card) => set((state) => {
-                const { increaseScore } = get();
+                const {
+                    increaseScore,
+                    playCardClickSound,
+                    playMistakeSound,
+                } = get();
                 const updatedClickedCards = new Set(state.clickedCards);
 
                 if (!updatedClickedCards.has(card)) {
                     updatedClickedCards.add(card);
                     increaseScore();
+                    playCardClickSound();
 
                     return { clickedCards: Array.from(updatedClickedCards) }; // Convert Set to array
                 } else {
+                    playMistakeSound();
                     return { gameOver: true };
                 }
             }),

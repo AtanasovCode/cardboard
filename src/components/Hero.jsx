@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { useGameLogicStore } from "../../useGameLogicStore";
 import Card from "./Card";
 
 import { getCardBackground } from "../Utils";
@@ -13,6 +14,8 @@ const Hero = () => {
 
     const navigate = useNavigate();
 
+    const { playClickSound } = useGameLogicStore();
+
     return (
         <div className="flex flex-col items-center justify-center w-[95%] sm:w-[85%] md:w-[75%] z-50">
             <div className="w-full flex flex-col items-center justify-center mb-10">
@@ -26,7 +29,10 @@ const Hero = () => {
             <div className="w-full flex items-center justify-center">
                 <div
                     className=""
-                    onClick={() => navigate("/play")}
+                    onClick={() => {
+                        playClickSound();
+                        navigate("/play");
+                    }}
                 >
                     <Card
                         suit={spadesBlack}
@@ -43,7 +49,10 @@ const Hero = () => {
                 </div>
                 <div
                     className=""
-                    onClick={() => navigate("/options")}
+                    onClick={() => {
+                        playClickSound();
+                        navigate("/options");
+                    }}
                 >
                     <Card
                         suit={clubsBlack}
