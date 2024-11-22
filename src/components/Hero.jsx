@@ -5,10 +5,7 @@ import Card from "./Card";
 import { getCardBackground } from "../Utils";
 
 import clubsBlack from '../assets/suits/clubs-black.svg';
-import spadesBlack from '../assets/suits/spades-black.svg';
-
-
-import { Play, Gear } from "@phosphor-icons/react";
+import heartsBlack from '../assets/suits/hearts-black.svg';
 
 const Hero = () => {
 
@@ -16,56 +13,60 @@ const Hero = () => {
 
     const { playClickSound } = useGameLogicStore();
 
+    const cards = [
+        {
+            suit: heartsBlack,
+            rank: "Play",
+            id: "hearts-play",
+            handleClick: () => {
+                playClickSound();
+                navigate("/options");
+            },
+        },
+        {
+            suit: clubsBlack,
+            rank: "Options",
+            id: "clubs-play",
+            handleClick: () => {
+                playClickSound();
+                navigate("/play");
+            }
+        },
+    ];
+
     return (
-        <div className="flex flex-col items-center justify-center w-[95%] sm:w-[85%] md:w-[75%] z-50">
+        <div className="flex flex-col items-center justify-center z-50 w-full h-full">
             <div className="w-full flex flex-col items-center justify-center mb-10">
                 <div className="font-black text-5xl mb-2 text-center xl:text-6xl">
-                    Welcome to CardBoard
+                    CardBoard
                 </div>
                 <div className="font-semibold text-base xl:text-xl">
                     The Ultimate Memory Challenge!
                 </div>
             </div>
-            <div className="w-full flex items-center justify-center">
-                <div
-                    className=""
-                    onClick={() => {
-                        playClickSound();
-                        navigate("/play");
-                    }}
-                >
-                    <Card
-                        suit={spadesBlack}
-                        rank="Play"
-                        cardID="1"
-                        backgroundColor={getCardBackground("white-card-background")}
-                        size="w-[150px] sm:w-[200px] xl:w-[250px]"
-                        hoverEffect="hover:scale-[1.05] transition-all duration-300 ease-in-out"
-                        margin="m-2 md:m-6"
-                        rankStyling="lg:font-black lg:text-xl"
-                        suitStyling="lg:w-[30px] lg:h-[30px] xl:w-[35px] xl:h-[35px]"
-                        allowClick={false}
-                    />
-                </div>
-                <div
-                    className=""
-                    onClick={() => {
-                        playClickSound();
-                        navigate("/options");
-                    }}
-                >
-                    <Card
-                        suit={clubsBlack}
-                        rank="Options"
-                        cardID="1"
-                        backgroundColor={getCardBackground("white-card-background")}
-                        size="w-[150px] sm:w-[200px] xl:w-[250px]"
-                        hoverEffect="hover:scale-[1.05] transition-all duration-300 ease-in-out"
-                        margin="m-2 md:m-6"
-                        rankStyling="lg:font-black lg:text-xl"
-                        suitStyling="lg:w-[30px] lg:h-[30px] xl:w-[35px] xl:h-[35px]"
-                    />
-                </div>
+            <div className="w-full h-full flex items-center justify-center gap-3 lg:gap-8">
+                {
+                    cards.map((card) => {
+                        return (
+                            <div
+                                className="w-[40%] xs:w-auto xs:h-[45dvh]"
+                                onClick={card.handleClick}
+                            >
+                                <Card
+                                    key={card.id}
+                                    suit={card.suit}
+                                    rank={card.rank}
+                                    cardID={card.id}
+                                    backgroundColor={getCardBackground("white-card-background")}
+                                    size="w-full xs:w-auto xs:h-full"
+                                    hoverEffect="hover:scale-[1.04] transition-all duration-300 ease-in-out"
+                                    outline={null}
+                                    allowClick={false}
+                                />
+                            </div>
+                        );
+                    })
+                }
             </div>
         </div>
     );
