@@ -31,20 +31,21 @@ const MobileMenu = () => {
     const menuTransition = mobileMenu ? "translate-x-0" : "translate-x-[100%]";
 
     return (
-        <div className={`w-full h-[100dvh] z-[999] flex flex-col items-center justify-start
+        <div className={`w-full h-dvh z-[9999] flex flex-col items-center justify-start
                 fixed top-0 right-0 ${menuTransition} transition-all duration-500 ease-in-out bg-main-background
-                sm:w-[70%] md:w-[50%] lg:w-[30%] lg:max-w-[35rem] border-l-2 border-slate-500
+                sm:w-[70%] md:w-[50%] lg:w-[30%] lg:max-w-[35rem] sm:border-l-2 border-slate-500
+                sm:overflow-y-auto
         `}>
-            <div className="w-full flex items-center justify-center relative mb-16 p-6">
+            <div className="w-full h-[15%] flex items-center justify-center relative p-4 pb-0">
                 <div
-                    className="absolute left-[5%] w-7 h-7 cursor-pointer"
+                    className="absolute left-[5%] w-7 cursor-pointer h-7"
                     onClick={() => toggleMobileMenu()}
                 >
                     <X size="100%" weight="regular" fill="#FFF" />
                 </div>
-                <img src={logo} alt="logo" className="w-[65px] xs:w-[70px] md:w-[90px]" />
+                <img src={logo} alt="logo" className="h-[90%]" />
             </div>
-            <div className="flex flex-col items-center justify-center w-full">
+            <div className="flex-1 flex flex-col items-center justify-center w-full">
                 <MenuOption
                     optionName="Home"
                     icon={<img src={logo} alt="logo" className="w-full" />}

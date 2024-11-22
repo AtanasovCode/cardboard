@@ -10,7 +10,7 @@ const MenuOption = ({
 
     return (
         <div
-            className="w-full flex items-center justify-start cursor-pointer p-4 hover:bg-slate-700"
+            className="w-full flex items-center justify-start cursor-pointer p-4 hover:bg-slate-800"
             onClick={() => {
                 try {
                     handleClick?.(); // Safely call handleClick

@@ -19,7 +19,7 @@ const ScoreTracker = () => {
         <div className="w-full h-[15dvh] fixed top-0 left-0 flex items-center justify-between px-4 bg-main-background z-20 border-b-2 border-slate-500">
             <div className="flex flex-col items-center justify-center">
                 <div className="text-lg font-medium">
-                    Score {score}
+                    Score: {score}
                 </div>
             </div>
             <div className="flex items-center justify-center h-[70%]">
