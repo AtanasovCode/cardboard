@@ -19,58 +19,61 @@ const GameOver = () => {
         playClickSound,
     } = useGameLogicStore();
 
+    const cards = [
+        {
+            suit: heartsBlack,
+            rank: "Restart",
+            id: "hearts-play",
+            handleClick: () => {
+                playClickSound();
+                resetEverything();
+                navigate("/play");
+            },
+        },
+        {
+            suit: clubsBlack,
+            rank: "Main Menu",
+            id: "clubs-play",
+            handleClick: () => {
+                playClickSound();
+                resetEverything();
+                navigate("/");
+            }
+        },
+    ];
+
     return (
-        <div className="min-h-[100dvh] w-full flex flex-col items-center justify-center bg-luxury-black text-white cursor-none">
+        <div className="min-h-dvh w-full flex flex-col items-center justify-between bg-luxury-black text-white cursor-none py-16">
             <CustomCursor />
             <div className="z-0 absolute bottom-0 left-0 w-[100%] h-[35%] lg:h-[50%] lg:w-[50%] bg-background-graphic bg-contain bg-center lg:bg-left bg-no-repeat"></div>
-            <div className="font-bold text-4xl">Game Over</div>
-            <div className="font-bold text-xl">Personal Best: {personalBest}</div>
-            <div className="font-semibold text-md text-slate-300">Your Score: {score}</div>
-            <div className="flex items-center justify-center">
-                <div
-                    className="flex items-center justify-center"
-                    onClick={() => {
-                        playClickSound();
-                        resetEverything();
-                        navigate("/play");
-                    }}
-                >
-                    <Card
-                        suit={clubsBlack}
-                        rank="Restart"
-                        cardID="1"
-                        backgroundColor={getCardBackground("white-card-background")}
-                        rankColor="text-[#000]"
-                        size="w-[150px] sm:w-[200px] xl:w-[250px]"
-                        hoverEffect="hover:scale-[1.05] transition-all duration-300 ease-in-out"
-                        margin="m-3 md:m-6"
-                        rankStyling="lg:font-black lg:text-xl"
-                        suitSizes="lg:w-[30px] lg:h-[30px] xl:w-[35px] xl:h-[35px]"
-                        allowClick={false}
-                    />
-                </div>
-                <div
-                    className="flex items-center justify-center"
-                    onClick={() => {
-                        playClickSound();
-                        resetEverything();
-                        navigate("/");
-                    }}
-                >
-                    <Card
-                        suit={heartsBlack}
-                        rank="Main Menu"
-                        cardID="2"
-                        backgroundColor={getCardBackground("white-card-background")}
-                        rankColor="text-[#000]"
-                        size="w-[150px] sm:w-[200px] xl:w-[250px]"
-                        hoverEffect="hover:scale-[1.05] transition-all duration-300 ease-in-out"
-                        margin="m-3 md:m-6"
-                        rankStyling="lg:font-black lg:text-xl"
-                        suitSizes="lg:w-[30px] lg:h-[30px] xl:w-[35px] xl:h-[35px]"
-                        allowClick={false}
-                    />
-                </div>
+            <div className="w-full flex flex-col items-center justify-center">
+                <div className="mb-6 lg:mb-10 font-bold text-4xl md:text-5xl lg:text-6xl lg:font-black">Game Over</div>
+                <div className="font-bold text-base mb-2 md:text-lg lg:text-xl">Score: {score}</div>
+                <div className="font-medium text-sm md:text-base lg:text-lg text-slate-200">Personal Best: {personalBest}</div>
+            </div>
+            <div className="w-dvw flex items-center justify-center flex-1 gap-3 lg:gap-8">
+                {
+                    cards.map((card) => {
+                        return (
+                            <div
+                                className="w-[40%] xs:w-auto xs:h-[45dvh]"
+                                onClick={card.handleClick}
+                            >
+                                <Card
+                                    key={card.id}
+                                    suit={card.suit}
+                                    rank={card.rank}
+                                    cardID={card.id}
+                                    backgroundColor={getCardBackground("white-card-background")}
+                                    size="w-full xs:w-auto xs:h-full"
+                                    hoverEffect="hover:scale-[1.04] transition-all duration-300 ease-in-out"
+                                    outline={null}
+                                    allowClick={false}
+                                />
+                            </div>
+                        );
+                    })
+                }
             </div>
         </div>
     );
