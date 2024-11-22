@@ -20,7 +20,7 @@ const Hero = () => {
             id: "hearts-play",
             handleClick: () => {
                 playClickSound();
-                navigate("/options");
+                navigate("/play");
             },
         },
         {
@@ -29,7 +29,7 @@ const Hero = () => {
             id: "clubs-play",
             handleClick: () => {
                 playClickSound();
-                navigate("/play");
+                navigate("/options");
             }
         },
     ];
