@@ -46,7 +46,7 @@ const Level = () => {
             <ScoreTracker />
             <MobileMenu />
             <div className="w-[98%] mt-[15dvh] md:w-[90%] xl:w-[80%] max-w-[90rem] flex flex-1 items-center justify-center py-12 xl:py-14">
-                <div className="w-full flex items-center justify-center flex-wrap gap-1 md:gap-3 xl:gap-4">
+                <div className="w-full flex items-center justify-center flex-wrap gap-2 md:gap-3 xl:gap-4">
                     {
                         displayedCards.map((card, index) => {
                             return (
