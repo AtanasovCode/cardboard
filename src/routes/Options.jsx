@@ -15,7 +15,7 @@ const Options = () => {
     return (
         <div className="min-h-[100dvh] flex flex-col items-center justify-start bg-main-background text-white">
             <Preview />
-            <div className="w-full mt-[45dvh] pt-12 md:pt-16 flex items-center justify-center">
+            <div className="w-full mt-[50dvh] pt-12 md:pt-16 flex items-center justify-center">
                 <div className="w-full max-w-[90rem] flex flex-col items-center justify-center">
                     <OptionChoice
                         type="background"

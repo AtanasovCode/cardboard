@@ -10,7 +10,7 @@ const CardRank = ({
 
     return (
         <div className={`w-full flex flex-col items-start justify-center p-2 ${invertStyling}`}>
-            <div className={`text-xs xs:text-sm md:text-base font-semibold mb-1`}>
+            <div className={`text-xs md:text-sm font-semibold mb-1`}>
                 {rank}
             </div>
             <div className={`flex items-center justify-center w-[15%]`}>
