@@ -1,6 +1,6 @@
 ![](./src/assets/display-photos/readme-title.png)
 
-# The ultimate memory test!
+# The Ultimate Memory Test!
 
 ## How To Play?
 
@@ -11,7 +11,7 @@ for an extra challenge, a brand new unique card is added to the set. How long ca
 
 Try to beat your personal best score or compete with your friends and family!
 
-## Extremely Customizable1
+## Extremely Customizable
 
 Make the game your own! Customize everything from the way the background looks to the way your cards look. You can choose between many different options to customize the look and feel of the game. Change your background style and card background to get the perfect look for the game.
 
@@ -42,6 +42,8 @@ CardBoard is a fully fleshed out game that has many different features, includin
 
 Play the game and test your memory right now 👉 [Play CardBoard](https://play-cardboard.netlify.app)
 
+
+
 ### Possible Future Updates:
 
 This game will be continually updated, here are some future possible updates:
@@ -53,10 +55,6 @@ This game will be continually updated, here are some future possible updates:
 - Even more customization!
 - New game modes!
 
-### Credits
-
-Built with ❤️ by [atanasovCode](https://github.com/AtanasovCode/)
-
 ### Built With:
 
 - React.js
@@ -64,3 +62,7 @@ Built with ❤️ by [atanasovCode](https://github.com/AtanasovCode/)
 - React Router - for navigating between pages
 - TailwindCSS - for styling
 - Phosphor Icons - for the amazing icons
+
+### Author
+
+Built with ❤️ by [atanasovCode](https://github.com/AtanasovCode/)
