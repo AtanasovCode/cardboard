@@ -1,26 +1,10 @@
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 
-//suit icons
-import heartsColorful from './src/assets/suits/hearts-colorful.svg';
-import spadesColorful from './src/assets/suits/spades-colorful.svg';
-import clubsColorful from './src/assets/suits/clubs-colorful.svg';
-import diamondsColorful from './src/assets/suits/diamonds-colorful.svg';
-
-import heartsDarker from './src/assets/suits/hearts-darker.svg';
-import spadesDarker from './src/assets/suits/spades-darker.svg';
-import clubsDarker from './src/assets/suits/clubs-darker.svg';
-import diamondsDarker from './src/assets/suits/diamonds-darker.svg';
-
-import heartsBlack from './src/assets/suits/hearts-black.svg';
-import spadesBlack from './src/assets/suits/spades-black.svg';
-import clubsBlack from './src/assets/suits/clubs-black.svg';
-import diamondsBlack from './src/assets/suits/diamonds-black.svg';
-
-import heartsWhite from './src/assets/suits/hearts-white.svg';
-import spadesWhite from './src/assets/suits/spades-white.svg';
-import clubsWhite from './src/assets/suits/clubs-white.svg';
-import diamondsWhite from './src/assets/suits/diamonds-white.svg';
+import DiamondsSuit from './src/components/suits/DiamondsSuit';
+import HeartsSuit from './src/components/suits/HeartsSuit';
+import SpadesSuit from './src/components/suits/SpadesSuit';
+import ClubsSuit from './src/components/suits/ClubsSuit';
 
 export const useCardStore = create(
   persist(
@@ -28,107 +12,28 @@ export const useCardStore = create(
       ranks: ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"],
       suits: [
         {
-          type: "White",
-          data: [
-            {
-              name: "hearts",
-              icon: heartsWhite,
-            },
-            {
-              name: "diamonds",
-              icon: diamondsWhite,
-            },
-            {
-              name: "spades",
-              icon: spadesWhite,
-            },
-            {
-              name: "clubs",
-              icon: clubsWhite,
-            },
+          type: "simple",
+          suits: [
+            { name: "hearts", suit: <HeartsSuit /> },
+            { name: "spades", suit: <SpadesSuit /> },
+            { name: "clubs", suit: <ClubsSuit /> },
+            { name: "diamonds", suit: <DiamondsSuit /> },
           ],
-        },
-        {
-          type: "Black",
-          data: [
-            {
-              name: "hearts",
-              icon: heartsBlack,
-            },
-            {
-              name: "diamonds",
-              icon: diamondsBlack,
-            },
-            {
-              name: "spades",
-              icon: spadesBlack,
-            },
-            {
-              name: "clubs",
-              icon: clubsBlack,
-            },
-          ],
-        },
-        {
-          type: "Darker",
-          data: [
-            {
-              name: "hearts",
-              icon: heartsDarker,
-            },
-            {
-              name: "diamonds",
-              icon: diamondsDarker,
-            },
-            {
-              name: "spades",
-              icon: spadesDarker,
-            },
-            {
-              name: "clubs",
-              icon: clubsDarker,
-            },
-          ],
-        },
-        {
-          type: "Colorful",
-          data: [
-            {
-              name: "hearts",
-              icon: heartsColorful,
-            },
-            {
-              name: "diamonds",
-              icon: diamondsColorful,
-            },
-            {
-              name: "spades",
-              icon: spadesColorful,
-            },
-            {
-              name: "clubs",
-              icon: clubsColorful,
-            },
-          ],
-        },
+        }
       ],
 
       // customization
-      suitStyle: "Black",
-      changeSuitStyle: (style) => set({ suitStyle: style }),
-      suitStyles: [
-        { name: "Colorful", icon: spadesColorful, handleClick: () => get().changeSuitStyle("Colorful") },
-        { name: "Darker", icon: spadesDarker, handleClick: () => get().changeSuitStyle("Darker") },
-        { name: "Black", icon: spadesBlack, handleClick: () => get().changeSuitStyle("Black") },
-        { name: "White", icon: spadesWhite, handleClick: () => get().changeSuitStyle("White") },
-      ],
+      suitType: "simple",
+      changeSuitType: (style) => set({ suitStyle: style }),
+      suitColor: "White",
+      changeSuitColor: (color) => set({ suitColor: color }),
 
-      getSuitStyle: (suit) => {
-        const { suits, suitStyle } = get();
-        const suitGroup = suits.find((item) => item.type === suitStyle);
+      getSuit: (suit) => {
+        const { suits, suitType } = get();
+        const suitGroup = suits.find((item) => item.type === suitType);
         if (!suitGroup) return null; // Handle case where suitStyle doesn't match any type
-        const suitData = suitGroup.data.find((item) => item.name === suit);
-        return suitData ? suitData.icon : null; // Return icon or null if not found
+        const chosenSuit = suitGroup.suits.find((item) => item.name === suit);
+        return chosenSuit ? chosenSuit.suit : null; // Return icon or null if not found
       },
 
 

@@ -3,6 +3,7 @@ import Hero from "../components/Hero";
 import CustomCursor from "../components/CustomCursor";
 
 const TitleScreen = () => {
+
     return (
         <div
             className={`

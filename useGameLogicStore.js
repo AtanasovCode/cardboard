@@ -35,18 +35,18 @@ export const useGameLogicStore = create(
 
             // generate a set of unique cards with random suits and ranks
             generateUniqueRandomCards: (numberOfCardsToGenerate) => set((state) => {
-                const { ranks, suits, suitStyle } = useCardStore.getState(); // Get state from `useCardStore`
+                const { ranks, suits, suitType } = useCardStore.getState(); // Get state from `useCardStore`
 
                 const cards = [];
                 const uniqueCards = new Set();
 
                 while (cards.length < numberOfCardsToGenerate && uniqueCards.size < ranks.length * suits.length) {
                     const randomRank = ranks[Math.floor(Math.random() * ranks.length)];
-                    const suitGroup = suits.find((suit) => suit.type === suitStyle);
+                    const suitGroup = suits.find((suit) => suit.type === suitType);
 
                     if (!suitGroup) continue; // Skip if no suit group matches the style
 
-                    const randomSuit = suitGroup.data[Math.floor(Math.random() * suitGroup.data.length)];
+                    const randomSuit = suitGroup.suits[Math.floor(Math.random() * suitGroup.suits.length)];
                     const uniqueID = `${randomSuit.name}-${randomRank}`;
 
                     if (!uniqueCards.has(uniqueID)) {

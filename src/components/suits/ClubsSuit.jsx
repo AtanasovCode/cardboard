@@ -3,8 +3,8 @@ import * as React from "react";
 const ClubsSuit = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width={60}
-    height={60}
+    className="w-full h-full" // Ensures it fills the container without clipping
+    viewBox="0 0 60 60" // Define the viewBox to maintain aspect ratio
     fill="none"
     {...props}
   >
@@ -13,5 +13,6 @@ const ClubsSuit = (props) => (
       <rect width={19} height={18} x={39} y={31} rx={9} />
     </g>
   </svg>
-)
+);
+
 export default ClubsSuit;
