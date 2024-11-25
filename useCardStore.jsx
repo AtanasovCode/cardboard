@@ -25,26 +25,6 @@ export const useCardStore = create(
       // customization
       suitType: "simple",
       changeSuitType: (style) => set({ suitStyle: style }),
-      suitColors: [
-        {name: "black-suit-color", color: "suit-black", handleClick: () => changeSuitColor("black-suit-color")},
-        {name: "white-suit-color", color: "suit-white", handleClick: () => changeSuitColor("white-suit-color")},
-        {name: "green-suit-color", color: "suit-green", handleClick: () => changeSuitColor("green-suit-color")},
-        {name: "lime-suit-color", color: "suit-lime", handleClick: () => changeSuitColor("lime-suit-color")},
-        {name: "red-suit-color", color: "suit-red", handleClick: () => changeSuitColor("red-suit-color")},
-        {name: "dark-red-suit-color", color: "suit-dark-red", handleClick: () => changeSuitColor("dark-red-suit-color")},
-        {name: "blue-suit-color", color: "suit-blue", handleClick: () => changeSuitColor("blue-suit-color")},
-        {name: "light-blue-suit-color", color: "suit-light-blue", handleClick: () => changeSuitColor("light-blue-suit-color")},
-        {name: "yellow-suit-color", color: "suit-yellow", handleClick: () => changeSuitColor("yellow-suit-color")},
-      ],
-
-      spadesColor: "black-suit-color",
-      changeSpadesColor: (color) => set({ SpadesColor: color }),
-      heartsColor: "black-suit-color",
-      changeHeartsColor: (color) => set({ HeartsColor: color }),
-      diamondsColor: "black-suit-color",
-      changeDiamondsColor: (color) => set({ diamondsColor: color }),
-      clubsColor: "black-suit-color",
-      changeClubsColor: (color) => set({ clubsColor: color }),
 
       getSuit: (suit) => {
         const { suits, suitType } = get();
@@ -53,6 +33,150 @@ export const useCardStore = create(
         const chosenSuit = suitGroup.suits.find((item) => item.name === suit);
         return chosenSuit ? chosenSuit.suit : null; // Return icon or null if not found
       },
+
+      // suit colors
+      spadesColor: "#000",
+      changeSpadesColor: (color) => set({ SpadesColor: color }),
+      heartsColor: "#000",
+      changeHeartsColor: (color) => set({ HeartsColor: color }),
+      diamondsColor: "#000",
+      changeDiamondsColor: (color) => set({ diamondsColor: color }),
+      clubsColor: "#000",
+      changeClubsColor: (color) => set({ clubsColor: color }),
+
+      setAllSuitColors: (color) =>
+        set({
+          heartsColor: color,
+          diamondsColor: color,
+          spadesColor: color,
+          clubsColor: color,
+        }),
+
+      setSuitColors: (style) => set(() => {
+        const { setAllSuitColors } = get();
+        switch (style) {
+          case "all-black":
+            return {
+              clubsColor: "#000",
+              spadesColor: "#000",
+              heartsColor: "#000",
+              diamondsColor: "#000",
+            };
+            break;
+          case "all-white":
+            return {
+              clubsColor: "#fff",
+              spadesColor: "#fff",
+              heartsColor: "#fff",
+              diamondsColor: "#fff",
+            };
+            break;
+          case "all-blue":
+            return {
+              clubsColor: "#112ff0",
+              spadesColor: "#112ff0",
+              heartsColor: "#112ff0",
+              diamondsColor: "#112ff0",
+            };
+          case "all-red":
+            return {
+              clubsColor: "#fc2a2a",
+              spadesColor: "#fc2a2a",
+              heartsColor: "#fc2a2a",
+              diamondsColor: "#fc2a2a",
+            };
+          case "all-yellow":
+            return {
+              clubsColor: "#eae705",
+              spadesColor: "#eae705",
+              heartsColor: "#eae705",
+              diamondsColor: "#eae705",
+            };
+          case "colorful":
+            return {
+              clubsColor: "#00d72b",
+              spadesColor: "#00d72b",
+              heartsColor: "#fc2a2a",
+              diamondsColor: "#fc2a2a",
+            };
+          case "colorful-darker":
+            return {
+              clubsColor: "#01931e",
+              spadesColor: "#01931e",
+              heartsColor: "#b70505",
+              diamondsColor: "#b70505",
+            };
+          case "all-different":
+            return {
+              clubsColor: "#00d72b",
+              spadesColor: "#111cf8",
+              heartsColor: "#fc2a2a",
+              diamondsColor: "#eae705",
+            };
+          default:
+            return {}; // No state change for unrecognized styles
+        }
+      }),
+
+
+      suitColors: [
+        {
+          name: "all-black",
+          colors: { hearts: "#000", spades: "#000", clubs: "#000", diamonds: "#000" },
+          handleClick: () => get().setSuitColors("all-black")
+        },
+        {
+          name: "all-white",
+          colors: { hearts: "#FFF", spades: "#FFF", clubs: "#FFF", diamonds: "#FFF" },
+          handleClick: () => get().setSuitColors("all-white")
+        },
+        {
+          name: "all-blue",
+          colors: { hearts: "#112ff0", spades: "#112ff0", clubs: "#112ff0", diamonds: "#112ff0" },
+          handleClick: () => get().setSuitColors("all-blue")
+        },
+        {
+          name: "all-red",
+          colors: { hearts: "#fc2a2a", spades: "#fc2a2a", clubs: "#fc2a2a", diamonds: "#fc2a2a" },
+          handleClick: () => get().setSuitColors("all-red")
+        },
+        {
+          name: "all-yellow",
+          colors: { hearts: "#eae705", spades: "#eae705", clubs: "#eae705", diamonds: "#eae705" },
+          handleClick: () => get().setSuitColors("all-yellow")
+        },
+        {
+          name: "colorful",
+          colors: { hearts: "#fc2a2a", spades: "#00d72b", clubs: "#00d72b", diamonds: "#fc2a2a" },
+          handleClick: () => get().setSuitColors("colorful")
+        },
+        {
+          name: "colorful-darker",
+          colors: { hearts: "#b70505", spades: "#01931e", clubs: "#01931e", diamonds: "#b70505" },
+          handleClick: () => get().setSuitColors("colorful-darker")
+        },
+        {
+          name: "all-different",
+          colors: { hearts: "#fc2a2a", spades: "#111cf8", clubs: "#00d72b", diamonds: "#eae705" },
+          handleClick: () => get().setSuitColors("all-different")
+        },
+      ],
+
+      getSuitColor: (suit) => {
+        const { heartsColor, spadesColor, diamondsColor, clubsColor } = get();
+
+        switch (suit) {
+          case "hearts":
+            return heartsColor;
+          case "spades":
+            return spadesColor;
+          case "clubs":
+            return clubsColor;
+          case "diamonds":
+            return diamondsColor;
+        };
+      },
+
 
 
       backgroundStyle: "pool-table-background-style",

@@ -1,10 +1,9 @@
 import * as React from "react";
 import { useCardStore } from "../../../useCardStore";
-import { getSuitColor } from "../../Utils";
 
 const DiamondsSuit = (props) => {
 
-    const { diamondsColor } = useCardStore();
+    const { getSuitColor } = useCardStore();
 
     return (
         <svg
@@ -14,7 +13,7 @@ const DiamondsSuit = (props) => {
             fill="none"
         >
             <path
-                fill={props.color ? props.color : getSuitColor(diamondsColor)}
+                fill={props.color ? props.color : getSuitColor("diamonds")}
                 stroke={props.outline ? "#FFF" : "none"} // Adds outline conditionally
                 d="M30 0 0 30l30 30 30-30L30 0Z"
             />

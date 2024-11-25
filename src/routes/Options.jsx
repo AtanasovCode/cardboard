@@ -33,6 +33,11 @@ const Options = () => {
                         title="Card Border Color"
                         options={cardOutlineColors}
                     />
+                    <OptionChoice
+                        type="suits"
+                        title="Suit Colors"
+                        options={suitColors}
+                    />
                 </div>
             </div>
         </div>

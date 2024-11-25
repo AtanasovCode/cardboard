@@ -3,7 +3,7 @@ import BackgroundChoice from "./BackgroundChoice";
 import SuitChoice from "./SuitChoice";
 
 const OptionChoice = ({ type, title, options }) => {
-    const { backgroundStyle, cardBackground, cardOutlineColor, suitStyle } = useCardStore();
+    const { backgroundStyle, cardBackground, cardOutlineColor, suitColor } = useCardStore();
 
     return (
         <div className="w-[90%] md:w-full flex flex-col md:flex-row items-center justify-between mb-12 md:mb-16">
@@ -34,13 +34,14 @@ const OptionChoice = ({ type, title, options }) => {
                         );
                     })
                     : options.map((option) => {
-                        const isSelected = suitStyle === option.name; // Or whatever logic applies to "suits"
+                        const isSelected = suitColor === option.name;
                         return (
                             <SuitChoice
                                 key={option.name}
                                 isSelected={isSelected}
                                 name={option.name}
-                                icon={option.icon}
+                                color={option.name}
+                                colors={option.colors}
                                 handleClick={option.handleClick}
                             />
                         );
