@@ -12,8 +12,7 @@ const Preview = () => {
     const {
         backgroundStyle,
         cardBackground,
-        suitStyle,
-        getSuitStyle,
+        getSuit,
         cardOutline,
     } = useCardStore();
 
@@ -38,7 +37,7 @@ const Preview = () => {
                     cards.map((card) => {
                         return (
                             <Card
-                                suit={getSuitStyle(card.suit)}
+                                suit={getSuit(card.suit)}
                                 rank={card.rank}
                                 cardID={card.id}
                                 backgroundColor={getCardBackground(cardBackground)}

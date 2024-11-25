@@ -25,8 +25,26 @@ export const useCardStore = create(
       // customization
       suitType: "simple",
       changeSuitType: (style) => set({ suitStyle: style }),
-      suitColor: "White",
-      changeSuitColor: (color) => set({ suitColor: color }),
+      suitColors: [
+        {name: "black-suit-color", color: "suit-black", handleClick: () => changeSuitColor("black-suit-color")},
+        {name: "white-suit-color", color: "suit-white", handleClick: () => changeSuitColor("white-suit-color")},
+        {name: "green-suit-color", color: "suit-green", handleClick: () => changeSuitColor("green-suit-color")},
+        {name: "lime-suit-color", color: "suit-lime", handleClick: () => changeSuitColor("lime-suit-color")},
+        {name: "red-suit-color", color: "suit-red", handleClick: () => changeSuitColor("red-suit-color")},
+        {name: "dark-red-suit-color", color: "suit-dark-red", handleClick: () => changeSuitColor("dark-red-suit-color")},
+        {name: "blue-suit-color", color: "suit-blue", handleClick: () => changeSuitColor("blue-suit-color")},
+        {name: "light-blue-suit-color", color: "suit-light-blue", handleClick: () => changeSuitColor("light-blue-suit-color")},
+        {name: "yellow-suit-color", color: "suit-yellow", handleClick: () => changeSuitColor("yellow-suit-color")},
+      ],
+
+      spadesColor: "black-suit-color",
+      changeSpadesColor: (color) => set({ SpadesColor: color }),
+      heartsColor: "black-suit-color",
+      changeHeartsColor: (color) => set({ HeartsColor: color }),
+      diamondsColor: "black-suit-color",
+      changeDiamondsColor: (color) => set({ diamondsColor: color }),
+      clubsColor: "black-suit-color",
+      changeClubsColor: (color) => set({ clubsColor: color }),
 
       getSuit: (suit) => {
         const { suits, suitType } = get();

@@ -60,3 +60,13 @@ export const getCardOutlineColor = (color) => {
             return "border-card-outline-yellow";
     }
 };
+
+
+export const getSuitColor = (color) => {
+    switch (color) {
+        case "black-suit-color":
+            return "#000";
+        case "white-suit-color":
+            return "#FFF";
+    }
+}

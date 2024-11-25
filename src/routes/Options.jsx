@@ -8,8 +8,8 @@ const Options = () => {
     const {
         backgroundStyles,
         cardBackgrounds,
-        suitStyles,
         cardOutlineColors,
+        suitColors,
     } = useCardStore();
 
     return (
@@ -26,11 +26,6 @@ const Options = () => {
                         type="background"
                         title="Card Background"
                         options={cardBackgrounds}
-                    />
-                    <OptionChoice
-                        type="suit"
-                        title="Suit Style"
-                        options={suitStyles}
                     />
                     <BorderToggle />
                     <OptionChoice
