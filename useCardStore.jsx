@@ -234,6 +234,10 @@ export const useCardStore = create(
         backgroundStyle: state.backgroundStyle,
         cardOutline: state.cardOutline,
         cardOutlineColor: state.cardOutlineColor,
+        heartsColor: state.heartsColor,
+        spadesColor: state.spadesColor,
+        diamondsColor: state.diamondsColor,
+        clubsColor: state.clubsColor,
       }),
     }
   )
