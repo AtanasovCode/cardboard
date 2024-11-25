@@ -113,6 +113,13 @@ export const useCardStore = create(
               heartsColor: "#fc2a2a",
               diamondsColor: "#eae705",
             };
+          case "all-different-alternative":
+            return {
+              clubsColor: "#4aff25",
+              spadesColor: "#4b7dfb",
+              heartsColor: "#fc4141",
+              diamondsColor: "#f420c2",
+            };
           default:
             return {}; // No state change for unrecognized styles
         }
@@ -159,6 +166,11 @@ export const useCardStore = create(
           name: "all-different",
           colors: { hearts: "#fc2a2a", spades: "#111cf8", clubs: "#00d72b", diamonds: "#eae705" },
           handleClick: () => get().setSuitColors("all-different")
+        },
+        {
+          name: "all-different-alternative",
+          colors: { hearts: "#fc4141", spades: "#4b7dfb", clubs: "#4aff25", diamonds: "#f420c2" },
+          handleClick: () => get().setSuitColors("all-different-alternative")
         },
       ],
 
