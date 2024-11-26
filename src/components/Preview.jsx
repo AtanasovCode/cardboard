@@ -24,7 +24,7 @@ const Preview = () => {
     ];
 
     return (
-        <div className={`fixed top-0 left-0 w-full h-[50dvh] z-[9999] ${getBackgroundStyle(backgroundStyle)} flex items-center justify-center
+        <div className={`fixed top-0 left-0 w-full h-[50dvh] lg:h-[40dvh] z-[9999] ${getBackgroundStyle(backgroundStyle)} flex items-center justify-center
         border-b-2 border-slate-500`}>
             <div
                 className="absolute top-[5%] left-[5%] lg:left-[2%] w-6 lg:w-8 cursor-pointer"

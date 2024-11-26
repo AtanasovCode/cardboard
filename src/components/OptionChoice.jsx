@@ -2,6 +2,9 @@ import { useCardStore } from "../../useCardStore";
 import BackgroundChoice from "./BackgroundChoice";
 import SuitChoice from "./SuitChoice";
 
+import PrevArrow from "./slider/PrevArrow";
+import NextArrow from "./slider/NextArrow";
+
 // for react-slick
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -20,28 +23,36 @@ const OptionChoice = ({ type, title, options }) => {
         dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 6,
+        slidesToShow: 7,
         slidesToScroll: 1,
+        nextArrow: <NextArrow />,
+        prevArrow: <PrevArrow />,
 
         responsive: [
             {
                 breakpoint: 1024, // Below 1024px
                 settings: {
-                    slidesToShow: 5,
+                    slidesToShow: 6,
+                },
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 4,
                 },
             },
             {
                 breakpoint: 400, // Below 480px
                 settings: {
-                    slidesToShow: 2,
+                    slidesToShow: 3,
                 },
             },
         ],
     };
-
+ 
     return (
-        <div className="w-full flex flex-col items-center justify-center mb-12 md:mb-16">
-            <div className="w-full text-md lg:text-lg mb-6">
+        <div className="w-full flex flex-col items-center justify-center">
+            <div className="w-full text-sm md:text-base mb-2 lg:mb-4 text-center sm:text-left">
                 {title}
             </div>
             <div className="w-full">

@@ -25,7 +25,7 @@ const SuitChoice = ({
         <div className={`
             w-full aspect-square rounded-xl
             border-2 ${borderStyle} relative cursor-pointer
-            grid grid-cols-2
+            grid grid-cols-2 overflow-hidden
         `}
             onClick={handleClick}
         >
