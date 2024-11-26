@@ -52,11 +52,12 @@ export const useCardStore = create(
           clubsColor: color,
         }),
 
+      suitColor: "all-black",
       setSuitColors: (style) => set(() => {
-        const { setAllSuitColors } = get();
         switch (style) {
           case "all-black":
             return {
+              suitColor: "all-black",
               clubsColor: "#000",
               spadesColor: "#000",
               heartsColor: "#000",
@@ -65,6 +66,7 @@ export const useCardStore = create(
             break;
           case "all-white":
             return {
+              suitColor: "all-white",
               clubsColor: "#fff",
               spadesColor: "#fff",
               heartsColor: "#fff",
@@ -73,6 +75,7 @@ export const useCardStore = create(
             break;
           case "all-blue":
             return {
+              suitColor: "all-blue",
               clubsColor: "#112ff0",
               spadesColor: "#112ff0",
               heartsColor: "#112ff0",
@@ -80,6 +83,7 @@ export const useCardStore = create(
             };
           case "all-red":
             return {
+              suitColor: "all-red",
               clubsColor: "#fc2a2a",
               spadesColor: "#fc2a2a",
               heartsColor: "#fc2a2a",
@@ -87,6 +91,7 @@ export const useCardStore = create(
             };
           case "all-yellow":
             return {
+              suitColor: "all-yellow",
               clubsColor: "#eae705",
               spadesColor: "#eae705",
               heartsColor: "#eae705",
@@ -94,6 +99,7 @@ export const useCardStore = create(
             };
           case "colorful":
             return {
+              suitColor: "colorful",
               clubsColor: "#00d72b",
               spadesColor: "#00d72b",
               heartsColor: "#fc2a2a",
@@ -101,6 +107,7 @@ export const useCardStore = create(
             };
           case "colorful-darker":
             return {
+              suitColor: "colorful-darker",
               clubsColor: "#01931e",
               spadesColor: "#01931e",
               heartsColor: "#b70505",
@@ -108,6 +115,7 @@ export const useCardStore = create(
             };
           case "all-different":
             return {
+              suitColor: "all-different",
               clubsColor: "#00d72b",
               spadesColor: "#111cf8",
               heartsColor: "#fc2a2a",
@@ -115,6 +123,7 @@ export const useCardStore = create(
             };
           case "all-different-alternative":
             return {
+              suitColor: "all-different-alternative",
               clubsColor: "#4aff25",
               spadesColor: "#4b7dfb",
               heartsColor: "#fc4141",

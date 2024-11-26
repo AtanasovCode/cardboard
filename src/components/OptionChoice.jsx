@@ -8,26 +8,32 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
 const OptionChoice = ({ type, title, options }) => {
-    const { backgroundStyle, cardBackground, cardOutlineColor, suitColor } = useCardStore();
+
+    const {
+        backgroundStyle,
+        cardBackground,
+        cardOutlineColor,
+        suitColor,
+    } = useCardStore();
 
     const settings = {
         dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 5,
+        slidesToShow: 6,
         slidesToScroll: 1,
 
         responsive: [
             {
                 breakpoint: 1024, // Below 1024px
                 settings: {
-                    slidesToShow: 4,
+                    slidesToShow: 5,
                 },
             },
             {
-                breakpoint: 768, // Below 768px
+                breakpoint: 400, // Below 480px
                 settings: {
-                    slidesToShow: 3, 
+                    slidesToShow: 2,
                 },
             },
         ],
@@ -39,7 +45,7 @@ const OptionChoice = ({ type, title, options }) => {
                 {title}
             </div>
             <div className="w-full">
-                <Slider 
+                <Slider
                     {...settings}
                 >
                     {

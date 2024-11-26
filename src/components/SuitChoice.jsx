@@ -15,22 +15,37 @@ const SuitChoice = ({
     idx,
 }) => {
 
-    const { suitStyle } = useCardStore();
+    const { suitStyle, getSuitColor } = useCardStore();
 
     const borderStyle = isSelected ? "border-white" : "border-slate-500";
+
+    console.log(`bg-[${colors['hearts']}]`);
 
     return (
         <div className={`
             w-full aspect-square rounded-xl
             border-2 ${borderStyle} relative cursor-pointer
-            grid grid-cols-2 gap-1 p-1
+            grid grid-cols-2
         `}
             onClick={handleClick}
         >
-            <HeartsSuit color={colors["hearts"]} />
-            <SpadesSuit color={colors["spades"]} />
-            <DiamondsSuit color={colors["diamonds"]} />
-            <ClubsSuit color={colors["clubs"]} />
+            <div
+                className={`w-full aspect-square`}
+                style={{ backgroundColor: colors['hearts'] }}
+            ></div>
+            <div
+                className={`w-full aspect-square`}
+                style={{ backgroundColor: colors['spades'] }}
+            ></div>
+            <div
+                className={`w-full aspect-square`}
+                style={{ backgroundColor: colors['clubs'] }}
+            ></div>
+            <div
+                className={`w-full aspect-square`}
+                style={{ backgroundColor: colors['diamonds'] }}
+            ></div>
+
             {isSelected && (
                 <div className="absolute right-[2%] top-[2%] w-4 h-4">
                     <CheckCircle size="100%" weight="fill" color="#00ff00" />

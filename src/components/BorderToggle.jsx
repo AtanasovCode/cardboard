@@ -9,8 +9,8 @@ const BorderToggle = () => {
     const inactiveTextColor = cardOutline ? "text-white" : "text-black";
 
     return (
-        <div className="w-[90%] md:w-full  flex items-center justify-between  mb-8 md:mb-10">
-            <div className="text-left text-sm">
+        <div className="w-full  flex items-center justify-between  mb-12 md:mb-16">
+            <div className="w-full text-md lg:text-lg">
                 Card Border
             </div>
             <div
