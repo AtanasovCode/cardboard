@@ -12,8 +12,7 @@ const Preview = () => {
     const {
         backgroundStyle,
         cardBackground,
-        suitStyle,
-        getSuitStyle,
+        getSuit,
         cardOutline,
     } = useCardStore();
 
@@ -25,7 +24,7 @@ const Preview = () => {
     ];
 
     return (
-        <div className={`fixed top-0 left-0 w-full h-[50dvh] z-[9999] ${getBackgroundStyle(backgroundStyle)} flex items-center justify-center
+        <div className={`fixed top-0 left-0 w-full h-[50dvh] lg:h-[40dvh] z-[9999] ${getBackgroundStyle(backgroundStyle)} flex items-center justify-center
         border-b-2 border-slate-500`}>
             <div
                 className="absolute top-[5%] left-[5%] lg:left-[2%] w-6 lg:w-8 cursor-pointer"
@@ -33,16 +32,16 @@ const Preview = () => {
             >
                 <ArrowLeft size="100%" weight="regular" color="#FFF" />
             </div>
-            <div className="w-[98%] flex items-center justify-center flex-1 flex-wrap gap-2 md:gap-3 lg:gap-4">
+            <div className="w-full flex items-center justify-center flex-1 flex-wrap gap-2 xl:gap-4">
                 {
                     cards.map((card) => {
                         return (
                             <Card
-                                suit={getSuitStyle(card.suit)}
+                                suit={getSuit(card.suit)}
                                 rank={card.rank}
                                 cardID={card.id}
                                 backgroundColor={getCardBackground(cardBackground)}
-                                size="w-[20%] xs:w-auto xs:h-[25dvh] md:h-[30dvh]"
+                                size="w-[20%] xs:w-auto xs:h-[22dvh]"
                                 outline={cardOutline}
                                 allowClick={false}
                             />

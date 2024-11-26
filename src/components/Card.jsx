@@ -22,11 +22,8 @@ const Card = ({
     const {
         shuffleCards,
         addCard,
-        increaseScore,
         score,
-        personalBest,
         increasePersonalBest,
-        gameOver,
     } = useGameLogicStore();
 
     const {

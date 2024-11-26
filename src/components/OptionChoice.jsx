@@ -2,49 +2,104 @@ import { useCardStore } from "../../useCardStore";
 import BackgroundChoice from "./BackgroundChoice";
 import SuitChoice from "./SuitChoice";
 
+import PrevArrow from "./slider/PrevArrow";
+import NextArrow from "./slider/NextArrow";
+
+// for react-slick
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+
 const OptionChoice = ({ type, title, options }) => {
-    const { backgroundStyle, cardBackground, cardOutlineColor, suitStyle } = useCardStore();
+
+    const {
+        backgroundStyle,
+        cardBackground,
+        cardOutlineColor,
+        suitColor,
+        cardOutline,
+    } = useCardStore();
+
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 7,
+        slidesToScroll: 1,
+        nextArrow: <NextArrow />,
+        prevArrow: <PrevArrow />,
+
+        responsive: [
+            {
+                breakpoint: 1024, // Below 1024px
+                settings: {
+                    slidesToShow: 6,
+                },
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 4,
+                },
+            },
+            {
+                breakpoint: 400, // Below 480px
+                settings: {
+                    slidesToShow: 3,
+                },
+            },
+        ],
+    };
+
+    const isActive = title === "Card Border Color" && cardOutline;
+    const activeStyling = isActive ? "opacity-100" : "opacity-30 pointer-events-none";
 
     return (
-        <div className="w-[90%] md:w-full flex flex-col md:flex-row items-center justify-between mb-12 md:mb-16">
-            <div className="w-full md:w-auto text-left text-sm mb-4 md:mb-0">
+        <div className={`
+            w-full flex flex-col items-center justify-center ${title === "Card Border Color" && activeStyling}
+            transition-all duration-300 ease-in-out
+        `}>
+            <div className="w-full text-sm md:text-base mb-2 lg:mb-4 text-center sm:text-left">
                 {title}
             </div>
-            <div
-                className={`
-                    w-full md:w-auto grid gap-2 xs:flex xs:items-center xs:justify-center
-                    ${type === "background" ? "grid-cols-6" : "grid-cols-4"}
-                    place-items-center justify-items-center
-                `}
-            >
-                {type === "background"
-                    ? options.map((option) => {
-                        const isSelected = cardBackground === option.name
-                            || backgroundStyle === option.name
-                            || cardOutlineColor === option.name;
+            <div className={`w-full`}>
+                <Slider
+                    {...settings}
+                >
+                    {
+                        type === "background" ?
+                            (options.map((option) => {
+                                const isSelected = cardBackground === option.name
+                                    || backgroundStyle === option.name
+                                    || cardOutlineColor === option.name;
 
-                        return (
-                            <BackgroundChoice
-                                key={option.name}
-                                isSelected={isSelected}
-                                name={option.name}
-                                color={option.color}
-                                handleClick={option.handleClick}
-                            />
-                        );
-                    })
-                    : options.map((option) => {
-                        const isSelected = suitStyle === option.name; // Or whatever logic applies to "suits"
-                        return (
-                            <SuitChoice
-                                key={option.name}
-                                isSelected={isSelected}
-                                name={option.name}
-                                icon={option.icon}
-                                handleClick={option.handleClick}
-                            />
-                        );
-                    })}
+                                return (
+                                    <BackgroundChoice
+                                        key={option.name}
+                                        isSelected={isSelected}
+                                        name={option.name}
+                                        color={option.color}
+                                        handleClick={option.handleClick}
+                                    />
+                                );
+                            }))
+                            :
+                            (options.map((option, index) => {
+                                const isSelected = suitColor === option.name;
+                                return (
+                                    <SuitChoice
+                                        idx={index}
+                                        key={option.name}
+                                        isSelected={isSelected}
+                                        name={option.name}
+                                        color={option.name}
+                                        colors={option.colors}
+                                        handleClick={option.handleClick}
+                                    />
+                                );
+                            }))
+                    }
+                </Slider>
             </div>
         </div>
     );

@@ -1,21 +1,23 @@
 import { useNavigate } from "react-router-dom";
 import { useGameLogicStore } from "../../useGameLogicStore";
+import { useCardStore } from "../../useCardStore";
 import Card from "./Card";
 
-import { getCardBackground } from "../Utils";
+import HeartsSuit from "./suits/HeartsSuit";
+import DiamondsSuit from "./suits/DiamondsSuit";
 
-import clubsBlack from '../assets/suits/clubs-black.svg';
-import heartsBlack from '../assets/suits/hearts-black.svg';
+import { getCardBackground } from "../Utils";
 
 const Hero = () => {
 
     const navigate = useNavigate();
 
     const { playClickSound } = useGameLogicStore();
+    const { getSuit } = useCardStore();
 
     const cards = [
         {
-            suit: heartsBlack,
+            suit: <HeartsSuit color="#000" />,
             rank: "Play",
             id: "hearts-play",
             handleClick: () => {
@@ -24,7 +26,7 @@ const Hero = () => {
             },
         },
         {
-            suit: clubsBlack,
+            suit: <DiamondsSuit color="#000" />,
             rank: "Options",
             id: "clubs-play",
             handleClick: () => {

@@ -14,7 +14,7 @@ const CardRank = ({
                 {rank}
             </div>
             <div className={`flex items-center justify-center w-[15%]`}>
-                <img src={suit} className={`w-full`} />
+                {suit}
             </div>
         </div>
     );
