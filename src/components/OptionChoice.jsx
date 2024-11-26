@@ -2,50 +2,80 @@ import { useCardStore } from "../../useCardStore";
 import BackgroundChoice from "./BackgroundChoice";
 import SuitChoice from "./SuitChoice";
 
+// for react-slick
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+
 const OptionChoice = ({ type, title, options }) => {
     const { backgroundStyle, cardBackground, cardOutlineColor, suitColor } = useCardStore();
 
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 5,
+        slidesToScroll: 1,
+
+        responsive: [
+            {
+                breakpoint: 1024, // Below 1024px
+                settings: {
+                    slidesToShow: 4,
+                },
+            },
+            {
+                breakpoint: 768, // Below 768px
+                settings: {
+                    slidesToShow: 3, 
+                },
+            },
+        ],
+    };
+
     return (
-        <div className="w-[90%] md:w-full flex flex-col md:flex-row items-center justify-between mb-12 md:mb-16">
-            <div className="w-full md:w-auto text-left text-sm mb-4 md:mb-0">
+        <div className="w-full flex flex-col items-center justify-center mb-12 md:mb-16">
+            <div className="w-full text-md lg:text-lg mb-6">
                 {title}
             </div>
-            <div
-                className={`
-                    w-full md:w-auto grid gap-2 xs:flex xs:items-center xs:justify-center
-                    ${type === "background" ? "grid-cols-6" : "grid-cols-4"}
-                    place-items-center justify-items-center
-                `}
-            >
-                {type === "background"
-                    ? options.map((option) => {
-                        const isSelected = cardBackground === option.name
-                            || backgroundStyle === option.name
-                            || cardOutlineColor === option.name;
+            <div className="w-full">
+                <Slider 
+                    {...settings}
+                >
+                    {
+                        type === "background" ?
+                            (options.map((option) => {
+                                const isSelected = cardBackground === option.name
+                                    || backgroundStyle === option.name
+                                    || cardOutlineColor === option.name;
 
-                        return (
-                            <BackgroundChoice
-                                key={option.name}
-                                isSelected={isSelected}
-                                name={option.name}
-                                color={option.color}
-                                handleClick={option.handleClick}
-                            />
-                        );
-                    })
-                    : options.map((option) => {
-                        const isSelected = suitColor === option.name;
-                        return (
-                            <SuitChoice
-                                key={option.name}
-                                isSelected={isSelected}
-                                name={option.name}
-                                color={option.name}
-                                colors={option.colors}
-                                handleClick={option.handleClick}
-                            />
-                        );
-                    })}
+                                return (
+                                    <BackgroundChoice
+                                        key={option.name}
+                                        isSelected={isSelected}
+                                        name={option.name}
+                                        color={option.color}
+                                        handleClick={option.handleClick}
+                                    />
+                                );
+                            }))
+                            :
+                            (options.map((option, index) => {
+                                const isSelected = suitColor === option.name;
+                                return (
+                                    <SuitChoice
+                                        idx={index}
+                                        key={option.name}
+                                        isSelected={isSelected}
+                                        name={option.name}
+                                        color={option.name}
+                                        colors={option.colors}
+                                        handleClick={option.handleClick}
+                                    />
+                                );
+                            }))
+                    }
+                </Slider>
             </div>
         </div>
     );

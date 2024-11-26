@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* applying margin for each item in the slider */
+.slick-slide {
+    padding: 0 .5rem;
+}
+
+.slick-list {
+    padding: 0 -0.5rem;  /* compensate for the added margin */
+}
