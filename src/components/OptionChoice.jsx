@@ -17,6 +17,7 @@ const OptionChoice = ({ type, title, options }) => {
         cardBackground,
         cardOutlineColor,
         suitColor,
+        cardOutline,
     } = useCardStore();
 
     const settings = {
@@ -49,13 +50,19 @@ const OptionChoice = ({ type, title, options }) => {
             },
         ],
     };
- 
+
+    const isActive = title === "Card Border Color" && cardOutline;
+    const activeStyling = isActive ? "opacity-100" : "opacity-30 pointer-events-none";
+
     return (
-        <div className="w-full flex flex-col items-center justify-center">
+        <div className={`
+            w-full flex flex-col items-center justify-center ${title === "Card Border Color" && activeStyling}
+            transition-all duration-300 ease-in-out
+        `}>
             <div className="w-full text-sm md:text-base mb-2 lg:mb-4 text-center sm:text-left">
                 {title}
             </div>
-            <div className="w-full">
+            <div className={`w-full`}>
                 <Slider
                     {...settings}
                 >
