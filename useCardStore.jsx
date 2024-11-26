@@ -242,6 +242,10 @@ export const useCardStore = create(
         { name: "black-card-outline", color: "bg-card-outline-black", handleClick: () => get().changeCardOutlineColor("black-card-outline") },
         { name: "red-card-outline", color: "bg-card-outline-red", handleClick: () => get().changeCardOutlineColor("red-card-outline") },
         { name: "yellow-card-outline", color: "bg-card-outline-yellow", handleClick: () => get().changeCardOutlineColor("yellow-card-outline") },
+        { name: "blue-card-outline", color: "bg-card-outline-blue", handleClick: () => get().changeCardOutlineColor("blue-card-outline") },
+        { name: "orange-card-outline", color: "bg-card-outline-orange", handleClick: () => get().changeCardOutlineColor("orange-card-outline") },
+        { name: "purple-card-outline", color: "bg-card-outline-purple", handleClick: () => get().changeCardOutlineColor("purple-card-outline") },
+        { name: "orchid-card-outline", color: "bg-card-outline-orchid", handleClick: () => get().changeCardOutlineColor("orchid-card-outline") },
       ],
 
       mobileMenu: false,
