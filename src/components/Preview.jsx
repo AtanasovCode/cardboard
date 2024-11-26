@@ -32,7 +32,7 @@ const Preview = () => {
             >
                 <ArrowLeft size="100%" weight="regular" color="#FFF" />
             </div>
-            <div className="w-[98%] flex items-center justify-center flex-1 flex-wrap gap-2 md:gap-3 lg:gap-4">
+            <div className="w-full flex items-center justify-center flex-1 flex-wrap gap-2 xl:gap-4">
                 {
                     cards.map((card) => {
                         return (
@@ -41,7 +41,7 @@ const Preview = () => {
                                 rank={card.rank}
                                 cardID={card.id}
                                 backgroundColor={getCardBackground(cardBackground)}
-                                size="w-[20%] xs:w-auto xs:h-[25dvh] md:h-[30dvh]"
+                                size="w-[20%] xs:w-auto xs:h-[22dvh]"
                                 outline={cardOutline}
                                 allowClick={false}
                             />
