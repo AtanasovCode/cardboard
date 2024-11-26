@@ -5,6 +5,7 @@ import HeartsSuit from "./suits/HeartsSuit";
 import DiamondsSuit from "./suits/DiamondsSuit";
 import SpadesSuit from "./suits/SpadesSuit";
 import ClubsSuit from "./suits/ClubsSuit";
+import DisplayActiveCheckmark from "./DisplayActiveCheckmark";
 
 const SuitChoice = ({
     name,
@@ -46,11 +47,7 @@ const SuitChoice = ({
                 style={{ backgroundColor: colors['diamonds'] }}
             ></div>
 
-            {isSelected && (
-                <div className="absolute right-[2%] top-[2%] w-4 h-4">
-                    <CheckCircle size="100%" weight="fill" color="#00ff00" />
-                </div>
-            )}
+            {isSelected && <DisplayActiveCheckmark />}
         </div>
     );
 }
