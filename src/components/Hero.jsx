@@ -37,16 +37,16 @@ const Hero = () => {
     ];
 
     return (
-        <div className="flex flex-col items-center justify-start z-50 flex-1 w-full pb-4">
+        <div className="flex-1 flex flex-col items-center justify-center z-50 w-full pb-4">
             <div className="w-full flex flex-col items-center justify-center mb-4">
                 <div className="font-black text-4xl mb-2 text-center xl:text-5xl">
                     CardBoard
                 </div>
-                <div className="font-semibold text-base xl:text-xl">
+                <div className="font-semibold text-base xl:text-lg">
                     The Ultimate Memory Challenge!
                 </div>
             </div>
-            <div className="flex-1 w-full flex items-center justify-center gap-3 lg:gap-8">
+            <div className="w-full flex items-center justify-center gap-3 lg:gap-8">
                 {
                     cards.map((card) => {
                         return (

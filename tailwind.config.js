@@ -19,11 +19,11 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'cards': "Hubot Sans",
-        'sans': "Inter",
+        'cards': '"DM Sans", sans-serif',
+        'sans': '"Inter", sans-serif',
       },
       colors: {
-        'main-background': "#0A0A0A",
+        'main-background': "#141414", //"#0A0A0A",
 
         // card colors
         'card-dark-gray': "rgb(30 41 59)",

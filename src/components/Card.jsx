@@ -17,6 +17,7 @@ const Card = ({
     hoverEffect,
     outline,
     allowClick,
+    rankStyle,
 }) => {
 
     const {
@@ -50,9 +51,9 @@ const Card = ({
                 }
             }}
         >
-            <CardRank rank={rank} suit={suit} invert={false} />
+            <CardRank rank={rank} suit={suit} invert={false} rankStyle={rankStyle} />
             <CenterSuit suit={suit} />
-            <CardRank rank={rank} suit={suit} invert={true} />
+            <CardRank rank={rank} suit={suit} invert={true} rankStyle={rankStyle} />
         </div >
     );
 }
