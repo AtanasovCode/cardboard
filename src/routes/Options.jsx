@@ -1,8 +1,8 @@
 import { useCardStore } from "../../useCardStore";
 
-import Preview from "../components/Preview";
-import OptionChoice from "../components/OptionChoice";
-import BorderToggle from "../components/BorderToggle";
+import Preview from "../components/options/Preview";
+import OptionChoice from "../components/options/OptionChoice";
+import BorderToggle from "../components/options/BorderToggle";
 
 const Options = () => {
     const {

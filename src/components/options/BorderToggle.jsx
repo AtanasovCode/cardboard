@@ -1,4 +1,4 @@
-import { useCardStore } from "../../useCardStore";
+import { useCardStore } from "../../../useCardStore";
 
 const BorderToggle = () => {
 

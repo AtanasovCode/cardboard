@@ -1,4 +1,5 @@
-import { useCardStore } from "../../useCardStore";
+import { useCardStore } from "../../../useCardStore";
+
 import BackgroundChoice from "./BackgroundChoice";
 import SuitChoice from "./SuitChoice";
 

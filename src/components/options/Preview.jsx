@@ -1,9 +1,9 @@
-import { useCardStore } from "../../useCardStore";
+import { useCardStore } from "../../../useCardStore";
 import { useNavigate } from "react-router-dom";
-import { getCardBackground, getBackgroundStyle } from "../Utils";
+import { getCardBackground, getBackgroundStyle } from '../../Utils';
 import { ArrowLeft } from "@phosphor-icons/react";
 
-import Card from "./Card";
+import Card from "../Card";
 
 const Preview = () => {
 
