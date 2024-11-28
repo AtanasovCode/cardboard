@@ -21,23 +21,23 @@ const Options = () => {
                     <OptionChoice
                         type="background"
                         title="Background Style"
-                        options={backgroundStyles}
+                        options={backgroundStyles()}
                     />
                     <OptionChoice
                         type="background"
                         title="Card Background"
-                        options={cardBackgrounds}
+                        options={cardBackgrounds()}
                     />
                     <OptionChoice
                         type="suits"
                         title="Suit Colors"
-                        options={suitColors}
+                        options={suitColors()}
                     />
                     <BorderToggle />
                     <OptionChoice
                         type="background"
                         title="Card Border Color"
-                        options={cardOutlines}
+                        options={cardOutlines()}
                     />
                 </div>
             </div>

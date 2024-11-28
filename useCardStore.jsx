@@ -53,135 +53,46 @@ export const useCardStore = create(
         }),
 
       suitColor: "all-black",
-      setSuitColors: (style) => set(() => {
-        switch (style) {
-          case "all-black":
-            return {
-              suitColor: "all-black",
-              clubsColor: "#000",
-              spadesColor: "#000",
-              heartsColor: "#000",
-              diamondsColor: "#000",
-            };
-            break;
-          case "all-white":
-            return {
-              suitColor: "all-white",
-              clubsColor: "#fff",
-              spadesColor: "#fff",
-              heartsColor: "#fff",
-              diamondsColor: "#fff",
-            };
-            break;
-          case "all-blue":
-            return {
-              suitColor: "all-blue",
-              clubsColor: "#112ff0",
-              spadesColor: "#112ff0",
-              heartsColor: "#112ff0",
-              diamondsColor: "#112ff0",
-            };
-          case "all-red":
-            return {
-              suitColor: "all-red",
-              clubsColor: "#fc2a2a",
-              spadesColor: "#fc2a2a",
-              heartsColor: "#fc2a2a",
-              diamondsColor: "#fc2a2a",
-            };
-          case "all-yellow":
-            return {
-              suitColor: "all-yellow",
-              clubsColor: "#eae705",
-              spadesColor: "#eae705",
-              heartsColor: "#eae705",
-              diamondsColor: "#eae705",
-            };
-          case "colorful":
-            return {
-              suitColor: "colorful",
-              clubsColor: "#00d72b",
-              spadesColor: "#00d72b",
-              heartsColor: "#fc2a2a",
-              diamondsColor: "#fc2a2a",
-            };
-          case "colorful-darker":
-            return {
-              suitColor: "colorful-darker",
-              clubsColor: "#01931e",
-              spadesColor: "#01931e",
-              heartsColor: "#b70505",
-              diamondsColor: "#b70505",
-            };
-          case "all-different":
-            return {
-              suitColor: "all-different",
-              clubsColor: "#00d72b",
-              spadesColor: "#111cf8",
-              heartsColor: "#fc2a2a",
-              diamondsColor: "#eae705",
-            };
-          case "all-different-alternative":
-            return {
-              suitColor: "all-different-alternative",
-              clubsColor: "#4aff25",
-              spadesColor: "#4b7dfb",
-              heartsColor: "#fc4141",
-              diamondsColor: "#f420c2",
-            };
-          default:
-            return {}; // No state change for unrecognized styles
-        }
+      setSuitColors: (name, colors) => set(() => {
+        return {
+          suitColor: name,
+          clubsColor: colors["clubs"],
+          spadesColor: colors["spades"],
+          heartsColor: colors["hearts"],
+          diamondsColor: colors["diamonds"],
+        };
       }),
 
+      // creates a brand new suit color scheme
+      createSuit: (name, colors) => {
+        const { setSuitColors } = get();
 
-      suitColors: [
-        {
-          name: "all-black",
-          colors: { hearts: "#000", spades: "#000", clubs: "#000", diamonds: "#000" },
-          handleClick: () => get().setSuitColors("all-black")
-        },
-        {
-          name: "all-white",
-          colors: { hearts: "#FFF", spades: "#FFF", clubs: "#FFF", diamonds: "#FFF" },
-          handleClick: () => get().setSuitColors("all-white")
-        },
-        {
-          name: "all-blue",
-          colors: { hearts: "#112ff0", spades: "#112ff0", clubs: "#112ff0", diamonds: "#112ff0" },
-          handleClick: () => get().setSuitColors("all-blue")
-        },
-        {
-          name: "all-red",
-          colors: { hearts: "#fc2a2a", spades: "#fc2a2a", clubs: "#fc2a2a", diamonds: "#fc2a2a" },
-          handleClick: () => get().setSuitColors("all-red")
-        },
-        {
-          name: "all-yellow",
-          colors: { hearts: "#eae705", spades: "#eae705", clubs: "#eae705", diamonds: "#eae705" },
-          handleClick: () => get().setSuitColors("all-yellow")
-        },
-        {
-          name: "colorful",
-          colors: { hearts: "#fc2a2a", spades: "#00d72b", clubs: "#00d72b", diamonds: "#fc2a2a" },
-          handleClick: () => get().setSuitColors("colorful")
-        },
-        {
-          name: "colorful-darker",
-          colors: { hearts: "#b70505", spades: "#01931e", clubs: "#01931e", diamonds: "#b70505" },
-          handleClick: () => get().setSuitColors("colorful-darker")
-        },
-        {
-          name: "all-different",
-          colors: { hearts: "#fc2a2a", spades: "#111cf8", clubs: "#00d72b", diamonds: "#eae705" },
-          handleClick: () => get().setSuitColors("all-different")
-        },
-        {
-          name: "all-different-alternative",
-          colors: { hearts: "#fc4141", spades: "#4b7dfb", clubs: "#4aff25", diamonds: "#f420c2" },
-          handleClick: () => get().setSuitColors("all-different-alternative")
-        },
-      ],
+        return {
+          name,
+          colors,
+          handleClick: () => setSuitColors(name, colors),
+        };
+      },
+
+      suitColors: () => {
+        const { createSuit } = get();
+
+        return (
+          [
+            createSuit("black", { hearts: "#000", spades: "#000", clubs: "#000", diamonds: "#000" }),
+            createSuit("white", { hearts: "#fff", spades: "#fff", clubs: "#fff", diamonds: "#fff" }),
+            createSuit("green", { hearts: "#00d933", spades: "#00d933", clubs: "#00d933", diamonds: "#00d933" }),
+            createSuit("red", { hearts: "#f41e1e", spades: "#f41e1e", clubs: "#f41e1e", diamonds: "#f41e1e" }),
+            createSuit("blue", { hearts: "#1648ef", spades: "#1648ef", clubs: "#1648ef", diamonds: "#1648ef" }),
+            createSuit("colorful", { hearts: "#f41e1e", spades: "#00d933", clubs: "#00d933", diamonds: "#f41e1e" }),
+            createSuit("colorful-darker", { hearts: "#cd0808", spades: "#06ba30", clubs: "#06ba30", diamonds: "#cd0808" }),
+            createSuit("black-red", { hearts: "#f41e1e", spades: "#000", clubs: "#000", diamonds: "#f41e1e" }),
+            createSuit("white-blue", { hearts: "#fff", spades: "#1648ef", clubs: "#1648ef", diamonds: "#fff" }),
+            createSuit("different", { hearts: "#f41e1e", spades: "#1648ef", clubs: "#00d933", diamonds: "#f2ff00" }),
+            createSuit("different-v2", { hearts: "#f200ff", spades: "#ba0098", clubs: "#1648ef", diamonds: "#5cc600" }),
+          ]
+        );
+      },
 
       getSuitColor: (suit) => {
         const { heartsColor, spadesColor, diamondsColor, clubsColor } = get();
@@ -202,22 +113,38 @@ export const useCardStore = create(
 
       backgroundStyle: "pool-table-background-style",
       changeBackgroundStyle: (style) => set({ backgroundStyle: style }),
-      backgroundStyles: [
-        { name: "pool-table-background-style", color: "bg-pool-table", handleClick: () => get().changeBackgroundStyle("pool-table-background-style") },
-        { name: "poker-table-background-style", color: "bg-poker-table", handleClick: () => get().changeBackgroundStyle("poker-table-background-style") },
-        { name: "casino-night-background-style", color: "bg-casino-night", handleClick: () => get().changeBackgroundStyle("casino-night-background-style") },
-        { name: "luxury-black-background-style", color: "bg-luxury-black", handleClick: () => get().changeBackgroundStyle("luxury-black-background-style") },
-        { name: "luxury-poker-background-style", color: "bg-luxury-poker", handleClick: () => get().changeBackgroundStyle("luxury-poker-background-style") },
-        { name: "dark-felt-background-style", color: "bg-dark-felt", handleClick: () => get().changeBackgroundStyle("dark-felt-background-style") },
-        { name: "pure-black-background-style", color: "bg-black", handleClick: () => get().changeBackgroundStyle("pure-black-background-style") },
-        { name: "pure-red-background-style", color: "bg-red-800", handleClick: () => get().changeBackgroundStyle("pure-red-background-style") },
-        { name: "pure-gray-background-style", color: "bg-slate-800", handleClick: () => get().changeBackgroundStyle("pure-gray-background-style") },
-      ],
+
+      createBackgroundStyle: (name, color) => {
+        const { changeBackgroundStyle } = get();
+
+        return {
+          name,
+          color,
+          handleClick: () => changeBackgroundStyle(name),
+        };
+      },
+
+      backgroundStyles: () => {
+        const { createBackgroundStyle } = get();
+
+        return [
+          createBackgroundStyle("pool-table-background-style", "bg-pool-table"),
+          createBackgroundStyle("poker-table-background-style", "bg-poker-table"),
+          createBackgroundStyle("casino-night-background-style", "bg-casino-night"),
+          createBackgroundStyle("luxury-black-background-style", "bg-luxury-black"),
+          createBackgroundStyle("luxury-poker-background-style", "bg-luxury-poker"),
+          createBackgroundStyle("dark-felt-background-style", "bg-dark-felt"),
+          createBackgroundStyle("pure-black-background-style", "bg-black"),
+          createBackgroundStyle("pure-red-background-style", "bg-red-800"),
+          createBackgroundStyle("pure-gray-background-style", "bg-slate-800"),
+        ];
+      },
+
 
       getBackgroundStyle: () => {
         const { backgroundStyle, backgroundStyles, } = get();
 
-        const group = backgroundStyles.find((s) => s.name === backgroundStyle);
+        const group = backgroundStyles().find((s) => s.name === backgroundStyle);
 
         return group ? group.color : "";
       },
@@ -226,22 +153,37 @@ export const useCardStore = create(
 
       cardBackground: "white-card-background",
       changeCardBackground: (style) => set({ cardBackground: style }),
-      cardBackgrounds: [
-        { name: "black-card-background", color: "bg-card-black", handleClick: () => get().changeCardBackground("black-card-background") },
-        { name: "white-card-background", color: "bg-card-white", handleClick: () => get().changeCardBackground("white-card-background") },
-        { name: "dark-grey-card-background", color: "bg-card-dark-grey", handleClick: () => get().changeCardBackground("dark-grey-card-background") },
-        { name: "red-card-background", color: "bg-card-red", handleClick: () => get().changeCardBackground("red-card-background") },
-        { name: "blue-card-background", color: "bg-card-blue", handleClick: () => get().changeCardBackground("blue-card-background") },
-        { name: "green-card-background", color: "bg-card-green", handleClick: () => get().changeCardBackground("green-card-background") },
-        { name: "orange-card-background", color: "bg-card-orange", handleClick: () => get().changeCardBackground("orange-card-background") },
-        { name: "purple-card-background", color: "bg-card-purple", handleClick: () => get().changeCardBackground("purple-card-background") },
-        { name: "teal-card-background", color: "bg-card-teal", handleClick: () => get().changeCardBackground("teal-card-background") },
-      ],
+
+      createCardBackground: (name, color) => {
+        const { changeCardBackground } = get();
+
+        return {
+          name,
+          color,
+          handleClick: () => changeCardBackground(name)
+        }
+      },
+
+      cardBackgrounds: () => {
+        const { createCardBackground } = get();
+
+        return [
+          createCardBackground("black-card-background", "bg-card-black"),
+          createCardBackground("white-card-background", "bg-card-white"),
+          createCardBackground("dark-grey-card-background", "bg-card-dark-grey"),
+          createCardBackground("red-card-background", "bg-card-red"),
+          createCardBackground("blue-card-background", "bg-card-blue"),
+          createCardBackground("green-card-background", "bg-card-green"),
+          createCardBackground("orange-card-background", "bg-card-orange"),
+          createCardBackground("purple-card-background", "bg-card-purple"),
+          createCardBackground("teal-card-background", "bg-card-teal"),
+        ];
+      },
 
       getCardBackground: () => {
         const { cardBackground, cardBackgrounds } = get();
 
-        const group = cardBackgrounds.find((i) => i.name === cardBackground);
+        const group = cardBackgrounds().find((i) => i.name === cardBackground);
 
         return group ? group.color : "";
       },
@@ -251,22 +193,39 @@ export const useCardStore = create(
 
       cardOutline: "white-card-outline",
       changeCardOutline: (color) => set({ cardOutline: color }),
-      cardOutlines: [
-        { name: "white-card-outline", color: "bg-card-outline-white", outline: "border-card-outline-white", handleClick: () => get().changeCardOutline("white-card-outline") },
-        { name: "light-grey-card-outline", color: "bg-card-outline-light-grey", outline: "border-card-outline-light-grey",  handleClick: () => get().changeCardOutline("light-grey-card-outline") },
-        { name: "dark-grey-card-outline", color: "bg-card-outline-dark-grey", outline: "border-card-outline-dark-grey",  handleClick: () => get().changeCardOutline("dark-grey-card-outline") },
-        { name: "black-card-outline", color: "bg-card-outline-black", outline: "border-card-outline-black",  handleClick: () => get().changeCardOutline("black-card-outline") },
-        { name: "red-card-outline", color: "bg-card-outline-red", outline: "border-card-outline-red",  handleClick: () => get().changeCardOutline("red-card-outline") },
-        { name: "yellow-card-outline", color: "bg-card-outline-yellow", outline: "border-card-outline-yellow",  handleClick: () => get().changeCardOutline("yellow-card-outline") },
-        { name: "blue-card-outline", color: "bg-card-outline-blue", outline: "border-card-outline-blue",  handleClick: () => get().changeCardOutline("blue-card-outline") },
-        { name: "orange-card-outline", color: "bg-card-outline-orange", outline: "border-card-outline-orange",  handleClick: () => get().changeCardOutline("orange-card-outline") },
-        { name: "purple-card-outline", color: "bg-card-outline-purple", outline: "border-card-outline-purple",  handleClick: () => get().changeCardOutline("purple-card-outline") },
-        { name: "orchid-card-outline", color: "bg-card-outline-orchid", outline: "border-card-outline-orchid",  handleClick: () => get().changeCardOutline("orchid-card-outline") },
-      ],
+
+      createCardOutline: (name, color, outline) => {
+        const { changeCardOutline } = get();
+
+        return {
+          name,
+          color,
+          outline,
+          handleClick: () => changeCardOutline(name),
+        };
+      },
+
+      cardOutlines: () => {
+        const { createCardOutline } = get();
+
+        return [
+          createCardOutline("white-card-outline", "bg-card-outline-white", "border-card-outline-white"),
+          createCardOutline("light-grey-card-outline", "bg-card-outline-light-grey", "border-card-outline-light-grey"),
+          createCardOutline("dark-grey-card-outline", "bg-card-outline-dark-grey", "border-card-outline-dark-grey"),
+          createCardOutline("black-card-outline", "bg-card-outline-black", "border-card-outline-black"),
+          createCardOutline("red-card-outline", "bg-card-outline-red", "border-card-outline-red"),
+          createCardOutline("yellow-card-outline", "bg-card-outline-yellow", "border-card-outline-yellow"),
+          createCardOutline("blue-card-outline", "bg-card-outline-blue", "border-card-outline-blue"),
+          createCardOutline("orange-card-outline", "bg-card-outline-orange", "border-card-outline-orange"),
+          createCardOutline("purple-card-outline", "bg-card-outline-purple", "border-card-outline-purple"),
+          createCardOutline("orchid-card-outline", "bg-card-outline-orchid", "border-card-outline-orchid"),
+        ];
+      },
+
       getCardOutline: () => {
         const { cardOutline, cardOutlines } = get();
 
-        const group = cardOutlines.find((i) => i.name === cardOutline);
+        const group = cardOutlines().find((i) => i.name === cardOutline);
 
         return group ? group.outline : "";
       },
