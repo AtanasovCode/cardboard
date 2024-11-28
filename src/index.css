@@ -8,7 +8,7 @@
     padding: 0 .2rem;
 
     @media (min-width: 640px) {
-        padding: 0 0.4rem;
+        padding: 0 0.3rem;
     }
 }
 
@@ -17,6 +17,6 @@
     /* compensate for the added margin */
 
     @media (min-width: 640px) {
-        padding: 0 -0.4rem;
+        padding: 0 -0.3rem;
     }
 }

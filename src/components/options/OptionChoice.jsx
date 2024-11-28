@@ -3,8 +3,8 @@ import { useCardStore } from "../../../useCardStore";
 import BackgroundChoice from "./BackgroundChoice";
 import SuitChoice from "./SuitChoice";
 
-import PrevArrow from "./slider/PrevArrow";
-import NextArrow from "./slider/NextArrow";
+import PrevArrow from "../slider/PrevArrow";
+import NextArrow from "../slider/NextArrow";
 
 // for react-slick
 import "slick-carousel/slick/slick.css";
@@ -16,16 +16,16 @@ const OptionChoice = ({ type, title, options }) => {
     const {
         backgroundStyle,
         cardBackground,
-        cardOutlineColor,
-        suitColor,
         cardOutline,
+        suitColor,
+        isCardOutlineEnabled,
     } = useCardStore();
 
     const settings = {
         dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 7,
+        slidesToShow: 8,
         slidesToScroll: 1,
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />,
@@ -40,7 +40,7 @@ const OptionChoice = ({ type, title, options }) => {
             {
                 breakpoint: 768,
                 settings: {
-                    slidesToShow: 4,
+                    slidesToShow: 5,
                 },
             },
             {
@@ -52,7 +52,7 @@ const OptionChoice = ({ type, title, options }) => {
         ],
     };
 
-    const isActive = title === "Card Border Color" && cardOutline;
+    const isActive = title === "Card Border Color" && isCardOutlineEnabled;
     const activeStyling = isActive ? "opacity-100" : "opacity-30 pointer-events-none";
 
     return (
@@ -72,7 +72,7 @@ const OptionChoice = ({ type, title, options }) => {
                             (options.map((option) => {
                                 const isSelected = cardBackground === option.name
                                     || backgroundStyle === option.name
-                                    || cardOutlineColor === option.name;
+                                    || cardOutline === option.name;
 
                                 return (
                                     <BackgroundChoice

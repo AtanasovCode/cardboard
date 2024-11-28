@@ -1,19 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import { useGameLogicStore } from "../../useGameLogicStore";
-import { useCardStore } from "../../useCardStore";
 import Card from "./Card";
 
 import HeartsSuit from "./suits/HeartsSuit";
 import DiamondsSuit from "./suits/DiamondsSuit";
-
-import { getCardBackground } from "../Utils";
 
 const Hero = () => {
 
     const navigate = useNavigate();
 
     const { playClickSound } = useGameLogicStore();
-    const { getSuit } = useCardStore();
 
     const cards = [
         {
@@ -59,10 +55,10 @@ const Hero = () => {
                                     suit={card.suit}
                                     rank={card.rank}
                                     cardID={card.id}
-                                    backgroundColor={getCardBackground("white-card-background")}
+                                    backgroundColor={"bg-card-white"}
                                     size="w-full xs:h-full xs:w-auto"
                                     hoverEffect="hover:scale-[1.04] transition-all duration-300 ease-in-out"
-                                    outline={null}
+                                    outline={false}
                                     allowClick={false}
                                 />
                             </div>

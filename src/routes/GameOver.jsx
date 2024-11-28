@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import { useGameLogicStore } from "../../useGameLogicStore";
-import { getCardBackground } from "../Utils";
 import CustomCursor from "../components/CustomCursor";
 
 import SpadesSuit from "../components/suits/SpadesSuit";
@@ -64,10 +63,10 @@ const GameOver = () => {
                                     suit={card.suit}
                                     rank={card.rank}
                                     cardID={card.id}
-                                    backgroundColor={getCardBackground("white-card-background")}
+                                    backgroundColor={"bg-card-white"}
                                     size="w-full xs:w-auto xs:h-full"
                                     hoverEffect="hover:scale-[1.04] transition-all duration-300 ease-in-out"
-                                    outline={null}
+                                    outline={false}
                                     allowClick={false}
                                 />
                             </div>

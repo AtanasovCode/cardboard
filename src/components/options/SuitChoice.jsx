@@ -1,11 +1,4 @@
-import { useCardStore } from "../../../useCardStore";
-import { CheckCircle } from "@phosphor-icons/react";
-
-import HeartsSuit from "./suits/HeartsSuit";
-import DiamondsSuit from "./suits/DiamondsSuit";
-import SpadesSuit from "./suits/SpadesSuit";
-import ClubsSuit from "./suits/ClubsSuit";
-import DisplayActiveCheckmark from "./DisplayActiveCheckmark";
+import DisplayActiveCheckmark from "../DisplayActiveCheckmark";
 
 const SuitChoice = ({
     name,
@@ -16,11 +9,7 @@ const SuitChoice = ({
     idx,
 }) => {
 
-    const { suitStyle, getSuitColor } = useCardStore();
-
     const borderStyle = isSelected ? "border-white" : "border-slate-500";
-
-    console.log(`bg-[${colors['hearts']}]`);
 
     return (
         <div className={`

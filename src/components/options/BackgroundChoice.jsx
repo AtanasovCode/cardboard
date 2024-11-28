@@ -1,5 +1,4 @@
-import { CheckCircle } from "@phosphor-icons/react";
-import DisplayActiveCheckmark from "./DisplayActiveCheckmark";
+import DisplayActiveCheckmark from "../DisplayActiveCheckmark";
 
 const BackgroundChoice = ({ name, color, handleClick, isSelected }) => {
 

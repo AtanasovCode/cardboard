@@ -15,6 +15,7 @@ export default {
     'bg-card-outline-orchid',
     'bg-card-outline-orange',
     'bg-card-outline-purple',
+    'bg-card-dark-grey',
   ],
   theme: {
     extend: {
@@ -26,7 +27,7 @@ export default {
         'main-background': "#141414", //"#0A0A0A",
 
         // card colors
-        'card-dark-gray': "rgb(30 41 59)",
+        'card-dark-grey': "rgb(30 41 59)",
         'card-black': "rgb(2 6 23)",
         'card-red': "rgb(153 27 27)",
         'card-white': "#FFFD82",

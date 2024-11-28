@@ -214,6 +214,14 @@ export const useCardStore = create(
         { name: "pure-gray-background-style", color: "bg-slate-800", handleClick: () => get().changeBackgroundStyle("pure-gray-background-style") },
       ],
 
+      getBackgroundStyle: () => {
+        const { backgroundStyle, backgroundStyles, } = get();
+
+        const group = backgroundStyles.find((s) => s.name === backgroundStyle);
+
+        return group ? group.color : "";
+      },
+
 
 
       cardBackground: "white-card-background",
@@ -221,7 +229,7 @@ export const useCardStore = create(
       cardBackgrounds: [
         { name: "black-card-background", color: "bg-card-black", handleClick: () => get().changeCardBackground("black-card-background") },
         { name: "white-card-background", color: "bg-card-white", handleClick: () => get().changeCardBackground("white-card-background") },
-        { name: "dark-grey-card-background", color: "bg-card-grey", handleClick: () => get().changeCardBackground("dark-grey-card-background") },
+        { name: "dark-grey-card-background", color: "bg-card-dark-grey", handleClick: () => get().changeCardBackground("dark-grey-card-background") },
         { name: "red-card-background", color: "bg-card-red", handleClick: () => get().changeCardBackground("red-card-background") },
         { name: "blue-card-background", color: "bg-card-blue", handleClick: () => get().changeCardBackground("blue-card-background") },
         { name: "green-card-background", color: "bg-card-green", handleClick: () => get().changeCardBackground("green-card-background") },
@@ -230,23 +238,38 @@ export const useCardStore = create(
         { name: "teal-card-background", color: "bg-card-teal", handleClick: () => get().changeCardBackground("teal-card-background") },
       ],
 
-      cardOutline: false,
-      toggleCardOutline: () => set((state) => ({ cardOutline: !state.cardOutline })),
+      getCardBackground: () => {
+        const { cardBackground, cardBackgrounds } = get();
 
-      cardOutlineColor: "white-card-outline",
-      changeCardOutlineColor: (color) => set({ cardOutlineColor: color }),
-      cardOutlineColors: [
-        { name: "white-card-outline", color: "bg-card-outline-white", handleClick: () => get().changeCardOutlineColor("white-card-outline") },
-        { name: "light-grey-card-outline", color: "bg-card-outline-light-grey", handleClick: () => get().changeCardOutlineColor("light-grey-card-outline") },
-        { name: "dark-grey-card-outline", color: "bg-card-outline-dark-grey", handleClick: () => get().changeCardOutlineColor("dark-grey-card-outline") },
-        { name: "black-card-outline", color: "bg-card-outline-black", handleClick: () => get().changeCardOutlineColor("black-card-outline") },
-        { name: "red-card-outline", color: "bg-card-outline-red", handleClick: () => get().changeCardOutlineColor("red-card-outline") },
-        { name: "yellow-card-outline", color: "bg-card-outline-yellow", handleClick: () => get().changeCardOutlineColor("yellow-card-outline") },
-        { name: "blue-card-outline", color: "bg-card-outline-blue", handleClick: () => get().changeCardOutlineColor("blue-card-outline") },
-        { name: "orange-card-outline", color: "bg-card-outline-orange", handleClick: () => get().changeCardOutlineColor("orange-card-outline") },
-        { name: "purple-card-outline", color: "bg-card-outline-purple", handleClick: () => get().changeCardOutlineColor("purple-card-outline") },
-        { name: "orchid-card-outline", color: "bg-card-outline-orchid", handleClick: () => get().changeCardOutlineColor("orchid-card-outline") },
+        const group = cardBackgrounds.find((i) => i.name === cardBackground);
+
+        return group ? group.color : "";
+      },
+
+      isCardOutlineEnabled: false,
+      toggleCardOutline: () => set((state) => ({ isCardOutlineEnabled: !state.isCardOutlineEnabled })),
+
+      cardOutline: "white-card-outline",
+      changeCardOutline: (color) => set({ cardOutline: color }),
+      cardOutlines: [
+        { name: "white-card-outline", color: "bg-card-outline-white", outline: "border-card-outline-white", handleClick: () => get().changeCardOutline("white-card-outline") },
+        { name: "light-grey-card-outline", color: "bg-card-outline-light-grey", outline: "border-card-outline-light-grey",  handleClick: () => get().changeCardOutline("light-grey-card-outline") },
+        { name: "dark-grey-card-outline", color: "bg-card-outline-dark-grey", outline: "border-card-outline-dark-grey",  handleClick: () => get().changeCardOutline("dark-grey-card-outline") },
+        { name: "black-card-outline", color: "bg-card-outline-black", outline: "border-card-outline-black",  handleClick: () => get().changeCardOutline("black-card-outline") },
+        { name: "red-card-outline", color: "bg-card-outline-red", outline: "border-card-outline-red",  handleClick: () => get().changeCardOutline("red-card-outline") },
+        { name: "yellow-card-outline", color: "bg-card-outline-yellow", outline: "border-card-outline-yellow",  handleClick: () => get().changeCardOutline("yellow-card-outline") },
+        { name: "blue-card-outline", color: "bg-card-outline-blue", outline: "border-card-outline-blue",  handleClick: () => get().changeCardOutline("blue-card-outline") },
+        { name: "orange-card-outline", color: "bg-card-outline-orange", outline: "border-card-outline-orange",  handleClick: () => get().changeCardOutline("orange-card-outline") },
+        { name: "purple-card-outline", color: "bg-card-outline-purple", outline: "border-card-outline-purple",  handleClick: () => get().changeCardOutline("purple-card-outline") },
+        { name: "orchid-card-outline", color: "bg-card-outline-orchid", outline: "border-card-outline-orchid",  handleClick: () => get().changeCardOutline("orchid-card-outline") },
       ],
+      getCardOutline: () => {
+        const { cardOutline, cardOutlines } = get();
+
+        const group = cardOutlines.find((i) => i.name === cardOutline);
+
+        return group ? group.outline : "";
+      },
 
       mobileMenu: false,
       toggleMobileMenu: () => set((state) => ({ mobileMenu: !state.mobileMenu })),
@@ -258,7 +281,7 @@ export const useCardStore = create(
         cardBackground: state.cardBackground,
         backgroundStyle: state.backgroundStyle,
         cardOutline: state.cardOutline,
-        cardOutlineColor: state.cardOutlineColor,
+        isCardOutlineEnabled: state.isCardOutlineEnabled,
         heartsColor: state.heartsColor,
         spadesColor: state.spadesColor,
         diamondsColor: state.diamondsColor,

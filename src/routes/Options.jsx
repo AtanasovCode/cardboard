@@ -9,7 +9,7 @@ const Options = () => {
     const {
         backgroundStyles,
         cardBackgrounds,
-        cardOutlineColors,
+        cardOutlines,
         suitColors,
     } = useCardStore();
 
@@ -37,7 +37,7 @@ const Options = () => {
                     <OptionChoice
                         type="background"
                         title="Card Border Color"
-                        options={cardOutlineColors}
+                        options={cardOutlines}
                     />
                 </div>
             </div>

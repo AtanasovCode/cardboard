@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useCardStore } from "../../useCardStore";
 import { useGameLogicStore } from "../../useGameLogicStore";
-import { getCardOutlineColor } from "../Utils";
 
 import CardRank from "./CardRank";
 import CenterSuit from "./CenterSuit";
@@ -28,10 +27,12 @@ const Card = ({
     } = useGameLogicStore();
 
     const {
-        cardOutlineColor,
+        isCardOutlineEnabled,
+        getCardOutline,
     } = useCardStore();
 
-    const cardOutline = outline ? `border ${getCardOutlineColor(cardOutlineColor)}` : "border-none";
+    const cardOutline = isCardOutlineEnabled && outline ? `border ${getCardOutline()}` : "border-none";
+    const rankColor = backgroundColor === "bg-card-white" ? "text-black" : "text-white";
 
     useEffect(() => {
         increasePersonalBest();
@@ -41,7 +42,7 @@ const Card = ({
         <div
             className={`
                 relative rounded-xl flex flex-col items-center justify-between aspect-[2/3]
-                ${backgroundColor} ${size} ${hoverEffect} ${cardOutline}
+                ${backgroundColor} ${rankColor} ${size} ${hoverEffect} ${cardOutline}
                 font-cards select-none
             `}
             onClick={() => {

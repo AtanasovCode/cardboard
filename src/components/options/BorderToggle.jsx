@@ -2,11 +2,11 @@ import { useCardStore } from "../../../useCardStore";
 
 const BorderToggle = () => {
 
-    const { cardOutline, toggleCardOutline } = useCardStore();
+    const { isCardOutlineEnabled, toggleCardOutline } = useCardStore();
 
-    const activePosition = cardOutline ? "translate-x-[100%]" : "translate-x-0";
-    const activeTextColor = cardOutline ? "text-black" : "text-slate-200";
-    const inactiveTextColor = cardOutline ? "text-slate-200" : "text-black";
+    const activePosition = isCardOutlineEnabled ? "translate-x-[100%]" : "translate-x-0";
+    const activeTextColor = isCardOutlineEnabled ? "text-black" : "text-slate-200";
+    const inactiveTextColor = isCardOutlineEnabled ? "text-slate-200" : "text-black";
 
     return (
         <div className="w-full  flex items-center justify-between">
