@@ -16,6 +16,17 @@ export default {
     'bg-card-outline-orange',
     'bg-card-outline-purple',
     'bg-card-dark-grey',
+    'bg-pool-table',
+    'bg-poker-table',
+    'bg-casino-night',
+    'bg-luxury-black',
+    'bg-luxury-poker',
+    'bg-dark-felt',
+    'bg-slate-800',
+    'bg-blue-800',
+    'bg-black',
+    'bg-red-800',
+    'bg-green-800',
   ],
   theme: {
     extend: {

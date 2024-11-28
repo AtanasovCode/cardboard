@@ -77,18 +77,32 @@ export const useCardStore = create(
       suitColors: () => {
         const { createSuit } = get();
 
+        // predefined colors
+        const white = "#FFF";
+        const black = "#000";
+        const night = "#3f3f3f"
+        const green = "#34f51e";
+        const red = "#f83f52";
+        const blue = "#1db6e9";
+        const darkGreen = "#07d50e";
+        const darkRed = "#e12316";
+        const orange = "#f19509";
+        const yellow = "#f8e328";
+
         return (
           [
-            createSuit("black", { hearts: "#000", spades: "#000", clubs: "#000", diamonds: "#000" }),
-            createSuit("white", { hearts: "#fff", spades: "#fff", clubs: "#fff", diamonds: "#fff" }),
-            createSuit("green", { hearts: "#00d933", spades: "#00d933", clubs: "#00d933", diamonds: "#00d933" }),
-            createSuit("red", { hearts: "#f41e1e", spades: "#f41e1e", clubs: "#f41e1e", diamonds: "#f41e1e" }),
-            createSuit("blue", { hearts: "#1648ef", spades: "#1648ef", clubs: "#1648ef", diamonds: "#1648ef" }),
-            createSuit("colorful", { hearts: "#f41e1e", spades: "#00d933", clubs: "#00d933", diamonds: "#f41e1e" }),
-            createSuit("colorful-darker", { hearts: "#cd0808", spades: "#06ba30", clubs: "#06ba30", diamonds: "#cd0808" }),
-            createSuit("black-red", { hearts: "#f41e1e", spades: "#000", clubs: "#000", diamonds: "#f41e1e" }),
-            createSuit("white-blue", { hearts: "#fff", spades: "#1648ef", clubs: "#1648ef", diamonds: "#fff" }),
-            createSuit("different", { hearts: "#f41e1e", spades: "#1648ef", clubs: "#00d933", diamonds: "#f2ff00" }),
+            createSuit("black", { hearts: black, spades: black, clubs: black, diamonds: black }),
+            createSuit("white", { hearts: white, spades: white, clubs: white, diamonds: white }),
+            createSuit("night", { hearts: night, spades: night, clubs: night, diamonds: night }),
+            createSuit("green", { hearts: green, spades: green, clubs: green, diamonds: green }),
+            createSuit("red", { hearts: red, spades: red, clubs: red, diamonds: red }),
+            createSuit("blue", { hearts: blue, spades: blue, clubs: blue, diamonds: blue }),
+            createSuit("orange", { hearts: orange, spades: orange, clubs: orange, diamonds: orange }),
+            createSuit("colorful", { hearts: red, spades: green, clubs: green, diamonds: red }),
+            createSuit("colorful-darker", { hearts: darkRed, spades: darkGreen, clubs: darkGreen, diamonds: darkRed }),
+            createSuit("black-red", { hearts: red, spades: black, clubs: black, diamonds: red }),
+            createSuit("white-blue", { hearts: white, spades: blue, clubs: blue, diamonds: white }),
+            createSuit("different", { hearts: red, spades: blue, clubs: green, diamonds: yellow }),
             createSuit("different-v2", { hearts: "#f200ff", spades: "#ba0098", clubs: "#1648ef", diamonds: "#5cc600" }),
           ]
         );
@@ -134,12 +148,13 @@ export const useCardStore = create(
           createBackgroundStyle("luxury-black-background-style", "bg-luxury-black"),
           createBackgroundStyle("luxury-poker-background-style", "bg-luxury-poker"),
           createBackgroundStyle("dark-felt-background-style", "bg-dark-felt"),
-          createBackgroundStyle("pure-black-background-style", "bg-black"),
-          createBackgroundStyle("pure-red-background-style", "bg-red-800"),
           createBackgroundStyle("pure-gray-background-style", "bg-slate-800"),
+          createBackgroundStyle("pure-red-background-style", "bg-red-800"),
+          createBackgroundStyle("pure-blue-background-style", "bg-blue-800"),
+          createBackgroundStyle("pure-green-background-style", "bg-green-800"),
+          createBackgroundStyle("pure-black-background-style", "bg-black"),
         ];
       },
-
 
       getBackgroundStyle: () => {
         const { backgroundStyle, backgroundStyles, } = get();
