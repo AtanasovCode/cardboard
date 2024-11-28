@@ -27,6 +27,14 @@ export default {
     'bg-black',
     'bg-red-800',
     'bg-green-800',
+    'bg-card-dark-grey',
+    'bg-card-black',
+    'bg-card-red',
+    'bg-card-white',
+    'bg-card-green',
+    'bg-card-orange',
+    'bg-card-purple',
+    'bg-card-teal',
   ],
   theme: {
     extend: {
