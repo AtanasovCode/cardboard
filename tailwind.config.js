@@ -11,15 +11,19 @@ export default {
     'bg-card-outline-dark-grey',
     'bg-card-outline-red',
     'bg-card-outline-yellow',
+    'bg-card-outline-blue',
+    'bg-card-outline-orchid',
+    'bg-card-outline-orange',
+    'bg-card-outline-purple',
   ],
   theme: {
     extend: {
       fontFamily: {
-        'cards': "Hubot Sans",
-        'sans': "Inter",
+        'cards': '"DM Sans", sans-serif',
+        'sans': '"Inter", sans-serif',
       },
       colors: {
-        'main-background': "#0A0A0A",
+        'main-background': "#141414", //"#0A0A0A",
 
         // card colors
         'card-dark-gray': "rgb(30 41 59)",
@@ -39,6 +43,10 @@ export default {
         'card-outline-dark-grey': "#707070",
         'card-outline-red': "#E00000",
         'card-outline-yellow': "#FFFF1F",
+        'card-outline-blue': "#3A33FF",
+        'card-outline-orange': "#FF6F00",
+        'card-outline-purple': "#AD21C0",
+        'card-outline-orchid': "#D562E4",
       },
       backgroundImage: {
         'background-graphic': "url(/background-graphic.svg)",
@@ -51,7 +59,7 @@ export default {
 
       },
       screens: {
-        'xs': "500px",
+        'xs': "550px",
       },
     },
   },

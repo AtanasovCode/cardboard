@@ -3,8 +3,8 @@ import { useGameLogicStore } from "../../useGameLogicStore";
 import { getCardBackground } from "../Utils";
 import CustomCursor from "../components/CustomCursor";
 
-import clubsBlack from '../assets/suits/clubs-black.svg';
-import heartsBlack from '../assets/suits/hearts-black.svg';
+import SpadesSuit from "../components/suits/SpadesSuit";
+import DiamondsSuit from "../components/suits/DiamondsSuit";
 
 import Card from "../components/Card";
 
@@ -21,7 +21,7 @@ const GameOver = () => {
 
     const cards = [
         {
-            suit: heartsBlack,
+            suit: <DiamondsSuit color="#000" />,
             rank: "Restart",
             id: "hearts-play",
             handleClick: () => {
@@ -31,7 +31,7 @@ const GameOver = () => {
             },
         },
         {
-            suit: clubsBlack,
+            suit: <SpadesSuit color="#000" />,
             rank: "Main Menu",
             id: "clubs-play",
             handleClick: () => {
@@ -43,9 +43,9 @@ const GameOver = () => {
     ];
 
     return (
-        <div className="min-h-dvh w-full flex flex-col items-center justify-between bg-luxury-black text-white cursor-none py-16">
+        <div className="min-h-dvh w-full flex flex-col items-center justify-between bg-luxury-black text-white cursor-none py-10">
             <CustomCursor />
-            <div className="z-0 absolute bottom-0 left-0 w-[100%] h-[35%] lg:h-[50%] lg:w-[50%] bg-background-graphic bg-contain bg-center lg:bg-left bg-no-repeat"></div>
+            <div className="z-0 absolute bottom-0 left-0 w-[100%] h-[35%] md:h-[50%] md:w-[100%] bg-background-graphic bg-contain bg-center md:bg-left bg-no-repeat"></div>
             <div className="w-full flex flex-col items-center justify-center">
                 <div className="mb-6 lg:mb-10 font-bold text-4xl md:text-5xl lg:text-6xl lg:font-black">Game Over</div>
                 <div className="font-bold text-base mb-2 md:text-lg lg:text-xl">Score: {score}</div>
@@ -56,7 +56,7 @@ const GameOver = () => {
                     cards.map((card) => {
                         return (
                             <div
-                                className="w-[40%] xs:w-auto xs:h-[45dvh]"
+                                className="w-[40%] xs:w-auto xs:h-[40dvh]"
                                 onClick={card.handleClick}
                             >
                                 <Card
