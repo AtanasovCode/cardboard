@@ -31,6 +31,7 @@ export default {
     'bg-card-black',
     'bg-card-red',
     'bg-card-white',
+    'bg-card-blue',
     'bg-card-green',
     'bg-card-orange',
     'bg-card-purple',
