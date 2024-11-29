@@ -17,7 +17,10 @@ const SuitChoice = ({
             border-2 ${borderStyle} relative cursor-pointer
             grid grid-cols-2 overflow-hidden
         `}
-            onClick={handleClick}
+            onClick={() => {
+                handleClick();
+                console.log(`Clicked: ${color}`)
+            }}
         >
             <div
                 className={`w-full aspect-square`}

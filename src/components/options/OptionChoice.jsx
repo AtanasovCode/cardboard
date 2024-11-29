@@ -22,10 +22,12 @@ const OptionChoice = ({ type, title, options }) => {
     } = useCardStore();
 
     const settings = {
-        dots: true,
+        dots: false,
         infinite: true,
+        draggable: false,
+        easing: 'ease-in-out',
         speed: 500,
-        slidesToShow: 8,
+        slidesToShow: 9,
         slidesToScroll: 1,
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />,
@@ -34,19 +36,19 @@ const OptionChoice = ({ type, title, options }) => {
             {
                 breakpoint: 1024, // Below 1024px
                 settings: {
-                    slidesToShow: 6,
+                    slidesToShow: 7,
                 },
             },
             {
                 breakpoint: 768,
                 settings: {
-                    slidesToShow: 5,
+                    slidesToShow: 6,
                 },
             },
             {
                 breakpoint: 400, // Below 480px
                 settings: {
-                    slidesToShow: 3,
+                    slidesToShow: 5,
                 },
             },
         ],
@@ -85,11 +87,10 @@ const OptionChoice = ({ type, title, options }) => {
                                 );
                             }))
                             :
-                            (options.map((option, index) => {
+                            (options.map((option) => {
                                 const isSelected = suitColor === option.name;
                                 return (
                                     <SuitChoice
-                                        idx={index}
                                         key={option.name}
                                         isSelected={isSelected}
                                         name={option.name}

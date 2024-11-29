@@ -3,7 +3,7 @@ import { CheckCircle, Check } from "@phosphor-icons/react";
 
 const DisplayActiveCheckmark = () => {
     return (
-        <div className="absolute right-[5%] top-[5%] w-6 h-6 
+        <div className="absolute left-[5%] top-[5%] w-5 h-5 
         bg-slate-100 border-2 border-main-background rounded-full
         flex items-center justify-center
     ">
