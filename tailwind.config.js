@@ -12,29 +12,6 @@ export default {
       },
       colors: {
         'main-background': "#141414", //"#0A0A0A",
-
-        // card colors
-        'card-dark-grey': "rgb(30 41 59)",
-        'card-black': "rgb(2 6 23)",
-        'card-red': "rgb(153 27 27)",
-        'card-white': "#FFFD82",
-        'card-blue': "#284FB8",
-        'card-green': "rgb(22 101 52)",
-        'card-orange': "rgb(234 88 12)",
-        'card-purple': "rgb(91 33 182)",
-        'card-teal': "rgb(13 148 136)",
-
-        //card outlines
-        'card-outline-black': "#000",
-        'card-outline-white': "#F5F5F5",
-        'card-outline-light-grey': "#C2C2C2",
-        'card-outline-dark-grey': "#707070",
-        'card-outline-red': "#E00000",
-        'card-outline-yellow': "#FFFF1F",
-        'card-outline-blue': "#3A33FF",
-        'card-outline-orange': "#FF6F00",
-        'card-outline-purple': "#AD21C0",
-        'card-outline-orchid': "#D562E4",
       },
       backgroundImage: {
         'background-graphic': "url(/background-graphic.svg)",
