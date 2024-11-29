@@ -32,7 +32,7 @@ const ClassicCard = ({
     } = useCardStore();
 
     const cardOutline = isCardOutlineEnabled && outline ? `border ${getCardOutline()}` : "border-none";
-    const rankColor = backgroundColor === "bg-card-white" ? "text-black" : "text-white";
+    const rankColor = backgroundColor === "#FFFFFF" ? "text-black" : "text-white";
 
     useEffect(() => {
         increasePersonalBest();
@@ -42,9 +42,10 @@ const ClassicCard = ({
         <div
             className={`
                 relative rounded-xl flex flex-col items-center justify-between aspect-[2/3]
-                ${backgroundColor} ${rankColor} ${size} ${hoverEffect} ${cardOutline}
+                ${rankColor} ${size} ${hoverEffect} ${cardOutline}
                 font-cards select-none
             `}
+            style={{ borderColor: getCardOutline(), backgroundColor: backgroundColor }}
             onClick={() => {
                 if (allowClick) {
                     addCard(cardID);

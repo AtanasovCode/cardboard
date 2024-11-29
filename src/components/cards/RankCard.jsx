@@ -32,7 +32,7 @@ const RankCard = ({
         getCardOutline,
     } = useCardStore();
 
-    const cardOutline = isCardOutlineEnabled && outline ? `border ${getCardOutline()}` : "border-none";
+    const cardOutline = isCardOutlineEnabled && outline ? `border` : "border-none";
     const rankColor = backgroundColor === "bg-card-white" ? "text-black" : "text-white";
 
     useEffect(() => {
@@ -43,9 +43,10 @@ const RankCard = ({
         <div
             className={`
                 relative rounded-xl flex flex-col items-center justify-between aspect-[2/3]
-                ${backgroundColor} ${rankColor} ${size} ${hoverEffect} ${cardOutline}
+                ${rankColor} ${size} ${hoverEffect} ${cardOutline}
                 font-cards select-none
             `}
+            style={{borderColor: getCardOutline(), backgroundColor: backgroundColor}}
             onClick={() => {
                 if (allowClick) {
                     addCard(cardID);

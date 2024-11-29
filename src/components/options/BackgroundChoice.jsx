@@ -7,10 +7,11 @@ const BackgroundChoice = ({ name, color, handleClick, isSelected }) => {
     return (
         <div
             className={`
-                w-full aspect-square rounded-xl ${color}
+                w-full aspect-square rounded-xl
                 border-2 relative cursor-pointer
                 ${borderColor}
             `}
+            style={{backgroundColor: color, backgroundImage: color}}
             onClick={handleClick}
         >
             {isSelected && <DisplayActiveCheckmark />}

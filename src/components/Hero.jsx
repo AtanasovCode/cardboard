@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useGameLogicStore } from "../../useGameLogicStore";
-import Card from "./Card";
+import ClassicCard from "./cards/ClassicCard";
 
 import HeartsSuit from "./suits/HeartsSuit";
 import DiamondsSuit from "./suits/DiamondsSuit";
@@ -50,12 +50,12 @@ const Hero = () => {
                                 className="w-[40%] xs:w-auto xs:h-[40dvh]"
                                 onClick={card.handleClick}
                             >
-                                <Card
+                                <ClassicCard
                                     key={card.id}
                                     suit={card.suit}
                                     rank={card.rank}
                                     cardID={card.id}
-                                    backgroundColor={"bg-card-white"}
+                                    backgroundColor={"#FFFFFF"}
                                     size="w-full xs:h-full xs:w-auto"
                                     hoverEffect="hover:scale-[1.04] transition-all duration-300 ease-in-out"
                                     outline={false}

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useCardStore } from "../../useCardStore";
 import { useGameLogicStore } from "../../useGameLogicStore";
 
-import Card from "../components/Card";
+import ClassicCard from '../components/cards/ClassicCard';
 import ScoreTracker from "../components/ScoreTracker";
 import MobileMenu from '../components/MobileMenu';
 
@@ -42,7 +42,10 @@ const Level = () => {
     }, [clickedCards])
 
     return (
-        <div className={`min-h-[100dvh] ${getBackgroundStyle()} text-white flex flex-col items-center justify-start font-sans relative`}>
+        <div 
+            className={`min-h-[100dvh] text-white flex flex-col items-center justify-start font-sans relative`}
+            style={{ backgroundImage: getBackgroundStyle(), }}
+        >
             <ScoreTracker />
             <MobileMenu />
             <div className="w-[98%] mt-[15dvh] md:w-[90%] xl:w-[80%] max-w-[90rem] flex flex-1 items-center justify-center py-12 xl:py-14">
@@ -50,9 +53,10 @@ const Level = () => {
                     {
                         displayedCards.map((card, index) => {
                             return (
-                                <Card
+                                <ClassicCard
                                     key={card.id}
                                     suit={getSuit(card.suit)}
+                                    suitName={card.suit}
                                     rank={card.rank}
                                     cardID={card.id}
                                     backgroundColor={getCardBackground()}

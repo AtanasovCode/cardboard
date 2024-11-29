@@ -9,6 +9,59 @@ import ClubsSuit from './src/components/suits/ClubsSuit';
 export const useCardStore = create(
   persist(
     (set, get) => ({
+
+      // predefined colors
+      colors: {
+        white: "#FFF",
+        black: "#000",
+        lightGrey: "#bbbaba",
+        darkGrey: "#a2a0a0",
+        green: "#34f51e",
+        red: "#f83f52",
+        blue: "#1db6e9",
+        orange: "#f19509",
+        yellow: "#f8e328",
+        purple: "#ff009d",
+        orchid: "#da70d6 ",
+        pink: "#FF4D80",
+
+        // darker shades
+        grey: "#3b3b3b",
+        darkGreen: "#129204",
+        darkRed: "#810410",
+        darkBlue: "#0b3a4a",
+      },
+
+      cardColors: {
+        "white": "#FFFFFF",
+        "black": "#000000",
+        "red": "#921515",
+        "blue": "#1b3680",
+        "green": "#0a7652",
+        "yellow": "#9b6811",
+        "purple": "#8058df",
+        "orange": "#e58638",
+        "grey": "#3f4343",
+        "pink": "#e52484",
+        "brown": "#6D4C41",
+        "teal": "#14B8A6"
+      },
+
+
+      gradients: {
+        "pool-table": "radial-gradient(ellipse at center, #30D96E, #348338, #123F15)",
+        "poker-table": "radial-gradient(ellipse at center, #F75050, #EA0B0B, #750606)",
+        "casino-night": "radial-gradient(ellipse at center, #64748b, #1e293b, #0f172a)",
+        "luxury-black": "radial-gradient(ellipse at center, #292929, #141414, #000000)",
+        "luxury-poker": "radial-gradient(ellipse at center, #a71d2a, #721c24, #4b1c1c)",
+        "dark-felt": "radial-gradient(ellipse at center, #4a5568, #2d3748, #1a202c)",
+        "green": "radial-gradient(ellipse at center, #216004, #216004)",
+        "red": "radial-gradient(ellipse at center, #720808, #720808)",
+        "blue": "radial-gradient(ellipse at center, #1c044d, #1c044d)",
+        "black": "radial-gradient(ellipse at center, #000000, #000000)",
+        "grey": "radial-gradient(ellipse at center, #444444, #444444)"
+      },
+
       ranks: ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"],
       suits: [
         {
@@ -75,37 +128,22 @@ export const useCardStore = create(
       },
 
       suitColors: () => {
-        const { createSuit } = get();
+        const { createSuit, colors } = get();
 
-        // predefined colors
-        const white = "#FFF";
-        const black = "#000";
-        const night = "#3f3f3f"
-        const green = "#34f51e";
-        const red = "#f83f52";
-        const blue = "#1db6e9";
-        const darkGreen = "#07d50e";
-        const darkRed = "#e12316";
-        const orange = "#f19509";
-        const yellow = "#f8e328";
-
-        return (
-          [
-            createSuit("black", { hearts: black, spades: black, clubs: black, diamonds: black }),
-            createSuit("white", { hearts: white, spades: white, clubs: white, diamonds: white }),
-            createSuit("night", { hearts: night, spades: night, clubs: night, diamonds: night }),
-            createSuit("green", { hearts: green, spades: green, clubs: green, diamonds: green }),
-            createSuit("red", { hearts: red, spades: red, clubs: red, diamonds: red }),
-            createSuit("blue", { hearts: blue, spades: blue, clubs: blue, diamonds: blue }),
-            createSuit("orange", { hearts: orange, spades: orange, clubs: orange, diamonds: orange }),
-            createSuit("colorful", { hearts: red, spades: green, clubs: green, diamonds: red }),
-            createSuit("colorful-darker", { hearts: darkRed, spades: darkGreen, clubs: darkGreen, diamonds: darkRed }),
-            createSuit("black-red", { hearts: red, spades: black, clubs: black, diamonds: red }),
-            createSuit("white-blue", { hearts: white, spades: blue, clubs: blue, diamonds: white }),
-            createSuit("different", { hearts: red, spades: blue, clubs: green, diamonds: yellow }),
-            createSuit("different-v2", { hearts: "#f200ff", spades: "#ba0098", clubs: "#1648ef", diamonds: "#5cc600" }),
-          ]
-        );
+        return [
+          createSuit("black", { hearts: colors["black"], spades: colors["black"], clubs: colors["black"], diamonds: colors["black"] }),
+          createSuit("white", { hearts: colors["white"], spades: colors["white"], clubs: colors["white"], diamonds: colors["white"] }),
+          createSuit("night", { hearts: colors["grey"], spades: colors["grey"], clubs: colors["grey"], diamonds: colors["grey"] }),
+          createSuit("green", { hearts: colors["green"], spades: colors["green"], clubs: colors["green"], diamonds: colors["green"] }),
+          createSuit("red", { hearts: colors["red"], spades: colors["red"], clubs: colors["red"], diamonds: colors["red"] }),
+          createSuit("blue", { hearts: colors["blue"], spades: colors["blue"], clubs: colors["blue"], diamonds: colors["blue"] }),
+          createSuit("orange", { hearts: colors["orange"], spades: colors["orange"], clubs: colors["orange"], diamonds: colors["orange"] }),
+          createSuit("colorful", { hearts: colors["red"], spades: colors["green"], clubs: colors["green"], diamonds: colors["red"] }),
+          createSuit("colorful-darker", { hearts: colors["darkRed"], spades: colors["darkGreen"], clubs: colors["darkGreen"], diamonds: colors["darkRed"] }),
+          createSuit("black-red", { hearts: colors["red"], spades: colors["black"], clubs: colors["black"], diamonds: colors["red"] }),
+          createSuit("white-blue", { hearts: colors["white"], spades: colors["blue"], clubs: colors["blue"], diamonds: colors["white"] }),
+          createSuit("different", { hearts: colors["red"], spades: colors["blue"], clubs: colors["green"], diamonds: colors["yellow"] }),
+        ];
       },
 
       getSuitColor: (suit) => {
@@ -139,20 +177,20 @@ export const useCardStore = create(
       },
 
       backgroundStyles: () => {
-        const { createBackgroundStyle } = get();
+        const { createBackgroundStyle, gradients } = get();
 
         return [
-          createBackgroundStyle("pool-table-background-style", "bg-pool-table"),
-          createBackgroundStyle("poker-table-background-style", "bg-poker-table"),
-          createBackgroundStyle("casino-night-background-style", "bg-casino-night"),
-          createBackgroundStyle("luxury-black-background-style", "bg-luxury-black"),
-          createBackgroundStyle("luxury-poker-background-style", "bg-luxury-poker"),
-          createBackgroundStyle("dark-felt-background-style", "bg-dark-felt"),
-          createBackgroundStyle("pure-gray-background-style", "bg-slate-800"),
-          createBackgroundStyle("pure-red-background-style", "bg-red-800"),
-          createBackgroundStyle("pure-blue-background-style", "bg-blue-800"),
-          createBackgroundStyle("pure-green-background-style", "bg-green-800"),
-          createBackgroundStyle("pure-black-background-style", "bg-black"),
+          createBackgroundStyle("pool-table", gradients["pool-table"]),
+          createBackgroundStyle("poker-table", gradients["poker-table"]),
+          createBackgroundStyle("casino-night", gradients["casino-night"]),
+          createBackgroundStyle("luxury-poker", gradients["luxury-poker"]),
+          createBackgroundStyle("luxury-black", gradients["luxury-black"]),
+          createBackgroundStyle("dark-felt", gradients["dark-felt"]),
+          createBackgroundStyle("pure-green", gradients["green"]),
+          createBackgroundStyle("pure-red", gradients["red"]),
+          createBackgroundStyle("pure-blue", gradients["blue"]),
+          createBackgroundStyle("pure-grey", gradients["grey"]),
+          createBackgroundStyle("pure-black", gradients["black"]),
         ];
       },
 
@@ -180,18 +218,20 @@ export const useCardStore = create(
       },
 
       cardBackgrounds: () => {
-        const { createCardBackground } = get();
+        const { createCardBackground, cardColors } = get();
 
         return [
-          createCardBackground("black-card-background", "bg-card-black"),
-          createCardBackground("white-card-background", "bg-card-white"),
-          createCardBackground("dark-grey-card-background", "bg-card-dark-grey"),
-          createCardBackground("red-card-background", "bg-card-red"),
-          createCardBackground("blue-card-background", "bg-card-blue"),
-          createCardBackground("green-card-background", "bg-card-green"),
-          createCardBackground("orange-card-background", "bg-card-orange"),
-          createCardBackground("purple-card-background", "bg-card-purple"),
-          createCardBackground("teal-card-background", "bg-card-teal"),
+          createCardBackground("white-card", cardColors["white"]),
+          createCardBackground("black-card", cardColors["black"]),
+          createCardBackground("grey-card", cardColors["grey"]),
+          createCardBackground("red-card", cardColors["red"]),
+          createCardBackground("blue-card", cardColors["blue"]),
+          createCardBackground("green-card", cardColors["green"]),
+          createCardBackground("orange-card", cardColors["orange"]),
+          createCardBackground("purple-card", cardColors["purple"]),
+          createCardBackground("pink-card", cardColors["pink"]),
+          createCardBackground("brown-card", cardColors["brown"]),
+          createCardBackground("teal-card", cardColors["teal"]),
         ];
       },
 
@@ -215,25 +255,26 @@ export const useCardStore = create(
         return {
           name,
           color,
-          outline,
           handleClick: () => changeCardOutline(name),
         };
       },
 
       cardOutlines: () => {
-        const { createCardOutline } = get();
+        const { createCardOutline, colors } = get();
 
         return [
-          createCardOutline("white-card-outline", "bg-card-outline-white", "border-card-outline-white"),
-          createCardOutline("light-grey-card-outline", "bg-card-outline-light-grey", "border-card-outline-light-grey"),
-          createCardOutline("dark-grey-card-outline", "bg-card-outline-dark-grey", "border-card-outline-dark-grey"),
-          createCardOutline("black-card-outline", "bg-card-outline-black", "border-card-outline-black"),
-          createCardOutline("red-card-outline", "bg-card-outline-red", "border-card-outline-red"),
-          createCardOutline("yellow-card-outline", "bg-card-outline-yellow", "border-card-outline-yellow"),
-          createCardOutline("blue-card-outline", "bg-card-outline-blue", "border-card-outline-blue"),
-          createCardOutline("orange-card-outline", "bg-card-outline-orange", "border-card-outline-orange"),
-          createCardOutline("purple-card-outline", "bg-card-outline-purple", "border-card-outline-purple"),
-          createCardOutline("orchid-card-outline", "bg-card-outline-orchid", "border-card-outline-orchid"),
+          createCardOutline("white-card-outline", colors["white"]),
+          createCardOutline("light-grey-card-outline", colors["lightGrey"]),
+          createCardOutline("dark-grey-card-outline", colors["darkGrey"]),
+          createCardOutline("black-card-outline", colors["black"]),
+          createCardOutline("red-card-outline", colors["red"]),
+          createCardOutline("blue-card-outline", colors["blue"]),
+          createCardOutline("green-card-outline", colors["green"]),
+          createCardOutline("yellow-card-outline", colors["yellow"]),
+          createCardOutline("orange-card-outline", colors["orange"]),
+          createCardOutline("purple-card-outline", colors["purple"]),
+          createCardOutline("orchid-card-outline", colors["orchid"]),
+          createCardOutline("pink-card-outline", colors["pink"]),
         ];
       },
 
@@ -242,7 +283,7 @@ export const useCardStore = create(
 
         const group = cardOutlines().find((i) => i.name === cardOutline);
 
-        return group ? group.outline : "";
+        return group ? group.color : "";
       },
 
       mobileMenu: false,
