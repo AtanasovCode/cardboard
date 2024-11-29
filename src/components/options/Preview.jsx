@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { ArrowLeft } from "@phosphor-icons/react";
 
 import Card from "../Card";
+import ClassicCard from "../cards/ClassicCard";
+import RankCard from "../cards/RankCard";
 
 const Preview = () => {
 
@@ -37,8 +39,9 @@ const Preview = () => {
                 {
                     cards.map((card) => {
                         return (
-                            <Card
+                            <RankCard
                                 suit={getSuit(card.suit)}
+                                suitName={card.suit}
                                 rank={card.rank}
                                 cardID={card.id}
                                 backgroundColor={getCardBackground()}

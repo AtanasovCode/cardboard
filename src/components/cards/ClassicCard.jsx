@@ -1,11 +1,11 @@
 import { useEffect } from "react";
-import { useCardStore } from "../../useCardStore";
-import { useGameLogicStore } from "../../useGameLogicStore";
+import { useCardStore } from "../../../useCardStore";
+import { useGameLogicStore } from "../../../useGameLogicStore";
 
-import CardRank from "./cards/CardRank";
-import CenterSuit from "./cards/CenterSuit";
+import CardRank from "./CardRank";
+import CenterSuit from "./CenterSuit";
 
-const Card = ({
+const ClassicCard = ({
     suit,
     rank,
     cardID,
@@ -59,4 +59,4 @@ const Card = ({
     );
 }
 
-export default Card;
+export default ClassicCard;

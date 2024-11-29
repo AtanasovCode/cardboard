@@ -1,14 +1,15 @@
 import { useEffect } from "react";
-import { useCardStore } from "../../useCardStore";
-import { useGameLogicStore } from "../../useGameLogicStore";
+import { useCardStore } from "../../../useCardStore";
+import { useGameLogicStore } from "../../../useGameLogicStore";
 
-import CardRank from "./cards/CardRank";
-import CenterSuit from "./cards/CenterSuit";
+import CenterRank from "./CenterRank";
+import CardRank from "./CardRank";
 
-const Card = ({
+const RankCard = ({
     suit,
     rank,
     cardID,
+    suitName,
 
     //customization
     backgroundColor,
@@ -52,11 +53,11 @@ const Card = ({
                 }
             }}
         >
-            <CardRank rank={rank} suit={suit} invert={false} rankStyle={rankStyle} />
-            <CenterSuit suit={suit} />
-            <CardRank rank={rank} suit={suit} invert={true} rankStyle={rankStyle} />
+            <CardRank rank={null} suit={suit} invert={false} rankStyle={rankStyle} />
+            <CenterRank rank={rank} suitName={suitName} />
+            <CardRank rank={null} suit={suit} invert={true} rankStyle={rankStyle} />
         </div >
     );
 }
 
-export default Card;
+export default RankCard;
