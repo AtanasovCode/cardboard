@@ -2,6 +2,7 @@ import { useCardStore } from "../../useCardStore";
 
 import Preview from "../components/options/Preview";
 import OptionChoice from "../components/options/OptionChoice";
+import CardChoice from "../components/options/CardChoice";
 import BorderToggle from "../components/options/BorderToggle";
 
 
@@ -23,6 +24,7 @@ const Options = () => {
                         title="Background Style"
                         options={backgroundStyles()}
                     />
+                    <CardChoice />
                     <OptionChoice
                         type="background"
                         title="Card Background"

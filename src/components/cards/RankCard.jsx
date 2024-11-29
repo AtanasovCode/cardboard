@@ -10,6 +10,7 @@ const RankCard = ({
     rank,
     cardID,
     suitName,
+    customColor,
 
     //customization
     backgroundColor,
@@ -55,7 +56,7 @@ const RankCard = ({
             }}
         >
             <CardRank rank={null} suit={suit} invert={false} rankStyle={rankStyle} />
-            <CenterRank rank={rank} suitName={suitName} />
+            <CenterRank rank={rank} suitName={suitName} customColor={customColor} />
             <CardRank rank={null} suit={suit} invert={true} rankStyle={rankStyle} />
         </div >
     );

@@ -1,11 +1,11 @@
 import { useCardStore } from "../../../useCardStore";
 
-const CenterRank = ({ rank, suitName }) => {
+const CenterRank = ({ rank, suitName, customColor }) => {
 
     const { getSuitColor } = useCardStore();
 
 
-    const color = getSuitColor(suitName);
+    const color = customColor ? "#000000" : getSuitColor(suitName);
 
     console.log(color);
 

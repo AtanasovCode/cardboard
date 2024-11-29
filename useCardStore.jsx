@@ -75,6 +75,13 @@ export const useCardStore = create(
         }
       ],
 
+      cardType: "classic",
+      changeCardType: (type) => {
+        return {
+          cardType: type,
+        }
+      },
+
       // customization
       suitType: "simple",
       changeSuitType: (style) => set({ suitStyle: style }),
