@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useCardStore } from "../../useCardStore";
 import { useGameLogicStore } from "../../useGameLogicStore";
 
-import ClassicCard from '../components/cards/ClassicCard';
+import Card from '../components/Card';
 import ScoreTracker from "../components/ScoreTracker";
 import MobileMenu from '../components/MobileMenu';
 
@@ -27,6 +27,8 @@ const Level = () => {
         displayedCards,
         clickedCards,
         updateDisplayedCards,
+        addCard,
+        shuffleCards
     } = useGameLogicStore();
 
     useEffect(() => {
@@ -53,7 +55,7 @@ const Level = () => {
                     {
                         displayedCards.map((card, index) => {
                             return (
-                                <ClassicCard
+                                <Card
                                     key={card.id}
                                     suit={getSuit(card.suit)}
                                     suitName={card.suit}

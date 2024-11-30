@@ -30,7 +30,6 @@ const Card = ({
         isCardOutlineEnabled,
         getCardOutline,
         cardType,
-        getSuitColor,
     } = useCardStore();
 
     const cardOutline = isCardOutlineEnabled && outline ? `border ${getCardOutline()}` : "border-none";
@@ -53,7 +52,6 @@ const Card = ({
                         suitNam={suitName}
                         cardOutline={cardOutline}
                         outline={outline}
-                        allowCLick={allowClick}
                     />
                 );
             case "bold":
@@ -68,14 +66,21 @@ const Card = ({
                         hoverEffect={hoverEffect}
                         cardOutline={cardOutline}
                         outline={outline}
-                        allowCLick={allowClick}
                     />
                 );
         }
     }
 
     return (
-        <div className={`${size}`}>
+        <div
+            className={`${size}`}
+            onClick={() => {
+                if (allowClick) {
+                    addCard(cardID)
+                    shuffleCards();
+                }
+            }}
+        >
             {displayCard()}
         </div>
     );

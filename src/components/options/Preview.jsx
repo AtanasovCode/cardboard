@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { ArrowLeft } from "@phosphor-icons/react";
 
 import Card from "../Card";
-import ClassicCard from "../cards/ClassicCard";
-import RankCard from "../cards/RankCard";
 
 const Preview = () => {
 

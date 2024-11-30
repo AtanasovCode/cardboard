@@ -22,8 +22,6 @@ const ClassicCard = ({
     const {
         shuffleCards,
         addCard,
-        score,
-        increasePersonalBest,
     } = useGameLogicStore();
 
     const {
@@ -40,12 +38,6 @@ const ClassicCard = ({
                 font-cards select-none
             `}
             style={{ borderColor: getCardOutline(), backgroundColor: backgroundColor }}
-            onClick={() => {
-                if (allowClick) {
-                    addCard(cardID);
-                    shuffleCards();
-                }
-            }}
         >
             <CardRank rank={rank} suit={suit} invert={false} rankColor={rankColor} size="w-[15%]" />
             <CenterSuit suit={suit} />

@@ -33,16 +33,10 @@ const RankCard = ({
         <div
             className={`
                 relative rounded-xl flex flex-col items-center justify-between aspect-[2/3]
-                ${size} ${hoverEffect} ${cardOutline}
+                ${size} ${hoverEffect} ${cardOutline} z-60
                 font-cards select-none
             `}
             style={{borderColor: getCardOutline(), backgroundColor: backgroundColor}}
-            onClick={() => {
-                if (allowClick) {
-                    addCard(cardID);
-                    shuffleCards();
-                }
-            }}
         >
             <CardRank rank={null} suit={suit} invert={false} size="w-[17%]" rankColor={null} />
             <CenterRank rank={rank} suitName={suitName} customColor={customColor} />
