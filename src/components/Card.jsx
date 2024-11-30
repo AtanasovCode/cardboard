@@ -2,13 +2,14 @@ import { useEffect } from "react";
 import { useCardStore } from "../../useCardStore";
 import { useGameLogicStore } from "../../useGameLogicStore";
 
-import CardRank from "./cards/CardRank";
-import CenterSuit from "./cards/CenterSuit";
+import ClassicCard from './cards/ClassicCard';
+import RankCard from './cards/RankCard';
 
 const Card = ({
     suit,
     rank,
     cardID,
+    suitName,
 
     //customization
     backgroundColor,
@@ -16,7 +17,6 @@ const Card = ({
     hoverEffect,
     outline,
     allowClick,
-    rankStyle,
 }) => {
 
     const {
@@ -29,33 +29,55 @@ const Card = ({
     const {
         isCardOutlineEnabled,
         getCardOutline,
+        cardType,
+        getSuitColor,
     } = useCardStore();
 
     const cardOutline = isCardOutlineEnabled && outline ? `border ${getCardOutline()}` : "border-none";
-    const rankColor = backgroundColor === "bg-card-white" ? "text-black" : "text-white";
 
     useEffect(() => {
         increasePersonalBest();
     }, [score])
 
+    const displayCard = () => {
+        switch (cardType) {
+            case "classic":
+                return (
+                    <ClassicCard
+                        suit={suit}
+                        rank={rank}
+                        cardID={cardID}
+                        size="w-full h-full"
+                        backgroundColor={backgroundColor}
+                        hoverEffect={hoverEffect}
+                        suitNam={suitName}
+                        cardOutline={cardOutline}
+                        outline={outline}
+                        allowCLick={allowClick}
+                    />
+                );
+            case "bold":
+                return (
+                    <RankCard
+                        suit={suit}
+                        rank={rank}
+                        suitName={suitName}
+                        cardID={cardID}
+                        size="w-full h-full"
+                        backgroundColor={backgroundColor}
+                        hoverEffect={hoverEffect}
+                        cardOutline={cardOutline}
+                        outline={outline}
+                        allowCLick={allowClick}
+                    />
+                );
+        }
+    }
+
     return (
-        <div
-            className={`
-                relative rounded-xl flex flex-col items-center justify-between aspect-[2/3]
-                ${backgroundColor} ${rankColor} ${size} ${hoverEffect} ${cardOutline}
-                font-cards select-none
-            `}
-            onClick={() => {
-                if (allowClick) {
-                    addCard(cardID);
-                    shuffleCards();
-                }
-            }}
-        >
-            <CardRank rank={rank} suit={suit} invert={false} rankStyle={rankStyle} />
-            <CenterSuit suit={suit} />
-            <CardRank rank={rank} suit={suit} invert={true} rankStyle={rankStyle} />
-        </div >
+        <div className={`${size}`}>
+            {displayCard()}
+        </div>
     );
 }
 

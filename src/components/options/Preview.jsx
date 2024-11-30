@@ -11,10 +11,7 @@ const Preview = () => {
     const navigate = useNavigate();
 
     const {
-        backgroundStyle,
-        cardBackground,
         getSuit,
-        cardOutline,
         getBackgroundStyle,
         getCardBackground,
     } = useCardStore();
@@ -42,7 +39,8 @@ const Preview = () => {
                 {
                     cards.map((card) => {
                         return (
-                            <RankCard
+                            <Card
+                                key={card.id}
                                 suit={getSuit(card.suit)}
                                 suitName={card.suit}
                                 rank={card.rank}

@@ -76,11 +76,7 @@ export const useCardStore = create(
       ],
 
       cardType: "classic",
-      changeCardType: (type) => {
-        return {
-          cardType: type,
-        }
-      },
+      changeCardType: (type) => set({ cardType: type }),
 
       // customization
       suitType: "simple",

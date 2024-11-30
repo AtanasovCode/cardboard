@@ -14,37 +14,26 @@ const RankCard = ({
 
     //customization
     backgroundColor,
+    cardOutline,
     size,
     hoverEffect,
-    outline,
     allowClick,
-    rankStyle,
 }) => {
 
     const {
         shuffleCards,
         addCard,
-        score,
-        increasePersonalBest,
     } = useGameLogicStore();
 
     const {
-        isCardOutlineEnabled,
         getCardOutline,
     } = useCardStore();
-
-    const cardOutline = isCardOutlineEnabled && outline ? `border` : "border-none";
-    const rankColor = backgroundColor === "bg-card-white" ? "text-black" : "text-white";
-
-    useEffect(() => {
-        increasePersonalBest();
-    }, [score])
 
     return (
         <div
             className={`
                 relative rounded-xl flex flex-col items-center justify-between aspect-[2/3]
-                ${rankColor} ${size} ${hoverEffect} ${cardOutline}
+                ${size} ${hoverEffect} ${cardOutline}
                 font-cards select-none
             `}
             style={{borderColor: getCardOutline(), backgroundColor: backgroundColor}}
@@ -55,9 +44,9 @@ const RankCard = ({
                 }
             }}
         >
-            <CardRank rank={null} suit={suit} invert={false} rankStyle={rankStyle} />
+            <CardRank rank={null} suit={suit} invert={false} size="w-[17%]" rankColor={null} />
             <CenterRank rank={rank} suitName={suitName} customColor={customColor} />
-            <CardRank rank={null} suit={suit} invert={true} rankStyle={rankStyle} />
+            <CardRank rank={null} suit={suit} invert={true} size="w-[17%]" rankColor={null}  />
         </div >
     );
 }

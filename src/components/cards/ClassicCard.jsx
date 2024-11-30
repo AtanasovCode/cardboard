@@ -15,8 +15,8 @@ const ClassicCard = ({
     size,
     hoverEffect,
     outline,
+    cardOutline,
     allowClick,
-    rankStyle,
 }) => {
 
     const {
@@ -27,16 +27,10 @@ const ClassicCard = ({
     } = useGameLogicStore();
 
     const {
-        isCardOutlineEnabled,
         getCardOutline,
     } = useCardStore();
 
-    const cardOutline = isCardOutlineEnabled && outline ? `border ${getCardOutline()}` : "border-none";
     const rankColor = backgroundColor === "#FFFFFF" ? "text-black" : "text-white";
-
-    useEffect(() => {
-        increasePersonalBest();
-    }, [score])
 
     return (
         <div
@@ -53,9 +47,9 @@ const ClassicCard = ({
                 }
             }}
         >
-            <CardRank rank={rank} suit={suit} invert={false} rankStyle={rankStyle} />
+            <CardRank rank={rank} suit={suit} invert={false} rankColor={rankColor} size="w-[15%]" />
             <CenterSuit suit={suit} />
-            <CardRank rank={rank} suit={suit} invert={true} rankStyle={rankStyle} />
+            <CardRank rank={rank} suit={suit} invert={true} rankColor={rankColor} size="w-[15%]"  />
         </div >
     );
 }

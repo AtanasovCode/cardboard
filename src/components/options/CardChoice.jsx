@@ -1,10 +1,15 @@
+import { useCardStore } from "../../../useCardStore";
 import ClassicCard from "../cards/ClassicCard";
 import RankCard from "../cards/RankCard";
 
 import HeartsSuit from "../suits/HeartsSuit";
-import DiamondsSuit from "../suits/DiamondsSuit";
 
 const CardChoice = () => {
+
+    const {
+        changeCardType,
+    } = useCardStore();
+
     return (
         <div
             className={`w-full flex flex-col items-center justify-center
@@ -14,30 +19,40 @@ const CardChoice = () => {
                 Card Style
             </div>
             <div className="w-full flex items-center justify-center gap-4">
-                <ClassicCard
-                    key="classic"
-                    suit={<HeartsSuit color="#000000" />}
-                    suitName={"hearts"}
-                    rank="4"
-                    cardID="classic"
-                    backgroundColor="#FFFFFF"
-                    size="w-[40%] xs:w-auto sm:h-[40dvh]"
-                    hoverEffect="hover:cursor-pointer"
-                    outline={false}
-                    allowClick={false}
-                />
-                <RankCard
-                    key="classic"
-                    suit={<DiamondsSuit color="#000000" />}
-                    rank="4"
-                    cardID="classic"
-                    backgroundColor="#FFFFFF"
-                    size="w-[40%] xs:w-auto xs:h-[40dvh]"
-                    hoverEffect="hover:cursor-pointer"
-                    customColor={true}
-                    outline={false}
-                    allowClick={false}
-                />
+                <div
+                    className="w-[40%] xs:w-auto xs:h-[30dvh] cursor-pointer"
+                    onClick={() => changeCardType("classic")}
+                >
+                    <ClassicCard
+                        key="classic"
+                        suit={<HeartsSuit color="#000000" />}
+                        suitName={"hearts"}
+                        rank="4"
+                        cardID="classic"
+                        backgroundColor="#FFFFFF"
+                        size="w-full xs:w-auto xs:h-full"
+                        hoverEffect="hover:cursor-pointer"
+                        outline={false}
+                        allowClick={false}
+                    />
+                </div>
+                <div
+                    className="w-[40%] xs:w-auto xs:h-[30dvh] cursor-pointer"
+                    onClick={() => changeCardType("bold")}
+                >
+                    <RankCard
+                        key="classic"
+                        suit={<HeartsSuit color="#000000" />}
+                        rank="4"
+                        cardID="classic"
+                        backgroundColor="#FFFFFF"
+                        size="w-full xs:w-auto xs:h-full"
+                        hoverEffect="hover:cursor-pointer"
+                        customColor={true}
+                        outline={false}
+                        allowClick={false}
+                    />
+                </div>
             </div>
         </div>
     );
