@@ -13,7 +13,7 @@ const CardRank = ({
 
     return (
         <div className={`w-full flex flex-col items-start justify-center p-2 ${invertStyling}`}>
-            <div className={`${rankBold ? "font-black text-lg" : "font-bold text-xs md:text-sm xl:text-base"} mb-1 ${rankColor}`}>
+            <div className={`${rankBold ? "font-bold text-xs md:text-sm xl:font-black xl:text-lg" : "font-bold text-xs md:text-sm xl:text-base"} mb-1 ${rankColor}`}>
                 {rank}
             </div>
             <div className={`flex items-center justify-center ${size}`}>
