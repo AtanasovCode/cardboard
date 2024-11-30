@@ -4,6 +4,7 @@ import { useGameLogicStore } from "../../useGameLogicStore";
 
 import ClassicCard from './cards/ClassicCard';
 import RankCard from './cards/RankCard';
+import MultiSuitCard from "./cards/MultiSuitCard";
 
 const Card = ({
     suit,
@@ -57,6 +58,20 @@ const Card = ({
             case "bold":
                 return (
                     <RankCard
+                        suit={suit}
+                        rank={rank}
+                        suitName={suitName}
+                        cardID={cardID}
+                        size="w-full h-full"
+                        backgroundColor={backgroundColor}
+                        hoverEffect={hoverEffect}
+                        cardOutline={cardOutline}
+                        outline={outline}
+                    />
+                );
+            case "multi-suit":
+                return (
+                    <MultiSuitCard
                         suit={suit}
                         rank={rank}
                         suitName={suitName}

@@ -8,7 +8,7 @@ const Header = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="w-full flex items-stretch justify-between px-4 py-6 xl:py-8 z-20">
+        <div className="w-full flex items-stretch justify-between px-4 py-6 xl:py-8 z-20">chr
             <div className="flex items-center justify-center w-[50px]" onClick={() => navigate("/")}>
                 <img src={logo} alt="logo" className="w-full" />
             </div>

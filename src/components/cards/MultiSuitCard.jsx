@@ -3,9 +3,9 @@ import { useCardStore } from "../../../useCardStore";
 import { useGameLogicStore } from "../../../useGameLogicStore";
 
 import CardRank from "./CardRank";
-import CenterSuit from "./CenterSuit";
+import MultiSuitCenter from "./MultiSuitCenter";
 
-const ClassicCard = ({
+const MultiSuitCard = ({
     suit,
     rank,
     cardID,
@@ -18,6 +18,7 @@ const ClassicCard = ({
     cardOutline,
     allowClick,
 }) => {
+
 
     const {
         getCardOutline,
@@ -34,11 +35,11 @@ const ClassicCard = ({
             `}
             style={{ borderColor: getCardOutline(), backgroundColor: backgroundColor }}
         >
-            <CardRank rank={rank} suit={suit} invert={false} rankColor={rankColor} size="w-[15%]" />
-            <CenterSuit suit={suit} />
-            <CardRank rank={rank} suit={suit} invert={true} rankColor={rankColor} size="w-[15%]"  />
+            <CardRank rank={rank} suit={null} invert={false} rankBold={true} rankColor={rankColor} size="w-[15%]" />
+            <MultiSuitCenter suit={suit} rank={rank} />
+            <CardRank rank={rank} suit={null} invert={true} rankBold={true} rankColor={rankColor} size="w-[15%]" />
         </div >
     );
 }
 
-export default ClassicCard;
+export default MultiSuitCard;

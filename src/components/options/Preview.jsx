@@ -16,9 +16,9 @@ const Preview = () => {
 
     const cards = [
         { suit: "spades", rank: "A", cardID: "hearts-a" },
-        { suit: "hearts", rank: "J", cardID: "spades-j" },
-        { suit: "clubs", rank: "7", cardID: "clubs-7" },
-        { suit: "diamonds", rank: "K", cardID: "diamonds-k" },
+        { suit: "hearts", rank: "3", cardID: "spades-j" },
+        { suit: "clubs", rank: "5", cardID: "clubs-7" },
+        { suit: "diamonds", rank: "10", cardID: "diamonds-k" },
     ];
 
     return (
