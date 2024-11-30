@@ -5,7 +5,7 @@ import CustomCursor from "../components/CustomCursor";
 import SpadesSuit from "../components/suits/SpadesSuit";
 import DiamondsSuit from "../components/suits/DiamondsSuit";
 
-import Card from "../components/Card";
+import ClassicCard from '../components/cards/ClassicCard';
 
 const GameOver = () => {
 
@@ -58,12 +58,12 @@ const GameOver = () => {
                                 className="w-[40%] xs:w-auto xs:h-[40dvh]"
                                 onClick={card.handleClick}
                             >
-                                <Card
+                                <ClassicCard
                                     key={card.id}
                                     suit={card.suit}
                                     rank={card.rank}
                                     cardID={card.id}
-                                    backgroundColor={"bg-card-white"}
+                                    backgroundColor={"#FFFFFF"}
                                     size="w-full xs:w-auto xs:h-full"
                                     hoverEffect="hover:scale-[1.04] transition-all duration-300 ease-in-out"
                                     outline={false}
