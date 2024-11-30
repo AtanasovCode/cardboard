@@ -75,7 +75,7 @@ export const useCardStore = create(
         }
       ],
 
-      cardType: "multi-suit",
+      cardType: "classic",
       changeCardType: (type) => set({ cardType: type }),
 
       // customization
@@ -166,7 +166,7 @@ export const useCardStore = create(
 
 
 
-      backgroundStyle: "pool-table-background-style",
+      backgroundStyle: "pool-table",
       changeBackgroundStyle: (style) => set({ backgroundStyle: style }),
 
       createBackgroundStyle: (name, color) => {
@@ -207,7 +207,7 @@ export const useCardStore = create(
 
 
 
-      cardBackground: "white-card-background",
+      cardBackground: "white-card",
       changeCardBackground: (style) => set({ cardBackground: style }),
 
       createCardBackground: (name, color) => {
