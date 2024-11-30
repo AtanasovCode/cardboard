@@ -304,6 +304,7 @@ export const useCardStore = create(
         spadesColor: state.spadesColor,
         diamondsColor: state.diamondsColor,
         clubsColor: state.clubsColor,
+        cardType: state.cardType,
       }),
     }
   )
