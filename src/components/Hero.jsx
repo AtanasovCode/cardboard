@@ -73,6 +73,7 @@ const Hero = () => {
                                     size="w-full xs:h-full xs:w-auto"
                                     hoverEffect="hover:scale-[1.04] transition-all duration-300 ease-in-out"
                                     outline={false}
+                                    allowGlow={true}
                                     allowClick={false}
                                 />
                             </div>

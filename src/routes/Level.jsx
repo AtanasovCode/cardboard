@@ -51,7 +51,7 @@ const Level = () => {
             <ScoreTracker />
             <MobileMenu />
             <div className="w-[98%] mt-[15dvh] md:w-[90%] xl:w-[80%] max-w-[90rem] flex flex-1 items-center justify-center py-12 xl:py-14">
-                <div className="w-full flex items-center justify-center flex-wrap gap-2 md:gap-3 xl:gap-4">
+                <div className="w-full flex items-center justify-center flex-wrap gap-x-2 gap-y-4 md:gap-x-3 xl:gap-x-4">
                     {
                         displayedCards.map((card, index) => {
                             return (
@@ -65,6 +65,7 @@ const Level = () => {
                                     size="w-[23%] xs:w-[20%] sm:w-[18%] md:w-[14%] lg:w-[12%] xl:w-[11%]"
                                     hoverEffect="hover:cursor-pointer"
                                     outline={true}
+                                    allowGlow={true}
                                     allowClick={true}
                                 />
                             );

@@ -46,6 +46,7 @@ const Preview = () => {
                                 backgroundColor={getCardBackground()}
                                 size="w-[20%] xs:w-auto xs:h-[22dvh]"
                                 outline={true}
+                                allowGlow={true}
                                 allowClick={false}
                             />
                         );

@@ -3,7 +3,7 @@ import { useCardStore } from "../../useCardStore";
 import Preview from "../components/options/Preview";
 import OptionChoice from "../components/options/OptionChoice";
 import CardChoice from "../components/options/CardChoice";
-import BorderToggle from "../components/options/BorderToggle";
+import OptionToggle from "../components/options/OptionToggle";
 
 
 const Options = () => {
@@ -12,6 +12,10 @@ const Options = () => {
         cardBackgrounds,
         cardOutlines,
         suitColors,
+        isCardOutlineEnabled,
+        toggleCardOutline,
+        isOutlineGlowEnabled,
+        toggleOutlineGlow,
     } = useCardStore();
 
     return (
@@ -35,7 +39,18 @@ const Options = () => {
                         title="Suit Colors"
                         options={suitColors()}
                     />
-                    <BorderToggle />
+                    <OptionToggle
+                        type="border"
+                        title="Card Border"
+                        handleClick={toggleCardOutline}
+                        active={isCardOutlineEnabled}
+                    />
+                    <OptionToggle
+                        type="glow"
+                        title="Border Glow"
+                        handleClick={toggleOutlineGlow}
+                        active={isOutlineGlowEnabled}
+                    />
                     <OptionChoice
                         type="background"
                         title="Card Border Color"

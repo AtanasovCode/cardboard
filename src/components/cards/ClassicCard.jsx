@@ -8,19 +8,18 @@ import CenterSuit from "./CenterSuit";
 const ClassicCard = ({
     suit,
     rank,
-    cardID,
 
     //customization
     backgroundColor,
     size,
     hoverEffect,
-    outline,
     cardOutline,
-    allowClick,
+    outlineGlow,
 }) => {
 
     const {
         getCardOutline,
+        isOutlineGlowEnabled,
     } = useCardStore();
 
     const rankColor = backgroundColor === "#FFFFFF" ? "text-black" : "text-white";
@@ -32,11 +31,11 @@ const ClassicCard = ({
                 ${rankColor} ${size} ${hoverEffect} ${cardOutline}
                 font-cards select-none
             `}
-            style={{ borderColor: getCardOutline(), backgroundColor: backgroundColor }}
+            style={{ borderColor: getCardOutline(), backgroundColor: backgroundColor, boxShadow: outlineGlow }}
         >
             <CardRank rank={rank} suit={suit} invert={false} rankColor={rankColor} size="w-[15%]" />
             <CenterSuit suit={suit} />
-            <CardRank rank={rank} suit={suit} invert={true} rankColor={rankColor} size="w-[15%]"  />
+            <CardRank rank={rank} suit={suit} invert={true} rankColor={rankColor} size="w-[15%]" />
         </div >
     );
 }

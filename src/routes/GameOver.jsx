@@ -67,6 +67,7 @@ const GameOver = () => {
                                     size="w-full xs:w-auto xs:h-full"
                                     hoverEffect="hover:scale-[1.04] transition-all duration-300 ease-in-out"
                                     outline={false}
+                                    allowGlow={false}
                                     allowClick={false}
                                 />
                             </div>

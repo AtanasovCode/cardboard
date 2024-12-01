@@ -18,6 +18,7 @@ const Card = ({
     hoverEffect,
     outline,
     allowClick,
+    allowGlow,
 }) => {
 
     const {
@@ -31,9 +32,13 @@ const Card = ({
         isCardOutlineEnabled,
         getCardOutline,
         cardType,
+        isOutlineGlowEnabled,
     } = useCardStore();
 
     const cardOutline = isCardOutlineEnabled && outline ? `border ${getCardOutline()}` : "border-none";
+    const outlineGlow = isOutlineGlowEnabled && allowGlow && isCardOutlineEnabled
+    ? `0 0 12px 2px ${getCardOutline()}`
+    : "";
 
     useEffect(() => {
         increasePersonalBest();
@@ -52,6 +57,7 @@ const Card = ({
                         hoverEffect={hoverEffect}
                         suitNam={suitName}
                         cardOutline={cardOutline}
+                        outlineGlow={outlineGlow}
                         outline={outline}
                     />
                 );
@@ -66,6 +72,7 @@ const Card = ({
                         backgroundColor={backgroundColor}
                         hoverEffect={hoverEffect}
                         cardOutline={cardOutline}
+                        outlineGlow={outlineGlow}
                         outline={outline}
                     />
                 );
@@ -80,6 +87,7 @@ const Card = ({
                         backgroundColor={backgroundColor}
                         hoverEffect={hoverEffect}
                         cardOutline={cardOutline}
+                        outlineGlow={outlineGlow}
                         outline={outline}
                     />
                 );

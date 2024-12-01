@@ -8,15 +8,13 @@ import MultiSuitCenter from "./MultiSuitCenter";
 const MultiSuitCard = ({
     suit,
     rank,
-    cardID,
 
     //customization
     backgroundColor,
     size,
     hoverEffect,
-    outline,
     cardOutline,
-    allowClick,
+    outlineGlow,
 }) => {
 
 
@@ -33,7 +31,7 @@ const MultiSuitCard = ({
                 ${rankColor} ${size} ${hoverEffect} ${cardOutline}
                 font-cards select-none
             `}
-            style={{ borderColor: getCardOutline(), backgroundColor: backgroundColor }}
+            style={{ borderColor: getCardOutline(), backgroundColor: backgroundColor, boxShadow: outlineGlow }}
         >
             <CardRank rank={rank} suit={null} invert={false} rankBold={true} rankColor={rankColor} size="w-[15%]" />
             <MultiSuitCenter suit={suit} rank={rank} />
