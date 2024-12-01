@@ -8,16 +8,15 @@ import CardRank from "./CardRank";
 const RankCard = ({
     suit,
     rank,
-    cardID,
     suitName,
     customColor,
 
     //customization
     backgroundColor,
     cardOutline,
+    outlineGlow,
     size,
     hoverEffect,
-    allowClick,
 }) => {
 
     const {
@@ -36,11 +35,11 @@ const RankCard = ({
                 ${size} ${hoverEffect} ${cardOutline} z-60
                 font-cards select-none
             `}
-            style={{borderColor: getCardOutline(), backgroundColor: backgroundColor}}
+            style={{ borderColor: getCardOutline(), backgroundColor: backgroundColor, boxShadow: outlineGlow }}
         >
             <CardRank rank={null} suit={suit} invert={false} size="w-[17%]" rankColor={null} />
             <CenterRank rank={rank} suitName={suitName} customColor={customColor} />
-            <CardRank rank={null} suit={suit} invert={true} size="w-[17%]" rankColor={null}  />
+            <CardRank rank={null} suit={suit} invert={true} size="w-[17%]" rankColor={null} />
         </div >
     );
 }

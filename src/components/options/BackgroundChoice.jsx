@@ -2,7 +2,7 @@ import DisplayActiveCheckmark from "../DisplayActiveCheckmark";
 
 const BackgroundChoice = ({ name, color, handleClick, isSelected }) => {
 
-    const borderColor = isSelected ? "border-white" : "border-slate-500";
+    const borderColor = isSelected ? "border-active" : "border-inactive";
 
     return (
         <div

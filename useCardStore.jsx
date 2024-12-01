@@ -49,7 +49,7 @@ export const useCardStore = create(
 
 
       gradients: {
-        "pool-table": "radial-gradient(ellipse at center, #30D96E, #348338, #123F15)",
+        "pool-table": "radial-gradient(ellipse at center, #1cc85b, #348338, #123F15)",
         "poker-table": "radial-gradient(ellipse at center, #F75050, #EA0B0B, #750606)",
         "casino-night": "radial-gradient(ellipse at center, #64748b, #1e293b, #0f172a)",
         "luxury-black": "radial-gradient(ellipse at center, #292929, #141414, #000000)",
@@ -281,6 +281,9 @@ export const useCardStore = create(
         ];
       },
 
+      isOutlineGlowEnabled:  false,
+      toggleOutlineGlow: () => set((state) => ({isOutlineGlowEnabled: !state.isOutlineGlowEnabled})),
+
       getCardOutline: () => {
         const { cardOutline, cardOutlines } = get();
 
@@ -305,6 +308,7 @@ export const useCardStore = create(
         diamondsColor: state.diamondsColor,
         clubsColor: state.clubsColor,
         cardType: state.cardType,
+        isOutlineGlowEnabled: state.isOutlineGlowEnabled,
       }),
     }
   )
