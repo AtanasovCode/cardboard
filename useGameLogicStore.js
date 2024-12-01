@@ -5,6 +5,10 @@ import { useCardStore } from "./useCardStore";
 export const useGameLogicStore = create(
     persist(
         (set, get) => ({
+
+            allowSound: true,
+            toggleAllowSound: () => set((state) => ({ allowSound: !state.allowSound })),
+
             displayedCards: [],
             setDisplayedCards: (value) => set({ displayedCards: value }),
             resetDisplayedCards: () => set({ displayedCards: [] }),
