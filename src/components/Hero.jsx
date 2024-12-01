@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useGameLogicStore } from "../../useGameLogicStore";
 import ClassicCard from "./cards/ClassicCard";
-import { Strategy } from "@phosphor-icons/react";
+
+import HowToPlayLink from "./HowToPlayLink";
 
 import HeartsSuit from "./suits/HeartsSuit";
 import DiamondsSuit from "./suits/DiamondsSuit";
@@ -36,7 +37,8 @@ const Hero = () => {
     ];
 
     return (
-        <div className="min-h-dvh w-dvw flex flex-col items-center justify-center z-50 gap-6 xl:bg-transparent xl:bg-opacity-100">
+        <div className="relative min-h-dvh w-dvw flex flex-col items-center justify-center z-50 gap-6 xl:bg-transparent xl:bg-opacity-100">
+            <HowToPlayLink />
             <div className="w-full flex flex-col items-center justify-center">
                 <div className="flex items-center justify-center gap-4">
                     <div className="w-20 xs:w-24 md:w-28 lg:w-32 flex items-center justify-center">
