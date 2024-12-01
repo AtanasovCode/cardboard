@@ -2,22 +2,18 @@ import { useCardStore } from "../../../useCardStore";
 import { Check } from "@phosphor-icons/react";
 
 const OptionToggle = ({
-    type,
     title,
     handleClick,
     active,
+    activeStyling,
 }) => {
 
-    const { isCardOutlineEnabled } = useCardStore();
-
-    const backgroundColor = active ? "bg-active" : "bg-slate-500";
+    const backgroundColor = active ? "border-none bg-active" : "border-2 border-slate-400";
     const activeCheck = active ? "opacity-100" : "opacity-0";
-
-    const activeStyling = isCardOutlineEnabled ? "opacity-100" : "opacity-30 pointer-events-none";
 
     return (
         <div className={`
-            w-full  flex items-center justify-between ${type !== "border" && activeStyling}
+            w-full  flex items-center justify-between ${activeStyling}
             transition-opacity duration-300 ease-in-out
         `}>
             <div className="text-sm lg:text-base">

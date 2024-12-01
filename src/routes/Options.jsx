@@ -25,6 +25,8 @@ const Options = () => {
         toggleAllowSound,
     } = useGameLogicStore();
 
+    const activeStyling = isCardOutlineEnabled ? "opacity-100" : "opacity-30 pointer-events-none";
+
     return (
         <div className="min-h-[100dvh] flex flex-col items-center justify-start bg-main-background text-white">
             <Preview />
@@ -34,7 +36,6 @@ const Options = () => {
                     <OptionDivide title="General" />
 
                     <OptionToggle
-                        type="sound"
                         title="Sounds"
                         handleClick={toggleAllowSound}
                         active={allowSound}
@@ -62,16 +63,15 @@ const Options = () => {
                     <OptionDivide title="Card Border" />
 
                     <OptionToggle
-                        type="border"
                         title="Card Border"
                         handleClick={toggleCardOutline}
                         active={isCardOutlineEnabled}
                     />
                     <OptionToggle
-                        type="glow"
                         title="Border Glow"
                         handleClick={toggleOutlineGlow}
                         active={isOutlineGlowEnabled}
+                        activeStyling={activeStyling}
                     />
                     <OptionChoice
                         type="background"
