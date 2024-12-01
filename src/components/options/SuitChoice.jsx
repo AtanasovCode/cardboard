@@ -9,7 +9,7 @@ const SuitChoice = ({
     idx,
 }) => {
 
-    const borderStyle = isSelected ? "border-white" : "border-slate-500";
+    const borderStyle = isSelected ? "border-active" : "border-inactive";
 
     return (
         <div className={`
