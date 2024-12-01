@@ -3,7 +3,7 @@
 const OptionDivide = ({ title }) => {
     return (
         <div className={`
-            w-full flex items-center justify-start border-b border-slate-400
+            w-full flex items-center justify-start border-b border-slate-600
             text-base text-left font-medium text-slate-400 pb-1
         `}>
             {title}

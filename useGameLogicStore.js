@@ -70,26 +70,34 @@ export const useGameLogicStore = create(
 
             // play audio on click 
             playClickSound: () => {
+                const { allowSound } = get();
+
                 const clickSound = new Audio(`/audio/play.wav`);
-                clickSound.play();
+                allowSound && clickSound.play();
             },
 
             // play audio on card click
             playCardClickSound: () => {
+                const { allowSound } = get();
+
                 const clickSound = new Audio(`/audio/click.wav`);
-                clickSound.play();
+                allowSound && clickSound.play();
             },
 
             // play audio on click (when same card is clicked twice)
             playMistakeSound: () => {
+                const { allowSound } = get();
+
                 const clickSound = new Audio(`/audio/mistake.wav`);
-                clickSound.play();
+                allowSound && clickSound.play();
             },
 
             // play audio when new round starts
             playNewRoundSound: () => {
+                const { allowSound } = get();
+
                 const clickSound = new Audio(`/audio/new-round.wav`);
-                clickSound.play();
+                allowSound && clickSound.play();
             },
 
             // pre load all sounds for a better experience
@@ -181,6 +189,7 @@ export const useGameLogicStore = create(
             name: "game-logic-store",
             partialize: (state) => ({
                 personalBest: state.personalBest,
+                allowSound: state.allowSound,
             }),
         }
     )
