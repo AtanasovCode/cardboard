@@ -1,3 +1,4 @@
+import { useGameLogicStore } from "../../useGameLogicStore";
 import { useNavigate } from "react-router-dom";
 import { Strategy } from "@phosphor-icons/react";
 
@@ -5,9 +6,12 @@ const HowToPlayLink = () => {
 
     const navigate = useNavigate();
 
+    const { getCursorStyle } = useGameLogicStore();
+
     return (
         <div
             className="flex items-center justify-center absolute top-[4%] right-[4%]"
+            style={{ ...getCursorStyle("hover") }}
             onClick={() => {
                 console.log("CLICK")
                 navigate("/how-to-play")

@@ -24,7 +24,8 @@ const CardChoice = () => {
             </div>
             <div className="w-full flex items-center justify-center gap-4">
                 <div
-                    className={`w-[30%] xs:w-auto xs:h-[30dvh] ${getCursorStyle("hover")}`}
+                    className={`w-[30%] xs:w-auto xs:h-[30dvh]`}
+                    style={{ ...getCursorStyle("hover") }}
                     onClick={() => changeCardType("classic")}
                 >
                     <ClassicCard
@@ -40,7 +41,8 @@ const CardChoice = () => {
                     />
                 </div>
                 <div
-                    className={`w-[30%] xs:w-auto xs:h-[30dvh] ${getCursorStyle("hover")}`}
+                    className={`w-[30%] xs:w-auto xs:h-[30dvh]`}
+                    style={{ ...getCursorStyle("hover") }}
                     onClick={() => changeCardType("bold")}
                 >
                     <RankCard
@@ -56,7 +58,8 @@ const CardChoice = () => {
                     />
                 </div>
                 <div
-                    className={`w-[30%] xs:w-auto xs:h-[30dvh] ${getCursorStyle("hover")}`}
+                    className={`w-[30%] xs:w-auto xs:h-[30dvh]`}
+                    style={{ ...getCursorStyle("hover") }}
                     onClick={() => changeCardType("multi-suit")}
                 >
                     <MultiSuitCard

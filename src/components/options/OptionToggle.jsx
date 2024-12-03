@@ -24,8 +24,9 @@ const OptionToggle = ({
             <div
                 className={`
                     flex items-center justify-center relative ${backgroundColor} rounded-lg w-8 aspect-square
-                    transition-colors duration-300 ease-in-out ${getCursorStyle("hover")}
+                    transition-colors duration-300 ease-in-out}
                 `}
+                style={{ ...getCursorStyle("hover") }}
                 onClick={() => handleClick()}
             >
                 <div className={`w-[70%] ${activeCheck} transition-opacity duration-300 ease-in-out`}>

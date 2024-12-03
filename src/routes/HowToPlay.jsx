@@ -22,7 +22,10 @@ const HowToPlay = () => {
     const { getCursorStyle } = useGameLogicStore();
 
     return (
-        <div className={`min-h-[100dvh] bg-main-background text-white flex items-center justify-center py-8 ${getCursorStyle()} relative`}>
+        <div
+            className={`min-h-[100dvh] bg-main-background text-white flex items-center justify-center py-8 relative`}
+            style={{ ...getCursorStyle() }}
+        >
             <div className="w-[90%] sm:w-[80%] md:w-[70%] lg:w-[65%] xl:w-[50%] xl:max-w-[100rem] flex flex-col items-center justify-center">
                 <div className="w-full flex items-center justify-center gap-2 mb-12 relative">
                     <div className="w-10 md:w-14 lg:w-16 flex items-center justify-center">
@@ -31,8 +34,9 @@ const HowToPlay = () => {
                     <div className="font-bold text-xl md:text-2xl lg:text-3xl">
                         How To Play
                     </div>
-                    <div 
-                        className={`absolute left-0 w-6 lg:w-8 ${getCursorStyle("hover")}`}
+                    <div
+                        className={`absolute left-0 w-6 lg:w-8`}
+                        style={{ ...getCursorStyle("hover") }}
                         onClick={() => navigate("/")}
                     >
                         <ArrowLeft size="100%" weight="regular" color="#FFF" />

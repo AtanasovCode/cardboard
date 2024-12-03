@@ -10,9 +10,10 @@ const TitleScreen = () => {
     return (
         <div
             className={`
-                ${getCursorStyle()} min-h-dvh w-full text-white bg-pool-table
+                min-h-dvh w-full text-white bg-pool-table
                 font-sans flex flex-col items-center justify-center
             `}
+            style={{...getCursorStyle()}}
         >
             <Hero />
             <div className="z-0 absolute bottom-0 left-0 w-full h-full 

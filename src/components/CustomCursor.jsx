@@ -16,7 +16,7 @@ const CustomCursor = () => {
             "
         >
             <div>
-                <img src={spadesCursor} className="w-10 rotate-[-35deg]" />
+                <img src={spadesCursor} className="w-[42px] rotate-[-35deg]" />
             </div>
         </div>
     );

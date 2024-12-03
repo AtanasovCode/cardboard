@@ -24,6 +24,7 @@ const Level = () => {
         displayedCards,
         clickedCards,
         updateDisplayedCards,
+        allowCustomCursor,
         getCursorStyle,
     } = useGameLogicStore();
 
@@ -41,8 +42,8 @@ const Level = () => {
 
     return (
         <div 
-            className={`min-h-[100dvh] text-white flex flex-col items-center justify-start font-sans relative ${getCursorStyle()}`}
-            style={{ backgroundImage: getBackgroundStyle(), }}
+            className={`min-h-[100dvh] text-white flex flex-col items-center justify-start font-sans relative`}
+            style={{ ...getCursorStyle(), backgroundImage: getBackgroundStyle(), }}
         >
             <ScoreTracker />
             <MobileMenu />
@@ -59,7 +60,7 @@ const Level = () => {
                                     cardID={card.id}
                                     backgroundColor={getCardBackground()}
                                     size="w-[23%] xs:w-[20%] sm:w-[18%] md:w-[14%] lg:w-[12%] xl:w-[11%]"
-                                    hoverEffect={`${getCursorStyle("hover")}`}
+                                    hoverEffect={`${!allowCustomCursor} && cursor-pointer`}
                                     outline={true}
                                     allowGlow={true}
                                     allowClick={true}

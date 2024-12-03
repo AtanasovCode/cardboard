@@ -11,10 +11,10 @@ const BackgroundChoice = ({ name, color, handleClick, isSelected }) => {
         <div
             className={`
                 w-full aspect-square rounded-xl
-                border-2 relative
-                ${borderColor} ${getCursorStyle("hover")}
+                border-2 relatives
+                ${borderColor}
             `}
-            style={{backgroundColor: color, backgroundImage: color}}
+            style={{...getCursorStyle("hover"), backgroundColor: color, backgroundImage: color}}
             onClick={handleClick}
         >
             {isSelected && <DisplayActiveCheckmark />}

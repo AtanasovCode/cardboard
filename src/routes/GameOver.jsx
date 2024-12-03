@@ -17,6 +17,7 @@ const GameOver = () => {
         personalBest,
         playClickSound,
         getCursorStyle,
+        allowCustomCursor,
     } = useGameLogicStore();
 
     const cards = [
@@ -43,7 +44,13 @@ const GameOver = () => {
     ];
 
     return (
-        <div className={`min-h-dvh w-full flex flex-col items-center justify-between bg-luxury-black text-white ${getCursorStyle()} py-10`}>
+        <div
+            className={`
+                    min-h-dvh w-full flex flex-col items-center justify-between bg-luxury-black 
+                    text-white py-10
+                `}
+            style={{ ...getCursorStyle() }}
+        >
             <div className="z-0 absolute bottom-0 left-0 w-[100%] h-[35%] md:h-[50%] md:w-[100%] bg-background-graphic bg-contain bg-center md:bg-left bg-no-repeat"></div>
             <div className="w-full flex flex-col items-center justify-center">
                 <div className="mb-6 lg:mb-10 font-bold text-4xl md:text-5xl lg:text-6xl lg:font-black">Game Over</div>
@@ -65,7 +72,7 @@ const GameOver = () => {
                                     cardID={card.id}
                                     backgroundColor={"#FFFFFF"}
                                     size="w-full xs:w-auto xs:h-full"
-                                    hoverEffect={`${getCursorStyle("hover")} hover:scale-[1.04] transition-all duration-300 ease-in-out`}
+                                    hoverEffect={`${!allowCustomCursor} && cursor-pointer hover:scale-[1.04] transition-all duration-300 ease-in-out`}
                                     outline={false}
                                     allowGlow={false}
                                     allowClick={false}

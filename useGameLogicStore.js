@@ -16,8 +16,15 @@ export const useGameLogicStore = create(
             getCursorStyle: (type) => {
                 const { allowCustomCursor } = get();
 
-                return allowCustomCursor ? ("cursor-none") : (type === "hover" ? "cursor-pointer" : "cursor-default");
+                return {
+                    cursor: allowCustomCursor
+                        ? "none"
+                        : type === "hover"
+                            ? "pointer"
+                            : "default",
+                };
             },
+
 
             displayedCards: [],
             setDisplayedCards: (value) => set({ displayedCards: value }),
@@ -200,6 +207,7 @@ export const useGameLogicStore = create(
             partialize: (state) => ({
                 personalBest: state.personalBest,
                 allowSound: state.allowSound,
+                allowCustomCursor: state.allowCustomCursor,
             }),
         }
     )

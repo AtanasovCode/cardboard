@@ -13,7 +13,7 @@ const Hero = () => {
 
     const navigate = useNavigate();
 
-    const { playClickSound } = useGameLogicStore();
+    const { playClickSound, allowCustomCursor} = useGameLogicStore();
 
     const cards = [
         {
@@ -21,8 +21,8 @@ const Hero = () => {
             rank: "Play",
             id: "hearts-play",
             handleClick: () => {
-                playClickSound();
-                navigate("/play");
+                playClickSound()
+                navigate("/play")
             },
         },
         {
@@ -73,7 +73,7 @@ const Hero = () => {
                                     cardID={card.id}
                                     backgroundColor={"#FFFFFF"}
                                     size="w-full xs:h-full xs:w-auto"
-                                    hoverEffect="hover:scale-[1.04] transition-all duration-300 ease-in-out"
+                                    hoverEffect={`hover:scale-[1.04] transition-all duration-300 ease-in-out ${!allowCustomCursor} && cursor-pointer`}
                                     outline={false}
                                     allowGlow={false}
                                     allowClick={false}

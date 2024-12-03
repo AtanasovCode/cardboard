@@ -31,7 +31,8 @@ const Preview = () => {
             style={{ backgroundImage: getBackgroundStyle() }}
         >
             <div
-                className={`absolute top-[5%] left-[5%] lg:left-[2%] w-6 lg:w-8 ${getCursorStyle("hover")}`}
+                className={`absolute top-[5%] left-[5%] lg:left-[2%] w-6 lg:w-8`}
+                style={{ ...getCursorStyle("hover") }}
                 onClick={() => navigate("/")}
             >
                 <ArrowLeft size="100%" weight="regular" color="#FFF" />
