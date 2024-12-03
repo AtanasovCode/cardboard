@@ -11,7 +11,7 @@ const CustomCursor = () => {
             className="
                 hidden fixed top-0 left-0
                 lg:flex items-center justify-center
-                translate-x-[-50%] translate-y-[-50%] z-[999]
+                translate-x-[-32%] translate-y-[-17%] z-[99999]
                 pointer-events-none transition-transform transform-gpu ease-in-out
             "
         >

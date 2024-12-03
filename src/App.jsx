@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { useGameLogicStore } from "../useGameLogicStore";
 
+import CustomCursor from "./components/CustomCursor";
+
 //routes
 import TitleScreen from "./routes/TitleScreen";
 import Level from "./routes/Level";
@@ -11,7 +13,7 @@ import HowToPlay from "./routes/HowToPlay";
 
 const App = () => {
   
-  const { preLoadSoundEffects } = useGameLogicStore();
+  const { preLoadSoundEffects, allowCustomCursor } = useGameLogicStore();
 
   useEffect(() => {
     preLoadSoundEffects();
@@ -41,9 +43,10 @@ const App = () => {
   ])
 
   return (
-    <>
+    <div>
       <RouterProvider router={router}></RouterProvider>
-    </>
+      {allowCustomCursor && <CustomCursor />}
+    </div>
   )
 }
 

@@ -1,3 +1,4 @@
+import { useGameLogicStore } from "../../useGameLogicStore";
 import { useCardStore } from "../../useCardStore";
 
 const MenuOption = ({
@@ -8,9 +9,11 @@ const MenuOption = ({
 
     const { toggleMobileMenu } = useCardStore();
 
+    const { getCursorStyle } = useGameLogicStore();
+
     return (
         <div
-            className="w-full flex items-center justify-start cursor-pointer p-4 hover:bg-slate-800"
+            className={`w-full flex items-center justify-start p-4 hover:bg-slate-800 ${getCursorStyle("hover")}`}
             onClick={() => {
                 try {
                     handleClick?.(); // Safely call handleClick

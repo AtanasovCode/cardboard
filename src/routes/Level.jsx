@@ -12,10 +12,7 @@ const Level = () => {
     const navigate = useNavigate();
 
     const {
-        cardBackground,
         getSuit,
-        backgroundStyle,
-        cardOutline,
         getBackgroundStyle,
         getCardBackground,
     } = useCardStore();
@@ -27,8 +24,7 @@ const Level = () => {
         displayedCards,
         clickedCards,
         updateDisplayedCards,
-        addCard,
-        shuffleCards
+        getCursorStyle,
     } = useGameLogicStore();
 
     useEffect(() => {
@@ -45,7 +41,7 @@ const Level = () => {
 
     return (
         <div 
-            className={`min-h-[100dvh] text-white flex flex-col items-center justify-start font-sans relative`}
+            className={`min-h-[100dvh] text-white flex flex-col items-center justify-start font-sans relative ${getCursorStyle()}`}
             style={{ backgroundImage: getBackgroundStyle(), }}
         >
             <ScoreTracker />
@@ -63,7 +59,7 @@ const Level = () => {
                                     cardID={card.id}
                                     backgroundColor={getCardBackground()}
                                     size="w-[23%] xs:w-[20%] sm:w-[18%] md:w-[14%] lg:w-[12%] xl:w-[11%]"
-                                    hoverEffect="hover:cursor-pointer"
+                                    hoverEffect={`${getCursorStyle("hover")}`}
                                     outline={true}
                                     allowGlow={true}
                                     allowClick={true}

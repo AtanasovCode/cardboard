@@ -25,12 +25,13 @@ const Options = () => {
         toggleAllowSound,
         allowCustomCursor,
         toggleCustomCursor,
+        getCursorStyle,
     } = useGameLogicStore();
 
     const activeStyling = isCardOutlineEnabled ? "opacity-100" : "opacity-30 pointer-events-none";
 
     return (
-        <div className="min-h-[100dvh] flex flex-col items-center justify-start bg-main-background text-white">
+        <div className={`min-h-[100dvh] flex flex-col items-center justify-start bg-main-background text-white ${getCursorStyle()}`}>
             <Preview />
             <div className="w-[85%] sm:w-80%] md:w-[70%] xl:w-[55%] mt-[50dvh] lg:mt-[40dvh] flex items-center justify-center bg-main-background">
                 <div className="w-full max-w-[90rem] flex flex-col items-center justify-center gap-12 lg:gap-10 bg-main-background py-12">
@@ -43,10 +44,10 @@ const Options = () => {
                         active={allowSound}
                     />
                     <OptionToggle
-                        title=<>
+                        title=<div className="flex flex-col items-start justify-center">
                             Custom Cursor
-                            <span className="text-xs text-slate-400"> - (for PC)</span>
-                        </>
+                            <div className="text-xs text-slate-400 mt-1">Only for PC</div>
+                        </div>
                         handleClick={toggleCustomCursor}
                         active={allowCustomCursor}
                     />

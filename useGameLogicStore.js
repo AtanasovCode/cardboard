@@ -12,6 +12,13 @@ export const useGameLogicStore = create(
             allowCustomCursor: true,
             toggleCustomCursor: () => set((state) => ({ allowCustomCursor: !state.allowCustomCursor })),
 
+            // return cursor styling
+            getCursorStyle: (type) => {
+                const { allowCustomCursor } = get();
+
+                return allowCustomCursor ? ("cursor-none") : (type === "hover" ? "cursor-pointer" : "cursor-default");
+            },
+
             displayedCards: [],
             setDisplayedCards: (value) => set({ displayedCards: value }),
             resetDisplayedCards: () => set({ displayedCards: [] }),

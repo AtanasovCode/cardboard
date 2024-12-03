@@ -1,4 +1,5 @@
 import { useCardStore } from "../../../useCardStore";
+import { useGameLogicStore } from "../../../useGameLogicStore";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft } from "@phosphor-icons/react";
 
@@ -14,6 +15,8 @@ const Preview = () => {
         getCardBackground,
     } = useCardStore();
 
+    const { getCursorStyle } = useGameLogicStore();
+
     const cards = [
         { suit: "spades", rank: "A", cardID: "hearts-a" },
         { suit: "hearts", rank: "3", cardID: "spades-j" },
@@ -28,7 +31,7 @@ const Preview = () => {
             style={{ backgroundImage: getBackgroundStyle() }}
         >
             <div
-                className="absolute top-[5%] left-[5%] lg:left-[2%] w-6 lg:w-8 cursor-pointer"
+                className={`absolute top-[5%] left-[5%] lg:left-[2%] w-6 lg:w-8 ${getCursorStyle("hover")}`}
                 onClick={() => navigate("/")}
             >
                 <ArrowLeft size="100%" weight="regular" color="#FFF" />

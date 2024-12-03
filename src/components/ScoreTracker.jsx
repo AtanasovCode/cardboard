@@ -12,7 +12,7 @@ const ScoreTracker = () => {
 
     const {
         score,
-        level,
+        getCursorStyle,
     } = useGameLogicStore();
 
     return (
@@ -30,7 +30,7 @@ const ScoreTracker = () => {
                 />
             </div>
             <div
-                className="flex items-center justify-cetner w-8 md:w-10 lg:cursor-pointer"
+                className={`flex items-center justify-cetner w-8 md:w-10 ${getCursorStyle("hover")}`}
                 onClick={() => toggleMobileMenu()}
             >
                 <List

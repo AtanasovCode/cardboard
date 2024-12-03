@@ -1,3 +1,4 @@
+import { useGameLogicStore } from "../../../useGameLogicStore";
 import DisplayActiveCheckmark from "../DisplayActiveCheckmark";
 
 const SuitChoice = ({
@@ -9,12 +10,14 @@ const SuitChoice = ({
     idx,
 }) => {
 
+    const { getCursorStyle } = useGameLogicStore();
+
     const borderStyle = isSelected ? "border-active" : "border-inactive";
 
     return (
         <div className={`
             w-full aspect-square rounded-xl
-            border-2 ${borderStyle} relative cursor-pointer
+            border-2 ${borderStyle} relative ${getCursorStyle("hover")}
             grid grid-cols-2 overflow-hidden
         `}
             onClick={() => {

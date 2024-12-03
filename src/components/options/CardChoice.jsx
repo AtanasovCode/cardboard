@@ -1,4 +1,5 @@
 import { useCardStore } from "../../../useCardStore";
+import { useGameLogicStore } from "../../../useGameLogicStore";
 import ClassicCard from "../cards/ClassicCard";
 import RankCard from "../cards/RankCard";
 import MultiSuitCard from "../cards/MultiSuitCard";
@@ -11,6 +12,8 @@ const CardChoice = () => {
         changeCardType,
     } = useCardStore();
 
+    const { getCursorStyle } = useGameLogicStore();
+
     return (
         <div
             className={`w-full flex flex-col items-center justify-center
@@ -21,7 +24,7 @@ const CardChoice = () => {
             </div>
             <div className="w-full flex items-center justify-center gap-4">
                 <div
-                    className="w-[30%] xs:w-auto xs:h-[30dvh] cursor-pointer"
+                    className={`w-[30%] xs:w-auto xs:h-[30dvh] ${getCursorStyle("hover")}`}
                     onClick={() => changeCardType("classic")}
                 >
                     <ClassicCard
@@ -32,13 +35,12 @@ const CardChoice = () => {
                         cardID="classic"
                         backgroundColor="#FFFFFF"
                         size="w-full xs:w-auto xs:h-full"
-                        hoverEffect="hover:cursor-pointer"
                         outline={false}
                         allowClick={false}
                     />
                 </div>
                 <div
-                    className="w-[30%] xs:w-auto xs:h-[30dvh] cursor-pointer"
+                    className={`w-[30%] xs:w-auto xs:h-[30dvh] ${getCursorStyle("hover")}`}
                     onClick={() => changeCardType("bold")}
                 >
                     <RankCard
@@ -48,14 +50,13 @@ const CardChoice = () => {
                         cardID="classic"
                         backgroundColor="#FFFFFF"
                         size="w-full xs:w-auto xs:h-full"
-                        hoverEffect="hover:cursor-pointer"
                         customColor={true}
                         outline={false}
                         allowClick={false}
                     />
                 </div>
                 <div
-                    className="w-[30%] xs:w-auto xs:h-[30dvh] cursor-pointer"
+                    className={`w-[30%] xs:w-auto xs:h-[30dvh] ${getCursorStyle("hover")}`}
                     onClick={() => changeCardType("multi-suit")}
                 >
                     <MultiSuitCard
@@ -65,7 +66,6 @@ const CardChoice = () => {
                         cardID="classic"
                         backgroundColor="#FFFFFF"
                         size="w-full xs:w-auto xs:h-full"
-                        hoverEffect="hover:cursor-pointer"
                         customColor={true}
                         outline={false}
                         allowClick={false}

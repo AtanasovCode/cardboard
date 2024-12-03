@@ -25,7 +25,7 @@ const MobileMenu = () => {
 
     const { 
         resetEverything,
-        generateUnique
+        getCursorStyle,
     } = useGameLogicStore();
 
     const menuTransition = mobileMenu ? "translate-x-0" : "translate-x-[100%]";
@@ -38,7 +38,7 @@ const MobileMenu = () => {
         `}>
             <div className="w-full h-[15%] flex items-center justify-center relative p-4 pb-0">
                 <div
-                    className="absolute left-[5%] w-7 cursor-pointer h-7"
+                    className={`absolute left-[5%] w-7 h-7 ${getCursorStyle("hover")}`}
                     onClick={() => toggleMobileMenu()}
                 >
                     <X size="100%" weight="regular" fill="#FFF" />

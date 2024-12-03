@@ -1,4 +1,4 @@
-import { useCardStore } from "../../../useCardStore";
+import { useGameLogicStore } from "../../../useGameLogicStore";
 import { Check } from "@phosphor-icons/react";
 
 const OptionToggle = ({
@@ -7,6 +7,8 @@ const OptionToggle = ({
     active,
     activeStyling,
 }) => {
+
+    const { getCursorStyle } = useGameLogicStore();
 
     const backgroundColor = active ? "border-none bg-active" : "border-2 border-slate-400";
     const activeCheck = active ? "opacity-100" : "opacity-0";
@@ -21,8 +23,8 @@ const OptionToggle = ({
             </div>
             <div
                 className={`
-                    flex items-center justify-center relative ${backgroundColor} rounded-lg cursor-pointer w-8 aspect-square
-                    transition-colors duration-300 ease-in-out
+                    flex items-center justify-center relative ${backgroundColor} rounded-lg w-8 aspect-square
+                    transition-colors duration-300 ease-in-out ${getCursorStyle("hover")}
                 `}
                 onClick={() => handleClick()}
             >
