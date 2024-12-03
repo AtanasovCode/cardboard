@@ -9,6 +9,9 @@ export const useGameLogicStore = create(
             allowSound: true,
             toggleAllowSound: () => set((state) => ({ allowSound: !state.allowSound })),
 
+            allowCustomCursor: true,
+            toggleCustomCursor: () => set((state) => ({ allowCustomCursor: !state.allowCustomCursor })),
+
             displayedCards: [],
             setDisplayedCards: (value) => set({ displayedCards: value }),
             resetDisplayedCards: () => set({ displayedCards: [] }),

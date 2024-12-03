@@ -23,6 +23,8 @@ const Options = () => {
     const {
         allowSound,
         toggleAllowSound,
+        allowCustomCursor,
+        toggleCustomCursor,
     } = useGameLogicStore();
 
     const activeStyling = isCardOutlineEnabled ? "opacity-100" : "opacity-30 pointer-events-none";
@@ -39,6 +41,14 @@ const Options = () => {
                         title="Sounds"
                         handleClick={toggleAllowSound}
                         active={allowSound}
+                    />
+                    <OptionToggle
+                        title=<>
+                            Custom Cursor
+                            <span className="text-xs text-slate-400"> - (for PC)</span>
+                        </>
+                        handleClick={toggleCustomCursor}
+                        active={allowCustomCursor}
                     />
 
                     <OptionDivide title="Colors and Styles" />
