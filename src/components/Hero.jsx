@@ -27,7 +27,7 @@ const Hero = () => {
         },
         {
             suit: <DiamondsSuit color="#000" />,
-            rank: "Redesign",
+            rank: "Options",
             id: "clubs-play",
             handleClick: () => {
                 playClickSound();
