@@ -72,7 +72,7 @@ const GameOver = () => {
                                     cardID={card.id}
                                     backgroundColor={"#FFFFFF"}
                                     size="w-full xs:w-auto xs:h-full"
-                                    hoverEffect={`${!allowCustomCursor} && cursor-pointer hover:scale-[1.04] transition-all duration-300 ease-in-out`}
+                                    hoverEffect={`${allowCustomCursor} ? "" : "cursor-pointer" hover:scale-[1.04] transition-all duration-300 ease-in-out`}
                                     outline={false}
                                     allowGlow={false}
                                     allowClick={false}

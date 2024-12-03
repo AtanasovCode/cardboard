@@ -30,7 +30,8 @@ const ScoreTracker = () => {
                 />
             </div>
             <div
-                className={`flex items-center justify-cetner w-8 md:w-10 ${getCursorStyle("hover")}`}
+                className={`flex items-center justify-cetner w-8 md:w-10`}
+                style={{...getCursorStyle("hover")}}
                 onClick={() => toggleMobileMenu()}
             >
                 <List

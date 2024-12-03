@@ -13,7 +13,8 @@ const MenuOption = ({
 
     return (
         <div
-            className={`w-full flex items-center justify-start p-4 hover:bg-slate-800 ${getCursorStyle("hover")}`}
+            className={`w-full flex items-center justify-start p-4 hover:bg-slate-800`}
+            style={{ ...getCursorStyle("hover") }}
             onClick={() => {
                 try {
                     handleClick?.(); // Safely call handleClick

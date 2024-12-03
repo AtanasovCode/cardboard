@@ -60,7 +60,7 @@ const Level = () => {
                                     cardID={card.id}
                                     backgroundColor={getCardBackground()}
                                     size="w-[23%] xs:w-[20%] sm:w-[18%] md:w-[14%] lg:w-[12%] xl:w-[11%]"
-                                    hoverEffect={`${!allowCustomCursor} && cursor-pointer`}
+                                    hoverEffect={allowCustomCursor ? "" : "cursor-pointer"}
                                     outline={true}
                                     allowGlow={true}
                                     allowClick={true}
