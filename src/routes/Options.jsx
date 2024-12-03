@@ -32,7 +32,7 @@ const Options = () => {
 
     return (
         <div
-            className={`min-h-[100dvh] flex flex-col items-center justify-start bg-main-background text-white}`}
+            className={`min-h-[100dvh] flex flex-col items-center justify-start bg-main-background text-white`}
             style={{...getCursorStyle()}}
         >
             <Preview />
