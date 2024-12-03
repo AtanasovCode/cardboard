@@ -1,11 +1,13 @@
+import { useNavigate } from "react-router-dom";
+import { useGameLogicStore } from "../../useGameLogicStore";
 import {
     Strategy,
-    ShuffleAngular,
     MouseLeftClick,
     HandTap,
     Trophy,
     DiceFive,
     FlagCheckered,
+    ArrowLeft,
 } from "@phosphor-icons/react";
 
 import roundOne from '../assets/images/round-one-screenshot.png';
@@ -14,15 +16,26 @@ import moreCards from '../assets/images/more-cards.png';
 import PlayDescription from "../components/PlayDescription";
 
 const HowToPlay = () => {
+
+    const navigate = useNavigate();
+
+    const { getCursorStyle } = useGameLogicStore();
+
     return (
-        <div className="min-h-[100dvh] bg-main-background text-white flex items-center justify-center py-8">
+        <div className={`min-h-[100dvh] bg-main-background text-white flex items-center justify-center py-8 ${getCursorStyle()} relative`}>
             <div className="w-[90%] sm:w-[80%] md:w-[70%] lg:w-[65%] xl:w-[50%] xl:max-w-[100rem] flex flex-col items-center justify-center">
-                <div className="w-full flex items-center justify-center gap-2 mb-12">
+                <div className="w-full flex items-center justify-center gap-2 mb-12 relative">
                     <div className="w-10 md:w-14 lg:w-16 flex items-center justify-center">
                         <Strategy size="100%" weight="fill" color="#FFF" />
                     </div>
                     <div className="font-bold text-xl md:text-2xl lg:text-3xl">
                         How To Play
+                    </div>
+                    <div 
+                        className={`absolute left-0 w-6 lg:w-8 ${getCursorStyle("hover")}`}
+                        onClick={() => navigate("/")}
+                    >
+                        <ArrowLeft size="100%" weight="regular" color="#FFF" />
                     </div>
                 </div>
                 <PlayDescription
