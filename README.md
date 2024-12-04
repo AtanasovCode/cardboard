@@ -23,20 +23,27 @@ CardBoard is a fully fleshed out game that has many different features, includin
 
 - Completely customizable cards
 - Customizable background styles
-- 4 different suit colors
+- 3 different card types
+- Many different suit colors
 - Ability to enable or disable card borders (if you want your cards to stand out more)
+- Ability to make card bords be the same color as their suits
 - Different border colors
+- Cool border glow effects!
 - Ultra responsive design that can work on any screen size
 - Fully functional navigation
+- Custom cursor
 - Interactive sound effects for:
     - Game Start
     - Card Click
     - New Round Start
     - Game Over
     - Restart 
-- Custom suit cursor on Title Screen
 - Choice persistence - your choices will be remembered between game sessions
 - Personal Best score persistence between sessions
+
+### Card Styles
+
+![](./src/assets/display-photos/card-choice.png)
 
 ## Play The Game
 
@@ -48,9 +55,9 @@ Play the game and test your memory right now 👉 [Play CardBoard](https://play-
 
 This game will be continually updated, here are some future possible updates:
 
-- Different suit styles,
-- Different card layouts
-- Different colors for each suit (hearts, diamonds, spades, clubs)
+- Different suit styles
+- ~~Different card styles~~ - Added
+- ~~Different colors for each suit (hearts, diamonds, spades, clubs)~~ - Added
 - Leaderboard with your best scores
 - Even more customization!
 - New game modes!
