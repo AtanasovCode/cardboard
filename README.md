@@ -15,7 +15,13 @@ Try to beat your personal best score or compete with your friends and family!
 
 Make the game your own! Customize everything from the way the background looks to the way your cards look. You can choose between many different options to customize the look and feel of the game. Change your background style and card background to get the perfect look for the game.
 
+#### Card Colors
+
 ![](./src/assets/display-photos/customizable-cards.png)
+
+#### Card Styles
+
+![](./src/assets/display-photos/card-choice-transparent.png)
 
 ## Features
 
@@ -26,7 +32,7 @@ CardBoard is a fully fleshed out game that has many different features, includin
 - 3 different card types
 - Many different suit colors
 - Ability to enable or disable card borders (if you want your cards to stand out more)
-- Ability to make card bords be the same color as their suits
+- Ability to make card borders be the same color as their suits
 - Different border colors
 - Cool border glow effects!
 - Ultra responsive design that can work on any screen size
@@ -40,10 +46,6 @@ CardBoard is a fully fleshed out game that has many different features, includin
     - Restart 
 - Choice persistence - your choices will be remembered between game sessions
 - Personal Best score persistence between sessions
-
-### Card Styles
-
-![](./src/assets/display-photos/card-choice.png)
 
 ## Play The Game
 
@@ -68,6 +70,7 @@ This game will be continually updated, here are some future possible updates:
 - Zustand - for state management
 - React Router - for navigating between pages
 - TailwindCSS - for styling
+- react-slick - for option slides
 - Phosphor Icons - for the amazing icons
 
 ### Author
