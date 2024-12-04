@@ -17,7 +17,7 @@ const TitleScreen = () => {
         >
             <Hero />
             <div className="z-0 absolute bottom-0 left-0 w-full h-full 
-            bg-black bg-opacity-40 bg-background-graphic bg-contain bg-center lg:hidden"></div>
+            bg-background-graphic bg-black bg-opacity-40 bg-contain bg-center"></div>
         </div>
     );
 }
