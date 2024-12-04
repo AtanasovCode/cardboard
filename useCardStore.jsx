@@ -309,6 +309,7 @@ export const useCardStore = create(
         cardBackground: state.cardBackground,
         backgroundStyle: state.backgroundStyle,
         cardOutline: state.cardOutline,
+        suitColor: state.suitColor,
         isCardOutlineEnabled: state.isCardOutlineEnabled,
         heartsColor: state.heartsColor,
         spadesColor: state.spadesColor,

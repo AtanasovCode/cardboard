@@ -90,6 +90,7 @@ const OptionChoice = ({ type, title, options }) => {
                             :
                             (options.map((option) => {
                                 const isSelected = suitColor === option.name;
+                                console.log(`suit color: ${option.name} suitColor: ${suitColor} isSelected: ${isSelected}`)
                                 return (
                                     <SuitChoice
                                         key={option.name}

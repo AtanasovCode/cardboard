@@ -11,7 +11,7 @@ const BackgroundChoice = ({ name, color, handleClick, isSelected }) => {
         <div
             className={`
                 w-full aspect-square rounded-xl
-                border-2 relatives
+                border-2 relative
                 ${borderColor}
             `}
             style={{...getCursorStyle("hover"), backgroundColor: color, backgroundImage: color}}
