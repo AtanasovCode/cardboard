@@ -19,6 +19,7 @@ const OptionChoice = ({ type, title, options }) => {
         cardOutline,
         suitColor,
         isCardOutlineEnabled,
+        cardOutlineSameAsSuitColor,
     } = useCardStore();
 
     const settings = {
@@ -54,7 +55,7 @@ const OptionChoice = ({ type, title, options }) => {
         ],
     };
 
-    const isActive = title === "Card Border Color" && isCardOutlineEnabled;
+    const isActive = title === "Card Border Color" && isCardOutlineEnabled && !cardOutlineSameAsSuitColor;
     const activeStyling = isActive ? "opacity-100" : "opacity-30 pointer-events-none";
 
     return (

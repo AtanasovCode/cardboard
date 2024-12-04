@@ -87,6 +87,7 @@ const Options = () => {
                         title="Border Same As Suit"
                         handleClick={toggleCardOutlineSameAsSuitColor}
                         active={cardOutlineSameAsSuitColor}
+                        activeStyling={activeStyling}
                     />
                     <OptionToggle
                         title="Border Glow"
