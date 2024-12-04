@@ -248,6 +248,9 @@ export const useCardStore = create(
 
       isCardOutlineEnabled: false,
       toggleCardOutline: () => set((state) => ({ isCardOutlineEnabled: !state.isCardOutlineEnabled })),
+      // make the card outlines be the same color as the suit colors
+      cardOutlineSameAsSuitColor: false,
+      toggleCardOutlineSameAsSuitColor: () => set((state) => ({ cardOutlineSameAsSuitColor: !state.cardOutlineSameAsSuitColor })),
 
       cardOutline: "white-card-outline",
       changeCardOutline: (color) => set({ cardOutline: color }),
@@ -281,15 +284,19 @@ export const useCardStore = create(
         ];
       },
 
-      isOutlineGlowEnabled:  false,
-      toggleOutlineGlow: () => set((state) => ({isOutlineGlowEnabled: !state.isOutlineGlowEnabled})),
+      isOutlineGlowEnabled: false,
+      toggleOutlineGlow: () => set((state) => ({ isOutlineGlowEnabled: !state.isOutlineGlowEnabled })),
 
-      getCardOutline: () => {
-        const { cardOutline, cardOutlines } = get();
+      getCardOutline: (suit) => {
+        const { cardOutline, cardOutlines, cardOutlineSameAsSuitColor, getSuitColor, } = get();
 
-        const group = cardOutlines().find((i) => i.name === cardOutline);
+        if (cardOutlineSameAsSuitColor) {
+          return getSuitColor(suit);
+        } else {
+          const group = cardOutlines().find((i) => i.name === cardOutline);
 
-        return group ? group.color : "";
+          return group ? group.color : "";
+        }
       },
 
       mobileMenu: false,
@@ -309,6 +316,7 @@ export const useCardStore = create(
         clubsColor: state.clubsColor,
         cardType: state.cardType,
         isOutlineGlowEnabled: state.isOutlineGlowEnabled,
+        cardOutlineSameAsSuitColor: state.cardOutlineSameAsSuitColor,
       }),
     }
   )

@@ -35,10 +35,10 @@ const Card = ({
         isOutlineGlowEnabled,
     } = useCardStore();
 
-    const cardOutline = isCardOutlineEnabled && outline ? `border ${getCardOutline()}` : "border-none";
     const outlineGlow = isOutlineGlowEnabled && allowGlow && isCardOutlineEnabled
-    ? `0 0 12px 2px ${getCardOutline()}`
+    ? `0 0 12px 2px ${getCardOutline(suitName)}`
     : "";
+    const borderStyle = isCardOutlineEnabled ? "2px" : "0";
 
     useEffect(() => {
         increasePersonalBest();
@@ -50,13 +50,14 @@ const Card = ({
                 return (
                     <ClassicCard
                         suit={suit}
+                        suitName={suitName}
                         rank={rank}
                         cardID={cardID}
                         size="w-full h-full"
                         backgroundColor={backgroundColor}
+                        borderStyle={borderStyle}
                         hoverEffect={hoverEffect}
                         suitNam={suitName}
-                        cardOutline={cardOutline}
                         outlineGlow={outlineGlow}
                         outline={outline}
                     />
@@ -68,10 +69,10 @@ const Card = ({
                         rank={rank}
                         suitName={suitName}
                         cardID={cardID}
+                        borderStyle={borderStyle}
                         size="w-full h-full"
                         backgroundColor={backgroundColor}
                         hoverEffect={hoverEffect}
-                        cardOutline={cardOutline}
                         outlineGlow={outlineGlow}
                         outline={outline}
                     />
@@ -84,9 +85,9 @@ const Card = ({
                         suitName={suitName}
                         cardID={cardID}
                         size="w-full h-full"
+                        borderStyle={borderStyle}
                         backgroundColor={backgroundColor}
                         hoverEffect={hoverEffect}
-                        cardOutline={cardOutline}
                         outlineGlow={outlineGlow}
                         outline={outline}
                     />

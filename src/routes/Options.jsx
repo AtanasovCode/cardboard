@@ -18,6 +18,8 @@ const Options = () => {
         toggleCardOutline,
         isOutlineGlowEnabled,
         toggleOutlineGlow,
+        cardOutlineSameAsSuitColor,
+        toggleCardOutlineSameAsSuitColor,
     } = useCardStore();
 
     const {
@@ -33,7 +35,7 @@ const Options = () => {
     return (
         <div
             className={`min-h-[100dvh] flex flex-col items-center justify-start bg-main-background text-white`}
-            style={{...getCursorStyle()}}
+            style={{ ...getCursorStyle() }}
         >
             <Preview />
             <div className="w-[85%] sm:w-80%] md:w-[70%] xl:w-[55%] mt-[50dvh] lg:mt-[40dvh] flex items-center justify-center bg-main-background">
@@ -80,6 +82,11 @@ const Options = () => {
                         title="Card Border"
                         handleClick={toggleCardOutline}
                         active={isCardOutlineEnabled}
+                    />
+                    <OptionToggle
+                        title="Border Same As Suit"
+                        handleClick={toggleCardOutlineSameAsSuitColor}
+                        active={cardOutlineSameAsSuitColor}
                     />
                     <OptionToggle
                         title="Border Glow"

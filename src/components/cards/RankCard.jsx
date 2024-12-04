@@ -13,18 +13,13 @@ const RankCard = ({
 
     //customization
     backgroundColor,
-    cardOutline,
     outlineGlow,
     size,
     hoverEffect,
 }) => {
 
     const {
-        shuffleCards,
-        addCard,
-    } = useGameLogicStore();
-
-    const {
+        isCardOutlineEnabled,
         getCardOutline,
     } = useCardStore();
 
@@ -32,10 +27,14 @@ const RankCard = ({
         <div
             className={`
                 relative rounded-xl flex flex-col items-center justify-between aspect-[2/3]
-                ${size} ${hoverEffect} ${cardOutline} z-60
+                ${size} ${hoverEffect} z-60
                 font-cards select-none
             `}
-            style={{ borderColor: getCardOutline(), backgroundColor: backgroundColor, boxShadow: outlineGlow }}
+            style={{
+                border: isCardOutlineEnabled ? `2px solid ${getCardOutline(suitName)}` : `none`,
+                backgroundColor: backgroundColor,
+                boxShadow: outlineGlow
+            }}
         >
             <CardRank rank={null} suit={suit} invert={false} size="w-[17%]" rankColor={null} />
             <CenterRank rank={rank} suitName={suitName} customColor={customColor} />
