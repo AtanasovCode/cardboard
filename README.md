@@ -21,7 +21,7 @@ Make the game your own! Customize everything from the way the background looks t
 
 #### Card Styles
 
-![](./src/assets/display-photos/card-choice-transparent.png)
+![](./src/assets/display-photos/card-styles.png)
 
 ## Features
 
