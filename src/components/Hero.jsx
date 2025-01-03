@@ -13,7 +13,7 @@ const Hero = () => {
 
     const navigate = useNavigate();
 
-    const { playClickSound, allowCustomCursor} = useGameLogicStore();
+    const { playClickSound, allowCustomCursor } = useGameLogicStore();
 
     const cards = [
         {
@@ -63,6 +63,7 @@ const Hero = () => {
                     cards.map((card) => {
                         return (
                             <div
+                                key={card.id}
                                 className="w-[40%] xs:w-auto xs:h-[45dvh]"
                                 onClick={card.handleClick}
                             >
