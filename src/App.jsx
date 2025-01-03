@@ -12,7 +12,7 @@ import GameOver from "./routes/GameOver";
 import HowToPlay from "./routes/HowToPlay";
 
 const App = () => {
-  
+
   const { preLoadSoundEffects, allowCustomCursor } = useGameLogicStore();
 
   useEffect(() => {
@@ -40,6 +40,12 @@ const App = () => {
       path: "/how-to-play",
       element: <HowToPlay />,
     },
+    {
+      future: {
+        v7_startTransition: true,
+        v7_relativeSplatPath: true,
+      },
+    }
   ])
 
   return (
